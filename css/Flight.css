@@ -50,7 +50,7 @@ overflow:hidden;
 margin-left: 30px;
 }
 
-.searchbar input{border:none;padding:.5rem .8rem;min-width:240px}
+.searchbar input{border:none;border-radius:999px;padding:.5rem .8rem;min-width:240px}
 .searchbar button{border:none;background:transparent;padding:.5rem .8rem;cursor:pointer}
 .nav-links{display:flex;align-items:center;gap:16px}
 .nav-links a{padding:8px 10px;border-radius:10px;color:var(--muted)}

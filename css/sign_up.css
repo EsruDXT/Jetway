@@ -1,3 +1,22 @@
+/* Extra Responsive for Zoomed Out Views */
+@media (min-width: 1400px) {
+  .signup-container {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1800px) {
+  .signup-container {
+    max-width: 1200px;
+  }
+}
+@media (max-width: 400px) {
+  .signup-container {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+}
 :root{
   --bg:#f5f7fb;
   --card:#ffffff;
@@ -76,7 +95,7 @@ background-color: #006eff;
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: url('FOTO/sign in bg.png') no-repeat; 
+  background: url('/FOTO/sign in bg.png') no-repeat; 
   height: 650px;
 }
 

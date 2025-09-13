@@ -1,3 +1,22 @@
+/* Extra Responsive for Zoomed Out Views */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1800px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+@media (max-width: 400px) {
+  .container {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+}
 /* Responsive Design Improvements */
 @media (max-width: 1024px) {
   .container {
@@ -138,7 +157,7 @@ background-color: #006eff;
 
 /* Kotak SignIn */
 .login-page {
-  background: url('FOTO/sign in bg.png') no-repeat center center/cover;
+  background: url('/FOTO/sign in bg.png') no-repeat center center/cover;
   padding: 20px 0;
   display: flex;
   justify-content: flex-start;
@@ -154,12 +173,13 @@ background-color: #006eff;
   height: auto;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   text-align: center;
-
-  /* biar isi rata di tengah */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin-left: 0;
 }
+
 
 /* Title */
 .login-box h1 {
