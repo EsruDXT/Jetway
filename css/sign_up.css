@@ -97,6 +97,7 @@ body {
   font-family: 'Roboto', sans-serif;
   background: url('/FOTO/sign in bg.png') no-repeat; 
   height: 650px;
+  background-size: cover;
 }
 
 /* Navbar */
