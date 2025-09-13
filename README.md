@@ -5,14 +5,11 @@
 The aim of this website is to make it easier for users to book plane tickets efficiently.
 
 ## 📑 Table of Contents
-```
--[Installation](#installation)
+- [Installation](#installation)
 - [Usage](#usage)
 - [Architecture](#architecture)
 - [Contribution](#contribution)
 - [License](#license)
-
-```
 
 ## ⚙️ Installation
 
