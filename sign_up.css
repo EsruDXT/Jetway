@@ -76,7 +76,7 @@ background-color: #006eff;
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: url(sign\ in\ bg.png) no-repeat; 
+  background: url('FOTO/sign in bg.png') no-repeat; 
   height: 650px;
 }
 

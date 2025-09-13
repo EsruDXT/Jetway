@@ -1,3 +1,57 @@
+/* Responsive Design Improvements */
+@media (max-width: 1024px) {
+  .container {
+    width: 90vw;
+    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 5vw;
+  }
+  .logo1 {
+    font-size: 22px;
+  }
+  .searchbar {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .nav-links .btn {
+    width: 100%;
+    margin-left: 0;
+    padding: 10px 0;
+  }
+  .login-page {
+    flex-direction: column;
+    align-items: stretch;
+    padding-left: 0;
+  }
+  .container {
+    width: 100vw;
+    padding: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .logo1 {
+    font-size: 16px;
+  }
+  .login-box h1 {
+    font-size: 1.5rem;
+  }
+  .btn, .btn.ghost, .btn.primary {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+}
 :root{
   --bg:#f5f7fb;
   --card:#ffffff;
@@ -84,7 +138,7 @@ background-color: #006eff;
 
 /* Kotak SignIn */
 .login-page {
-  background: url('sign\ in\ bg.png') no-repeat center center/cover;
+  background: url('FOTO/sign in bg.png') no-repeat center center/cover;
   padding: 20px 0;
   display: flex;
   justify-content: flex-start;
