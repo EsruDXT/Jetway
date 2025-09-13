@@ -4,14 +4,17 @@
 
 The aim of this website is to make it easier for users to book plane tickets efficiently.
 
-## Table of Contents
+## 📑 Table of Contents
+```
+-[Installation](#installation)
+- [Usage](#usage)
+- [Architecture](#architecture)
+- [Contribution](#contribution)
+- [License](#license)
 
--[Installation]
--[Usage]
--[Architecture]
--[License]
+```
 
-## ⚙️ Instalation
+## ⚙️ Installation
 
 ### Clone this repository 
 git clone https://github.com/EsruDXT/Jetway.git
