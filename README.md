@@ -28,7 +28,7 @@ cd Jetway
 
 ## 🏗️ Architecture
 <pre> ```plaintext 📁 Jetway ├── 📁 html │ ├── Flight.html (Still in development) │ ├── Homepage.html │ ├── sign_in.html │ └── sign up.html ├── 📁 css │ ├── style.css │ ├── sign_in.css │ └── sign up.css ├── 📁 js │ ├── Flight.js (Still in development) │ ├── Homepage.js │ ├── sign_in.js │ └── sign up.js ├── 📁 FOTO │ ├── bendera indo.png │ ├── explore.png │ ├── foto 1.png │ ├── icon mikrofon.png │ ├── kawah ijen.png │ ├── notif.png │ ├── pulau komodo 1.png │ ├── raja ampat.png │ ├── search button.png │ └── sign in bg.png ``` </pre>
-<img width="8" height="8" alt="figma" src="https://github.com/user-attachments/assets/a5a50280-668e-431b-9e2e-30198780c820" /> Figma : https://www.figma.com/design/Mv0D8FqcrNlTo0Q05kVONT/PWL-KEL-2?node-id=0-1&t=pVPa1YqSpJNibc09-1
+<img width="16" height="16" alt="figma" src="https://github.com/user-attachments/assets/a5a50280-668e-431b-9e2e-30198780c820" /> Figma : https://www.figma.com/design/Mv0D8FqcrNlTo0Q05kVONT/PWL-KEL-2?node-id=0-1&t=pVPa1YqSpJNibc09-1
 
 ## 📜 License 
 This project is licensed under the 
