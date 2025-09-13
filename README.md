@@ -4,14 +4,14 @@
 
 The aim of this website is to make it easier for users to book plane tickets efficiently.
 
-## 📑 Table of Contents
+## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Architecture](#architecture)
 - [Contribution](#contribution)
 - [License](#license)
 
-## ⚙️ Installation
+## Installation
 
 ### Clone this repository 
 git clone https://github.com/EsruDXT/Jetway.git
@@ -21,12 +21,12 @@ cd Jetway
 
 ### Open the HTML files
 
-## 🧐 Usage
+## Usage
 
 - Open Homepage.html in your browser
 - Navigate through the available pages using the navigation menu (Available now: Homepage, Login and Sign up)
 
-## 🏗️ Architecture
+## Architecture
 ```
 📁 Jetway
 ├── 📁 html
@@ -59,6 +59,6 @@ cd Jetway
 ```
 <img width="12" height="12" alt="figma" src="https://github.com/user-attachments/assets/a5a50280-668e-431b-9e2e-30198780c820" /> Figma : https://www.figma.com/design/Mv0D8FqcrNlTo0Q05kVONT/PWL-KEL-2?node-id=0-1&t=pVPa1YqSpJNibc09-1
 
-## 📜 License 
+## License 
 This project is licensed under the 
 
