@@ -59,5 +59,5 @@ cd Jetway
 <img width="12" height="12" alt="figma" src="https://github.com/user-attachments/assets/a5a50280-668e-431b-9e2e-30198780c820" /> Figma : https://www.figma.com/design/Mv0D8FqcrNlTo0Q05kVONT/PWL-KEL-2?node-id=0-1&t=pVPa1YqSpJNibc09-1
 
 ## License 
-This project is licensed under the 
+This project is licensed under [The Unlicense](./LICENSE)
 
