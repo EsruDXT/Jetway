@@ -8,7 +8,6 @@ The aim of this website is to make it easier for users to book plane tickets eff
 - [Installation](#installation)
 - [Usage](#usage)
 - [Architecture](#architecture)
-- [Contribution](#contribution)
 - [License](#license)
 
 ## Installation
