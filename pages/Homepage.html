@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jetway</title>
-    <link rel="stylesheet" href="/css/Homepage.css" />
+    <link rel="stylesheet" href="/styles/Homepage.css" />
     <link href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,14 +27,14 @@
     </div>
     <nav class="nav-links">
       <a href="#" class="active">Home</a>
-      <a href="/html/Flights.html">Flights</a>
+      <a href="/pages/Flights.html">Flights</a>
       <a href="#">My Booking</a>
       <a href="#">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">
       <nav></nav>
       <i class="fas fa-chevron-down"></i>
-      <a href="/html/sign_in.html" class="btn ghost">Log In</a>
+      <a href="/pages/sign-in.html" class="btn ghost">Log In</a>
     </nav>
   </header>
 
@@ -155,7 +155,7 @@
 </section>
 <hr class="shadow-line"></hr>
 
-  <script src="Homepage.js"></script>
+  <script src="/scripts/Homepage.js"></script>
 
   <!-- Footer -->
  <footer class="footer">
@@ -213,6 +213,6 @@
     </div>
   </footer>
 
-  <script src="/js/Homepage.js"></script>
+  <script src="/scripts/Homepage.js"></script>
 </body>
 </html>
