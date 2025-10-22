@@ -39,20 +39,20 @@
   
   <main class="login-page">
   <div class="container">
-    <form class="login-box">
+    <form id="loginForm" class="login-box">
       <h1>Sign In</h1>
       <p class="subtitle">Choose how you'd like to sign in</p>
 
       <!-- Email -->
       <div class="input-box">
         <i class="fa-solid fa-envelope"></i>
-        <input type="email" placeholder="Email" required>
+        <input id="email" name="email" type="email" placeholder="Email" required>
       </div>
 
       <!-- Password -->
       <div class="input-box">
         <i class="fa-solid fa-lock"></i>
-        <input type="password" placeholder="Password" required>
+        <input id="password" name="password" type="password" placeholder="Password" required>
       </div>
 
       <div class="divider">
@@ -187,6 +187,6 @@
     </div>
   </footer>
 
-  <script src="/js/sign_in.js"></script>
+  <script src="/js/sign_in_submit.js"></script>
 </body>
 </html>

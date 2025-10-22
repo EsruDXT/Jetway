@@ -42,16 +42,16 @@
       <h2>Sign Up</h2>
       <p>Choose how you'd like to sign Up</p>
 
-      <form>
+      <form id="registerForm">
         <div class="form-grid">
-          <input type="text" placeholder="Username">
-          <input type="date" placeholder="Date of Birth">
+          <input id="name" name="name" type="text" placeholder="Full Name" required>
+          <input id="dob" name="dob" type="date" placeholder="Date of Birth">
 
-          <input type="email" placeholder="Email">
-          <input type="tel" placeholder="Phone Number">
+          <input id="email" name="email" type="email" placeholder="Email" required>
+          <input id="phone" name="phone" type="tel" placeholder="Phone Number">
 
-          <input type="password" placeholder="Password">
-          <input type="text" placeholder="City of Residence">
+          <input id="password" name="password" type="password" placeholder="Password" required>
+          <input id="city" name="city" type="text" placeholder="City of Residence">
         </div>
 
         <div class="divider">
@@ -175,7 +175,7 @@
     </div>
   </footer>
 
-  <script src="/js/sign_up.js"></script>
+  <script src="/js/sign_up_submit.js"></script>
     
   </body>
   </html>
