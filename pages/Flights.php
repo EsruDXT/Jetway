@@ -64,7 +64,7 @@
                 <div class="search-filters">
                     <button class="filter-btn">👤 1 Passenger</button>
                     <button class="filter-btn">💼 Economy</button>
-                    <button class="filter-btn">📅 Depart on</button>
+                    <button class="filter-btn">📅 Department</button>
                 </div>
 
                 <div class="flight-summary">
@@ -96,7 +96,7 @@
                 <!-- Batik Air -->
                 <div class="flight-card">
                     <div class="airline-info">
-                        <img src="/FOTO/logo Batik air.png" alt="Batik Air" class="airline-logo">
+                        <img src="/FOTO/logo Lion air.png" alt="Batik Air" class="airline-logo">
                         <span class="airline-name">Batik Air</span>
                     </div>
                     <div class="flight-details">
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                     <div class="flight-info">
-                        <div class="info-item"><img src="logo Batik air.png" alt=""> Batik Air</div>
+                        <div class="info-item">✈️ Batik Air</div>
                         <div class="info-item">💺 ID-7624 • Economy</div>
                         <div class="info-item">🧳 Baggage 16 kg</div>
                         <div class="info-item">Cabin Baggage 7 kg</div>
@@ -166,7 +166,7 @@
                 <!-- Garuda Air -->
                 <div class="flight-card">
                     <div class="airline-info">
-                        <img src="/FOTO/logo garuda.png" alt="Garuda Air" class="airline-logo">
+                        <img src="/FOTO/logo Lion air.png" alt="Garuda Air" class="airline-logo">
                         <span class="airline-name">Garuda Air</span>
                     </div>
                     <div class="flight-details">
@@ -188,7 +188,7 @@
                     </div>
                     <div class="flight-info">
                         <div class="info-item">✈️ Garuda Air</div>
-                        <div class="info-item">💺 ID-6722 • Premium Economy</div>
+                        <div class="info-item">💺 GA-6722 • Premium Economy</div>
                         <div class="info-item">🧳 Baggage 15 kg</div>
                         <div class="info-item">Cabin Baggage 7 kg</div>
                     </div>
@@ -201,7 +201,7 @@
                 <!-- Citilink -->
                 <div class="flight-card">
                     <div class="airline-info">
-                        <img src="/FOTO/logo citilink.png" alt="Citilink" class="airline-logo">
+                        <img src="/FOTO/logo Lion air.png" alt="Citilink" class="airline-logo">
                         <span class="airline-name">Citilink</span>
                     </div>
                     <div class="flight-details">
@@ -236,7 +236,7 @@
                 <!-- Sriwijaya Air -->
                 <div class="flight-card">
                     <div class="airline-info">
-                        <img src="/FOTO/logo sriwijaya.png" alt="Sriwijaya Air" class="airline-logo">
+                        <img src="/FOTO/logo Lion air.png" alt="Sriwijaya Air" class="airline-logo">
                         <span class="airline-name">Sriwijaya Air</span>
                     </div>
                     <div class="flight-details">
@@ -271,9 +271,13 @@
         </div>
     </main>
 
+<<<<<<< HEAD:pages/Flights.php
     
   <!-- Testimonials Section -->
    <div class="aboutus">
+=======
+    <div class="aboutus">
+>>>>>>> Kenzo-Branch:html/Flights.html
   <h2>What Our Customers Think About Us</h2>
   </div>
   <hr class="shadow-line"></hr>
@@ -319,10 +323,18 @@
   </div>
 </div>
 
+<<<<<<< HEAD:pages/Flights.php
 </section>
 <hr class="shadow-line"></hr>
 
   <script src="/scripts/Homepage.js"></script>
+=======
+
+
+</section>
+<hr class="shadow-line"></hr>
+<script src="Flights.js"></script>
+>>>>>>> Kenzo-Branch:html/Flights.html
 
   <!-- Footer -->
  <footer class="footer">
@@ -379,5 +391,10 @@
       </div>
     </div>
   </footer>
+<<<<<<< HEAD:pages/Flights.php
+=======
+
+  <script src="/js/Flights.js"></script>
+>>>>>>> Kenzo-Branch:html/Flights.html
 </body>
 </html>

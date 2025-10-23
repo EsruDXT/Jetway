@@ -679,6 +679,53 @@ background-color: #006eff;
     }
 }
 
+<<<<<<< HEAD:styles/Flight.css
+=======
+.testimonial-section {
+  text-align: center;
+}
+
+.testimonial-container {
+  overflow: hidden;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.testimonial-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  color: #486284;
+}
+
+.testimonial {
+  min-width: 260px;
+  max-width: 260px;
+  margin: 0 10px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  background: #c5d6f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.stars {
+  color: #2a4e85;
+  font-size: 18px;
+  margin-top: 8px;
+}
+
+>>>>>>> Kenzo-Branch:css/Flight.css
 .aboutus{
   color: #486284;
 }
@@ -722,6 +769,7 @@ background-color: #006eff;
   color: white;
 }
 
+<<<<<<< HEAD:styles/Flight.css
 /* Testimonials */
 .testimonial-section {
   text-align: center;
@@ -766,6 +814,8 @@ background-color: #006eff;
   font-size: 18px;
   margin-top: 8px;
 }
+=======
+>>>>>>> Kenzo-Branch:css/Flight.css
 
 /* Footer */
 .footer {
@@ -887,4 +937,8 @@ footer-links .column {
 
 .policies a:hover {
   text-decoration: underline;
+<<<<<<< HEAD:styles/Flight.css
 }
+=======
+}
+>>>>>>> Kenzo-Branch:css/Flight.css

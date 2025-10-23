@@ -26,10 +26,15 @@
       </div>
     </div>
     <nav class="nav-links">
+<<<<<<< HEAD:pages/Homepage.php
       <a href="#" class="active">Home</a>
       <a href="/pages/Flights.php">Flights</a>
+=======
+      <a href="/html/Homepage.html" class="active">Home</a>
+      <a href="/html/Flights.html">Flights</a>
+>>>>>>> Kenzo-Branch:html/Homepage.html
       <a href="#">My Booking</a>
-      <a href="#">Support</a> 
+      <a href="/html/support.html">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">
       <nav></nav>
