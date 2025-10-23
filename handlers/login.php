@@ -1,8 +1,7 @@
 <?php
 // handlers/login.php
-session_start();
-header('Content-Type: application/json; charset=utf-8');
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../includes/config.php';
+require_once __DIR__ . '/../includes/auth.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -13,69 +12,72 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-if (!filter_var($email, FILTER_VALIDATE_EMAIL) || $password === '') {
-    http_response_code(400);
-    echo json_encode(['status' => 'error', 'message' => 'Invalid email or password']);
-    exit;
+// Basic validation
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    respond(false, 'Invalid email');
 }
 
-// Simple brute-force protection stored in session (works for single-server setups)
-$maxAttempts = 5;
-$cooldownSeconds = 300; // 5 minutes
+if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 if (!isset($_SESSION['login_attempts'])) {
     $_SESSION['login_attempts'] = 0;
     $_SESSION['login_block_until'] = 0;
 }
+$maxAttempts = 5;
+$cooldownSeconds = 300; // 5 minutes
 
 if (time() < ($_SESSION['login_block_until'] ?? 0)) {
-    http_response_code(429);
-    echo json_encode(['status' => 'error', 'message' => 'Too many attempts. Try again later.']);
-    exit;
+    respond(false, 'Too many attempts. Try again later.');
 }
 
 try {
-    $stmt = $conn->prepare('SELECT id, email, password, name FROM users WHERE email = :email LIMIT 1');
-    $stmt->bindParam(':email', $email);
-    $stmt->execute();
+    $pdo = connectDB();
+    if (!$pdo) throw new Exception('DB connection failed');
 
+    $stmt = $pdo->prepare('SELECT user_id, username, email, password FROM user_login WHERE email = ? LIMIT 1');
+    $stmt->execute([$email]);
     $user = $stmt->fetch();
-    if (!$user) {
-        // increment attempts
+
+    if (!$user || !password_verify($password, $user['password'])) {
         $_SESSION['login_attempts'] = ($_SESSION['login_attempts'] ?? 0) + 1;
         if ($_SESSION['login_attempts'] >= $maxAttempts) {
             $_SESSION['login_block_until'] = time() + $cooldownSeconds;
         }
-        http_response_code(401);
-        echo json_encode(['status' => 'error', 'message' => 'Invalid email or password']);
-        exit;
+        respond(false, 'Invalid email or password');
     }
 
-    if (!password_verify($password, $user['password'])) {
-        // increment attempts
-        $_SESSION['login_attempts'] = ($_SESSION['login_attempts'] ?? 0) + 1;
-        if ($_SESSION['login_attempts'] >= $maxAttempts) {
-            $_SESSION['login_block_until'] = time() + $cooldownSeconds;
-        }
-        http_response_code(401);
-        echo json_encode(['status' => 'error', 'message' => 'Invalid email or password']);
-        exit;
-    }
-
-    // regenerate session id
+    // Success
     session_regenerate_id(true);
-    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['user_id'] = $user['user_id'];
+    $_SESSION['username'] = $user['username'];
     $_SESSION['email'] = $user['email'];
-    $_SESSION['name'] = $user['name'];
-
-    // reset attempts on success
+    $_SESSION['logged_in'] = true;
     $_SESSION['login_attempts'] = 0;
     $_SESSION['login_block_until'] = 0;
 
-    echo json_encode(['status' => 'success', 'message' => 'Login successful', 'redirect' => '/pages/Homepage.html']);
+    // If request expects JSON, return JSON; otherwise redirect to homepage
+    if (strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json') !== false) {
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['status' => 'success', 'success' => true, 'message' => 'Login successful', 'redirect' => '/pages/Homepage.php']);
+        exit;
+    }
+
+    header('Location: /pages/Homepage.php');
     exit;
-} catch (PDOException $e) {
-    http_response_code(500);
-    echo json_encode(['status' => 'error', 'message' => 'Database error']);
+
+} catch (Exception $e) {
+    error_log('Login error: ' . $e->getMessage());
+    respond(false, 'An error occurred');
+}
+
+function respond($ok, $message) {
+    if (strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json') !== false) {
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['status' => $ok ? 'success' : 'error', 'success' => $ok, 'message' => $message]);
+        exit;
+    }
+    if (session_status() !== PHP_SESSION_ACTIVE) session_start();
+    $_SESSION['error'] = $message;
+    header('Location: /pages/sign-in.php');
     exit;
 }
 

@@ -1,11 +1,61 @@
+<?php
+// Start session and include auth helpers
+if (session_status() !== PHP_SESSION_ACTIVE) {
+  session_start();
+}
+require_once __DIR__ . '/../includes/auth.php';
+
+// Redirect to homepage only if user is logged in and not explicitly requesting the signup page
+// Use ?force=1 to force showing the signup page even if a session exists (useful from Sign In link)
+if (!empty($_SESSION['logged_in']) && !empty($_SESSION['user_id']) && empty($_GET['force'])) {
+  header('Location: /pages/Homepage.php');
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Sign Up - Jetway</title>
     <link rel="stylesheet" href="/styles/sign-up.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .error-message {
+            background-color: #fee;
+            color: #c00;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border: 1px solid #fcc;
+        }
+        .success-message {
+            background-color: #efe;
+            color: #0c0;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border: 1px solid #cfc;
+        }
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
     
 <body>
@@ -24,15 +74,15 @@
       </div>
     </div>
     <nav class="nav-links">
-      <a href="/pages/Homepage.html" class="active">Home</a>
-      <a href="/pages/Flights.html">Flights</a>
+      <a href="/pages/Homepage.php" class="active">Home</a>
+      <a href="/pages/Flights.php">Flights</a>
       <a href="#">My Booking</a>
       <a href="#">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">
       <nav></nav>
       <i class="fas fa-chevron-down"></i>
-      <a href="/pages/sign-in.html" class="btn ghost">Log In</a>
+      <a href="/pages/sign-in.php" class="btn ghost">Log In</a>
     </nav>
   </header>
 
@@ -42,17 +92,21 @@
       <h2>Sign Up</h2>
       <p>Choose how you'd like to sign Up</p>
 
-      <form id="registerForm">
+      <?php
+        if (isset($_SESSION['error'])) {
+            echo '<div class="error-message">' . htmlspecialchars($_SESSION['error']) . '</div>';
+            unset($_SESSION['error']);
+        }
+      ?>
+
+      <form id="registerForm" action="/handlers/register.php" method="POST">
         <div class="form-grid">
-          <input id="name" name="name" type="text" placeholder="Full Name" required>
-          <input id="dob" name="dob" type="date" placeholder="Date of Birth">
-
+          <input id="username" name="username" type="text" placeholder="Username" required>
           <input id="email" name="email" type="email" placeholder="Email" required>
-          <input id="phone" name="phone" type="tel" placeholder="Phone Number">
-
-          <input id="password" name="password" type="password" placeholder="Password" required>
-          <input id="city" name="city" type="text" placeholder="City of Residence">
+          <input id="password" name="password" type="password" placeholder="Password">
+          <input id="confirm_password" name="confirm_password" type="password" placeholder="Confirm Password">
         </div>
+        <p style="font-size:0.9em;color:#666;margin-top:8px;">You may use any password (no length or complexity required).</p>
 
         <div class="divider">
           <span></span> or <span></span>
@@ -117,7 +171,6 @@
 </section>
 <hr class="shadow-line"></hr>
 
-  <script src="/scripts/sign-up.js"></script>
 
   <!-- Footer -->
  <footer class="footer">
@@ -175,7 +228,7 @@
     </div>
   </footer>
 
-  <script src="/js/sign_up.js"></script>
+  <script src="/scripts/sign-up.js"></script>
     
   </body>
   </html>

@@ -25,8 +25,8 @@
       </div>
     </div>
     <nav class="nav-links">
-      <a href="/html/Homepage.html" class="active">Home</a>
-      <a href="/html/Flights.html">Flights</a>
+      <a href="/pages/Homepage.php" class="active">Home</a>
+      <a href="/pages/Flights.php">Flights</a>
       <a href="#">My Booking</a>
       <a href="#">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
@@ -39,7 +39,18 @@
   
   <main class="login-page">
   <div class="container">
-    <form id="loginForm" class="login-box">
+    <form id="loginForm" class="login-box" action="/handlers/login.php" method="POST">
+      <?php
+        session_start();
+        if (isset($_SESSION['error'])) {
+            echo '<div class="error-message">' . htmlspecialchars($_SESSION['error']) . '</div>';
+            unset($_SESSION['error']);
+        }
+        if (isset($_SESSION['success'])) {
+            echo '<div class="success-message">' . htmlspecialchars($_SESSION['success']) . '</div>';
+            unset($_SESSION['success']);
+        }
+      ?>
       <h1>Sign In</h1>
       <p class="subtitle">Choose how you'd like to sign in</p>
 
@@ -70,7 +81,7 @@
       </button>
 
       <p class="signup-text">
-        Don’t have an account? <a href="/html/sign_up.html">Sign Up</a>
+        Dont have an account? <a href="/pages/sign-up.php?force=1">Sign Up</a>
       </p>
 
       <!-- Confirm -->

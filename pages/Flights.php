@@ -26,15 +26,15 @@
       </div>
     </div>
     <nav class="nav-links">
-      <a href="Homepage.html">Home</a>
-      <a href="Flights.html" class="active">Flights</a>
+      <a href="Homepage.php">Home</a>
+      <a href="Flights.php" class="active">Flights</a>
       <a href="#">My Booking</a>
       <a href="#">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">
       <nav></nav>
       <i class="fas fa-chevron-down"></i>
-      <a href="/pages/sign-in.html" class="btn ghost">Log In</a>
+      <a href="/pages/sign-in.php" class="btn ghost">Log In</a>
     </nav>
   </header>
 
