@@ -39,131 +39,147 @@
   </header>
 
 <div class="main-container">
-    <div class="outer-panel">
-      <div class="ticket-header" style="text-align:center; margin-bottom:24px;">
-        <div class="progress-steps">
-          <div class="step"><div class="step-number active">1</div><div class="step-text">Ticket Information</div></div>
-          <div class="step-line"></div>
-          <div class="step"><div class="step-number">2</div><div class="step-text">Customer Data Input</div></div>
-          <div class="step-line"></div>
-          <div class="step"><div class="step-number">3</div><div class="step-text">Payment</div></div>
+  <div class="outer-panel">
+
+    <!-- Header Progress -->
+    <div class="ticket-header" style="text-align:center; margin-bottom:24px;">
+      <div class="progress-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-text">Ticket Information</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-text">Customer Data Input</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+          <div class="step-number active">3</div>
+          <div class="step-text">Payment</div>
         </div>
       </div>
-    
-  <!-- Flight Info Card -->
-  <div class="card flight-card">
-    <div class="flight-info-left">
-      <div class="flight-time">11:40</div>
-      <div class="flight-city">Jakarta - CGK</div>
+    </div>
+
+    <!-- Flight Info Card -->
+    <div class="card flight-card">
+      <div class="flight-info-left">
+        <div class="flight-time">11:40</div>
+        <div class="flight-city">Jakarta - CGK</div>
+      </div>
+
+      <div class="flight-route">
+        <div class="route-line-left"></div>
+
+        <div class="route-center">
+          <div class="plane-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M21 16V14L13 9V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9L2 14V16L10 13.5V19L8 20.5V22L11.5 21L15 22V20.5L13 19V13.5L21 16Z" fill="#6B8AC6"/>
+            </svg>
+          </div>
+          <div class="flight-label">Direct</div>
+          <div class="flight-duration">1h45m</div>
+        </div>
+
+        <div class="route-line-right"></div>
+      </div>
+
+      <div class="flight-info-right">
+        <div class="flight-time">14:35</div>
+        <div class="flight-city">Singapore - SIN</div>
+      </div>
+    </div>
+
+    <!-- Payment and Subtotal Container -->
+    <div class="content-grid">
+
+      <!-- Payment Methods Card -->
+      <div class="card payment-card">
+        <h2 class="section-title">Payment Methods</h2>
+
+        <div class="payment-option">
+          <div class="payment-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="6" width="18" height="12" rx="2" stroke="#5B7BA3" stroke-width="2"/>
+              <rect x="3" y="9" width="18" height="3" fill="#5B7BA3"/>
+            </svg>
+          </div>
+          <span>Credit & Debit Cards</span>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M6 8L10 12L14 8" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="payment-option">
+          <div class="payment-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="8" width="18" height="11" rx="2" stroke="#5B7BA3" stroke-width="2"/>
+              <rect x="6" y="12" width="4" height="3" rx="1" fill="#5B7BA3"/>
+              <line x1="13" y1="13" x2="18" y2="13" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round"/>
+              <line x1="13" y1="16" x2="16" y2="16" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span>Digital Wallets</span>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M6 8L10 12L14 8" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="payment-option">
+          <div class="payment-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M7 10L12 5L17 10M7 14L12 19L17 14" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span>Bank Transfer</span>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M6 8L10 12L14 8" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Subtotal Card -->
+      <div class="card subtotal-card">
+        <h2 class="section-title">Subtotal</h2>
+
+        <div class="price-details">
+          <div class="price-row">
+            <span class="price-label">Original Price</span>
+            <span class="price-value">Rp. 3.500.000</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">Travel Insurance</span>
+            <span class="price-value">Rp. 225.000</span>
+          </div>
+        </div>
+
+        <div class="total-section">
+          <div class="total-row">
+            <span class="total-label">Total</span>
+            <span class="total-value">Rp. 3.725.000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voucher and Confirm Section -->
+    <div class="bottom-section">
+      <div class="card voucher-card">
+        <div class="voucher-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M20 6H4C2.89543 6 2 6.89543 2 8V10C3.10457 10 4 10.8954 4 12C4 13.1046 3.10457 14 2 14V16C2 17.1046 2.89543 18 4 18H20C21.1046 18 22 17.1046 22 16V14C20.8954 14 20 13.1046 20 12C20 10.8954 20.8954 10 22 10V8C22 6.89543 21.1046 6 20 6Z" stroke="#5B7BA3" stroke-width="2"/>
+            <line x1="12" y1="9" x2="12" y2="15" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2"/>
+          </svg>
+        </div>
+        <input type="text" class="voucher-input" placeholder="Type in your voucher code here">
+      </div>
+
+      <button class="confirm-btn">Confirm</button>
+    </div>
+
+  </div>
 </div>
-    
-    <div class="flight-route">
-      <div class="route-line-left"></div>
-      <div class="route-center">
-        <div class="plane-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M21 16V14L13 9V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9L2 14V16L10 13.5V19L8 20.5V22L11.5 21L15 22V20.5L13 19V13.5L21 16Z" fill="#6B8AC6"/>
-          </svg>
-        </div>
-        <div class="flight-label">Direct</div>
-        <div class="flight-duration">1h45m</div>
-      </div>
-      <div class="route-line-right"></div>
-    </div>
-    
-    <div class="flight-info-right">
-      <div class="flight-time">14:35</div>
-      <div class="flight-city">Singapore - SIN</div>
-    </div>
-  </div>
 
-  <!-- Payment and Subtotal Container -->
-  <div class="content-grid">
-    <!-- Payment Methods Card -->
-    <div class="card payment-card">
-      <h2 class="section-title">Payment Methods</h2>
-      
-      <div class="payment-option">
-        <div class="payment-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="6" width="18" height="12" rx="2" stroke="#5B7BA3" stroke-width="2"/>
-            <rect x="3" y="9" width="18" height="3" fill="#5B7BA3"/>
-          </svg>
-        </div>
-        <span>Credit & Debit Cards</span>
-        <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M6 8L10 12L14 8" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-
-      <div class="payment-option">
-        <div class="payment-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="8" width="18" height="11" rx="2" stroke="#5B7BA3" stroke-width="2"/>
-            <rect x="6" y="12" width="4" height="3" rx="1" fill="#5B7BA3"/>
-            <line x1="13" y1="13" x2="18" y2="13" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round"/>
-            <line x1="13" y1="16" x2="16" y2="16" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <span>Digital Wallets</span>
-        <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M6 8L10 12L14 8" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-
-      <div class="payment-option">
-        <div class="payment-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M7 10L12 5L17 10M7 14L12 19L17 14" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <span>Bank Transfer</span>
-        <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M6 8L10 12L14 8" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-    </div>
-
-    <!-- Subtotal Card -->
-    <div class="card subtotal-card">
-      <h2 class="section-title">Subtotal</h2>
-      
-      <div class="price-details">
-        <div class="price-row">
-          <span class="price-label">Original Price</span>
-          <span class="price-value">Rp. 3.500.000</span>
-        </div>
-        
-        <div class="price-row">
-          <span class="price-label">Travel Insurance</span>
-          <span class="price-value">Rp. 225.000</span>
-        </div>
-      </div>
-
-      <div class="total-section">
-        <div class="total-row">
-          <span class="total-label">Total</span>
-          <span class="total-value">Rp. 3.725.000</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Voucher and Confirm Section -->
-  <div class="bottom-section">
-    <div class="card voucher-card">
-      <div class="voucher-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M20 6H4C2.89543 6 2 6.89543 2 8V10C3.10457 10 4 10.8954 4 12C4 13.1046 3.10457 14 2 14V16C2 17.1046 2.89543 18 4 18H20C21.1046 18 22 17.1046 22 16V14C20.8954 14 20 13.1046 20 12C20 10.8954 20.8954 10 22 10V8C22 6.89543 21.1046 6 20 6Z" stroke="#5B7BA3" stroke-width="2"/>
-          <line x1="12" y1="9" x2="12" y2="15" stroke="#5B7BA3" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2"/>
-        </svg>
-      </div>
-      <input type="text" class="voucher-input" placeholder="Type in your voucher code here">
-    </div>
-
-    <button class="confirm-btn">Confirm</button>
-  </div>
-</div>
 
     
   <!-- Testimonials Section -->
