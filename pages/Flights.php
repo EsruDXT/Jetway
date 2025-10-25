@@ -28,8 +28,8 @@
     <nav class="nav-links">
       <a href="Homepage.php">Home</a>
       <a href="Flights.php" class="active">Flights</a>
-      <a href="#">My Booking</a>
-      <a href="#">Support</a> 
+      <a href="ticket-info.php">My Booking</a>
+      <a href="support.php">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">
       <nav></nav>
@@ -96,7 +96,7 @@
                 <!-- Batik Air -->
                 <div class="flight-card">
                     <div class="airline-info">
-                        <img src="/FOTO/logo Lion air.png" alt="Batik Air" class="airline-logo">
+                        <img src="/FOTO/logo Batik Air.png" alt="Batik Air" class="airline-logo">
                         <span class="airline-name">Batik Air</span>
                     </div>
                     <div class="flight-details">
@@ -166,7 +166,7 @@
                 <!-- Garuda Air -->
                 <div class="flight-card">
                     <div class="airline-info">
-                        <img src="/FOTO/logo Lion air.png" alt="Garuda Air" class="airline-logo">
+                        <img src="/FOTO/logo Garuda.png" alt="Garuda Air" class="airline-logo">
                         <span class="airline-name">Garuda Air</span>
                     </div>
                     <div class="flight-details">
@@ -201,7 +201,7 @@
                 <!-- Citilink -->
                 <div class="flight-card">
                     <div class="airline-info">
-                        <img src="/FOTO/logo Lion air.png" alt="Citilink" class="airline-logo">
+                        <img src="/FOTO/logo Citilink.png" alt="Citilink" class="airline-logo">
                         <span class="airline-name">Citilink</span>
                     </div>
                     <div class="flight-details">
@@ -236,7 +236,7 @@
                 <!-- Sriwijaya Air -->
                 <div class="flight-card">
                     <div class="airline-info">
-                        <img src="/FOTO/logo Lion air.png" alt="Sriwijaya Air" class="airline-logo">
+                        <img src="/FOTO/logo Sriwijaya.png" alt="Sriwijaya Air" class="airline-logo">
                         <span class="airline-name">Sriwijaya Air</span>
                     </div>
                     <div class="flight-details">
@@ -271,13 +271,9 @@
         </div>
     </main>
 
-<<<<<<< HEAD:pages/Flights.php
     
   <!-- Testimonials Section -->
    <div class="aboutus">
-=======
-    <div class="aboutus">
->>>>>>> Kenzo-Branch:html/Flights.html
   <h2>What Our Customers Think About Us</h2>
   </div>
   <hr class="shadow-line"></hr>
@@ -323,18 +319,10 @@
   </div>
 </div>
 
-<<<<<<< HEAD:pages/Flights.php
 </section>
 <hr class="shadow-line"></hr>
 
   <script src="/scripts/Homepage.js"></script>
-=======
-
-
-</section>
-<hr class="shadow-line"></hr>
-<script src="Flights.js"></script>
->>>>>>> Kenzo-Branch:html/Flights.html
 
   <!-- Footer -->
  <footer class="footer">
@@ -394,7 +382,6 @@
 <<<<<<< HEAD:pages/Flights.php
 =======
 
-  <script src="/js/Flights.js"></script>
->>>>>>> Kenzo-Branch:html/Flights.html
+  <script src="/scripts/Flights.js"></script>
 </body>
 </html>

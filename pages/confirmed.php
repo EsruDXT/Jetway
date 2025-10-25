@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="./css/main.css" rel="stylesheet" />
+    <link href="./styles/main.css" rel="stylesheet" />
 </head>
 <body>
   <header class="nav">
@@ -28,7 +28,7 @@
     <nav class="nav-links">
       <a href="#" class="active">Home</a>
       <a href="/pages/Flights.html">Flights</a>
-      <a href="#">My Booking</a>
+      <a href="ticket-info.php">My Booking</a>
       <a href="#">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">

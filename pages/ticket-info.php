@@ -25,10 +25,10 @@
       </div>
     </div>
     <nav class="nav-links">
-      <a href="/pages/Homepage.html">Home</a>
-      <a href="/pages/Flights.html">Flights</a>
+      <a href="/pages/Homepage.php">Home</a>
+      <a href="/pages/Flights.php">Flights</a>
       <a href="#" class="active">My Booking</a>
-      <a href="#">Support</a> 
+      <a href="/pages/support.php">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">
       <nav></nav>

@@ -25,8 +25,8 @@
       </div>
     </div>
     <nav class="nav-links">
-      <a href="/pages/Homepage.php" class="active">Home</a>
-      <a href="/pages/Flights.php">Flights</a>
+      <a href="Homepage.php" class="active">Home</a>
+      <a href="Flights.php">Flights</a>
       <a href="#">My Booking</a>
       <a href="#">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
@@ -81,7 +81,7 @@
       </button>
 
       <p class="signup-text">
-        Dont have an account? <a href="/pages/sign-up.php?force=1">Sign Up</a>
+        Dont have an account? <a href="sign-up.php?force=1">Sign Up</a>
       </p>
 
       <!-- Confirm -->
@@ -197,7 +197,5 @@
       </div>
     </div>
   </footer>
-
-  <script src="/js/sign_in_submit.js"></script>
 </body>
 </html>
