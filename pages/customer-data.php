@@ -96,6 +96,7 @@
             </div>
 
             
+            
 
                 <p class="info">More informations..</p>
             </form>
