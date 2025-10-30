@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jetway</title>
-    <link rel="stylesheet" href="../styles/customer-data.css" />
+    <link rel="stylesheet" href="../styles/login&password.css" />
     <link href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -38,7 +38,8 @@
     </nav>
   </header>
 
-  <div class="settings-container">
+
+ <div class="settings-container">
   <div class="sidebar">
     <div class="profile-section">
       <div class="avatar">
@@ -48,69 +49,89 @@
     </div>
     
     <nav class="menu">
-      <button class="menu-item active">
+      <button class="menu-item" onclick="location.href='/pages/customer-data.php'">
         <img src="../FOTO/icon person.png" alt="Personal Information">
         <span>Personal Information</span>
       </button>
-      
-      <button class="menu-item" onclick="location.href='/pages/login&password.php'">
+      <button class="menu-item active">
         <img src="../FOTO/icon password.png" alt="Login & Password">
         <span>Login & Password</span>
       </button>
-      
       <button class="menu-item">
         <img src="../FOTO/icon flight.png" alt="Active Flights">
         <span>Active Flights</span>
       </button>
-      
       <button class="menu-item">
         <img src="../FOTO/icon history.png" alt="Flights History">
         <span>Flights History</span>
       </button>
-      
       <button class="menu-item">
         <img src="../FOTO/icon setting.png" alt="Settings">
         <span>Settings</span>
       </button>
-      
       <button class="menu-item">
         <img src="../FOTO/icon logout.png" alt="Log Out">
         <span>Log Out</span>
       </button>
     </nav>
   </div>
+
+  <!-- Pindahkan main ke sini -->
+  <main class="main-content">
+    <h2 class="page-title">Login & Password</h2>
+
+    <div class="settings-list">
+      <div class="setting-item">
+        <div class="setting-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="lock">
+        </div>
+        <div class="setting-label">Password</div>
+        <img class="chevron" src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt="arrow-down">
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/3603/3603103.png" alt="2fa">
+        </div>
+        <div class="setting-label">Two-factor Authentication</div>
+        <img class="chevron" src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt="arrow-down">
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="security">
+        </div>
+        <div class="setting-label">Security & Privacy</div>
+        <img class="chevron" src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt="arrow-down">
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="data">
+        </div>
+        <div class="setting-label">Access Data</div>
+        <img class="chevron" src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt="arrow-down">
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="activity">
+        </div>
+        <div class="setting-label">Login Activity</div>
+        <img class="chevron" src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt="arrow-down">
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/2099/2099058.png" alt="settings">
+        </div>
+        <div class="setting-label">Account Settings</div>
+        <img class="chevron" src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt="arrow-down">
+      </div>
+    </div>
+  </main>
 </div>
 
-<main class="main-content">
-            <h2>Personal Information</h2>
-
-            <div class="gender">
-                <label>
-                    <input type="radio" name="gender"> 
-                    <span>Male</span>
-                </label>
-                <label>
-                    <input type="radio" name="gender" checked> 
-                    <span>Female</span>
-                </label>
-            </div>
-
-            <p class="firstname">First Name</p>
-            <p class="emily">Emily</p>
-            <p class="smith">Smith</p>
-            <p class="lastname">Last Name</p>
-            <p class="email">Email</p>
-            <p class="namaemail">Emily579@gmail.com</p>
-            <p class="tanggallahir">Date of Birth</p>
-            <p class="tanggal">29 August 1995</p>
-            <p class="kota">City of Residence</p>
-            <p class="namakota">Pontianak</p>
-            
-
-                <p class="info">More informations..</p>
-            </form>
-        </main>
-    </div>
 
       
 
@@ -221,6 +242,6 @@
     </div>
   </footer>
 
-  <script src="../scripts/customer-data.js"></script>
+  <script src="../scripts/login&password.js"></script>
 </body>
 </html>
