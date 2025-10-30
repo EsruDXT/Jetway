@@ -95,6 +95,7 @@ background-color: #006eff;
     gap: 40px;
     margin-top: 20px;
     margin-left: 300px;
+    color: #2E425C;
 }
 
 .gender label {
@@ -103,7 +104,7 @@ background-color: #006eff;
     gap: 10px;
     cursor: pointer;
     font-size: 15px;
-    color: #374151;
+    color: #2E425C;
 }
 
 .gender input[type="radio"] {
@@ -113,11 +114,112 @@ background-color: #006eff;
     accent-color: #1E40AF;
 }
 
+.firstname {
+  margin-left: 310px;
+  margin-top: 20px;
+  color: #2E425C;
+}
+
+.emily {
+  display: inline-block;
+  padding: 10px 150px;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: #2E425C;
+  background-color: #fff;
+  margin-left: 310px;
+  margin-top: 10px;
+}
+
+.lastname {
+  margin-left: 600px;
+  margin-top: -75px;
+  color: #2E425C;
+}
+
+.smith {
+  display: inline-block;
+  padding: 10px 150px;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: #2E425C;
+  background-color: #fff;
+  margin-left: 85px;
+  margin-top: 10px;
+}
+
+.email {
+  margin-left: 310px;
+  margin-top: 70px;
+  color:#2E425C;
+}
+
+.namaemail {
+  display: inline-block;
+  padding: 10px 325px;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: #2E425C;
+  background-color: #fff;
+  margin-left: 310px;
+  margin-top: 10px;
+}
+
+.tanggallahir {
+  margin-left: 310px;
+  margin-top: 20px;
+  color: #2E425C;
+}
+
+.tanggal {
+  display: inline-block;
+  padding: 10px 80px;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: #2E425C;
+  background-color: #fff;
+  margin-left: 310px;
+  margin-top: 10px;
+}
+
+.kota {
+  margin-left: 600px;
+  margin-top: -70px;
+  color: #2E425C;
+}
+
+.namakota{
+  display: inline-block;
+  padding: 10px 130px;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: #2E425C;
+  background-color: #fff;
+  margin-left: 600px;
+  margin-top: 10px;
+}
+
+
 .info {
-    margin-top: 300px;
+    margin-top: 10px;
     font-size: 14px;
-    color: #9CA3AF;
-    margin-left: 300px;
+    color: #2E425C;
+    margin-left: 310px;
 }
 
 * {

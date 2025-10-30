@@ -31,3 +31,19 @@ document.getElementById("logo").addEventListener("click", function (e) {
         behavior: "smooth"
     });
 });
+
+const buttons = document.querySelectorAll('.menu button');
+const pages = document.querySelectorAll('.page');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // hilangkan active dari semua tombol
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // tampilkan konten sesuai data-page
+    const target = btn.getAttribute('data-page');
+    pages.forEach(p => p.classList.remove('active'));
+    document.getElementById(target).classList.add('active');
+  });
+});

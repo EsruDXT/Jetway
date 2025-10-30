@@ -42,39 +42,39 @@
   <div class="sidebar">
     <div class="profile-section">
       <div class="avatar">
-        <img src="images/avatar.png" alt="User Avatar">
+        <img src="../FOTO/icon profile.png" alt="User Avatar">
       </div>
       <p class="welcome-text">Welcome, Emily Smith</p>
     </div>
     
     <nav class="menu">
       <button class="menu-item">
-        <img src="images/icon-personal.png" alt="Personal Information">
+        <img src="../FOTO/icon person.png" alt="Personal Information">
         <span>Personal Information</span>
       </button>
       
       <button class="menu-item active">
-        <img src="images/icon-lock.png" alt="Login & Password">
+        <img src="../FOTO/icon password.png" alt="Login & Password">
         <span>Login & Password</span>
       </button>
       
       <button class="menu-item">
-        <img src="images/icon-flights.png" alt="Active Flights">
+        <img src="../FOTO/icon flight.png" alt="Active Flights">
         <span>Active Flights</span>
       </button>
       
       <button class="menu-item">
-        <img src="images/icon-history.png" alt="Flights History">
+        <img src="../FOTO/icon history.png" alt="Flights History">
         <span>Flights History</span>
       </button>
       
       <button class="menu-item">
-        <img src="images/icon-settings.png" alt="Settings">
+        <img src="../FOTO/icon setting.png" alt="Settings">
         <span>Settings</span>
       </button>
       
       <button class="menu-item">
-        <img src="images/icon-logout.png" alt="Log Out">
+        <img src="../FOTO/icon logout.png" alt="Log Out">
         <span>Log Out</span>
       </button>
     </nav>
@@ -95,7 +95,16 @@
                 </label>
             </div>
 
-            
+            <p class="firstname">First Name</p>
+            <p class="emily">Emily</p>
+            <p class="smith">Smith</p>
+            <p class="lastname">Last Name</p>
+            <p class="email">Email</p>
+            <p class="namaemail">Emily579@gmail.com</p>
+            <p class="tanggallahir">Date of Birth</p>
+            <p class="tanggal">29 August 1995</p>
+            <p class="kota">City of Residence</p>
+            <p class="namakota">Pontianak</p>
             
 
                 <p class="info">More informations..</p>
@@ -211,5 +220,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="../scripts/customer-data.js"></script>
 </body>
 </html>
