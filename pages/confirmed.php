@@ -11,6 +11,7 @@
     <link href="./styles/main.css" rel="stylesheet" />
 </head>
 <body>
+
   <header class="nav">
     <div class="nav-left">
       <a class="logo1" id="logo" href="#Slideshow">JetWay</a>
@@ -37,7 +38,6 @@
       <a href="/pages/sign-in.html" class="btn ghost">Log In</a>
     </nav>
   </header>
-
 
 
   
@@ -74,7 +74,7 @@
   <div class="success-box">
     <div class="checkmark">
       <div class="inner-circle">
-        <div class="tick">✓</div>
+         <img src="../FOTO/checkmark.png" alt="checkmark">
       </div>
     </div>
     <h2>Order success</h2>

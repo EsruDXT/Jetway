@@ -20,6 +20,47 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+/* Tambahkan ke file Homepage.css atau CSS halaman ini */
+
+/* Container utama */
+.success-box {
+  text-align: center;
+  margin-top: 50px;
+  color: #1a1a1a;
+}
+
+/* Lingkaran putih di tengah */
+.checkmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Biar gambar di tengah */
+.checkmark img {
+  width: 70px;
+  height: auto;
+  display: block;
+}
+
+/* Judul dan teks */
+.success-box h2 {
+  font-weight: 700;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.success-box p {
+  font-size: 1em;
+  color: #555;
+}
+
 
 
 /* ini bagian bawahnya */
