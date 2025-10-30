@@ -1,150 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-    <link rel="stylesheet" href="/styles/sign-in.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In</title>
+  <link rel="stylesheet" href="/styles/sign-in.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-    
-</head>
+
 <body>
   <header class="nav">
     <div class="nav-left">
       <a class="logo1" id="logo" href="#Slideshow">JetWay</a>
-        </div>
-      <div class="searchbar">
-        <input type="search" placeholder="Search..." />
-        <button>
-            <img src="/FOTO/search button.png" alt="iconcari" width="24" height="24">
-        </button>
-        <button>
-            <img src="/FOTO/icon mikrofon.png" alt="iconmic" width="18" height="18">
-        </button>
-      </div>
     </div>
+
+    <div class="searchbar">
+      <input type="search" placeholder="Search..." />
+      <button>
+        <img src="/FOTO/search button.png" alt="iconcari" width="24" height="24" />
+      </button>
+      <button>
+        <img src="/FOTO/icon mikrofon.png" alt="iconmic" width="18" height="18" />
+      </button>
+    </div>
+
     <nav class="nav-links">
       <a href="Homepage.php" class="active">Home</a>
       <a href="Flights.php">Flights</a>
       <a href="#">My Booking</a>
-      <a href="#">Support</a> 
-      <img src="/FOTO/notif.png" alt="iconnotif" width="35">
-      <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">
-      <nav></nav>
+      <a href="#">Support</a>
+      <img src="/FOTO/notif.png" alt="iconnotif" width="35" />
+      <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40" />
       <i class="fas fa-chevron-down"></i>
       <button class="btn ghost">Log In</button>
     </nav>
   </header>
-  
+
   <main class="login-page">
-  <div class="container">
-    <form id="loginForm" class="login-box" action="/handlers/login.php" method="POST">
-      <h1>Sign In</h1>
-      <p class="subtitle">Choose how you'd like to sign in</p>
+    <div class="container">
+      <form id="loginForm" class="login-box" action="../backend/signinb.php" method="POST">
+        <h1>Sign In</h1>
+        <p class="subtitle">Choose how you'd like to sign in</p>
 
-      <!-- Email -->
-      <div class="input-box">
-        <i class="fa-solid fa-envelope"></i>
-        <input id="email" name="email" type="email" placeholder="Email" required>
+        <!-- Email -->
+        <div class="input-box">
+          <i class="fa-solid fa-envelope"></i>
+          <input id="email" name="email" type="email" placeholder="Email" required />
+        </div>
+
+        <!-- Password -->
+        <div class="input-box">
+          <i class="fa-solid fa-lock"></i>
+          <input id="password" name="password" type="password" placeholder="Password" required />
+        </div>
+
+        <div class="divider"><span>or</span></div>
+
+        <!-- Google -->
+        <button type="button" class="social-btn google">
+          <i class="fa-brands fa-google"></i> Continue with Google
+        </button>
+
+        <!-- Facebook -->
+        <button type="button" class="social-btn facebook">
+          <i class="fa-brands fa-facebook"></i> Continue with Facebook
+        </button>
+
+        <p class="signup-text">
+          Don’t have an account? <a href="sign-up.php?force=1">Sign Up</a>
+        </p>
+
+        <!-- Confirm -->
+        <button type="submit" class="confirm-btn" name="confirm-btn">Confirm</button>
+      </form>
+    </div>
+  </main>
+
+  <div class="aboutus">
+    <h2>What Our Customers Think About Us</h2>
+  </div>
+  <hr class="shadow-line" />
+
+  <section id="Slideshow" class="testimonial-container">
+    <div class="testimonial-wrapper">
+      <div class="controls">
+        <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
       </div>
 
-      <!-- Password -->
-      <div class="input-box">
-        <i class="fa-solid fa-lock"></i>
-        <input id="password" name="password" type="password" placeholder="Password" required>
+      <div class="testimonial">
+        <div class="avatar">😊</div>
+        <p>"Pemesanan tiket di sini sangat cepat, intinya gacor!"</p>
+        <h4>Kenzo Rivaldo</h4>
+        <div class="stars">★★★★★</div>
       </div>
 
-      <div class="divider">
-        <span>or</span>
+      <div class="testimonial">
+        <div class="avatar">😊</div>
+        <p>"Definitely one of the best experiences in town!"</p>
+        <h4>Marvin Arif Pratama</h4>
+        <div class="stars">★★★★★</div>
       </div>
 
-      <!-- Google -->
-      <button type="button" class="social-btn google">
-        <i class="fa-brands fa-google"></i> Continue with Google
-      </button>
+      <div class="testimonial">
+        <div class="avatar">😊</div>
+        <p>"Amazing service and quick response!"</p>
+        <h4>Daniel Federico Theodoric</h4>
+        <div class="stars">★★★★★</div>
+      </div>
 
-      <!-- Facebook -->
-      <button type="button" class="social-btn facebook">
-        <i class="fa-brands fa-facebook"></i> Continue with Facebook
-      </button>
+      <div class="testimonial">
+        <div class="avatar">😊</div>
+        <p>"Friendly staff and excellent service!"</p>
+        <h4>Sandrika Marcella Jolie</h4>
+        <div class="stars">★★★★★</div>
+      </div>
 
-      <p class="signup-text">
-        Dont have an account? <a href="sign-up.php?force=1">Sign Up</a>
-      </p>
-
-      <!-- Confirm -->
-      <button type="submit" class="confirm-btn">Confirm</button>
-    </form>
-  </div>
-</main>
-
-  <!-- Testimonials Section -->
-   <div class="aboutus">
-  <h2>What Our Customers Think About Us</h2>
-  </div>
-  <hr class="shadow-line"></hr>
-  <section class="testimonial-section"></section>
-  <!-- Tombol panah di luar slideshow -->
-
-  <!-- Slideshow -->
-  <div id="Slideshow" class="testimonial-container">
-  <div class="testimonial-wrapper">
-    <div class="controls">
-    <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
-  </div>
-    <div class="testimonial">
-      <div class="avatar">😊</div>
-      <p>"Pemesanan Tiket Disini Sangat Cepat Intinya Gacor!"</p>
-      <h4>Kenzo Rivaldo</h4>
-      <div class="stars">★★★★★</div>
+      <div class="controls">
+        <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
+      </div>
     </div>
+  </section>
 
-    <div class="testimonial">
-      <div class="avatar">😊</div>
-      <p>"Definitely one of the best burgers in town!"</p>
-      <h4>Marvin Arif Pratama</h4>
-      <div class="stars">★★★★★</div>
-    </div>
+  <hr class="shadow-line" />
 
-    <div class="testimonial">
-      <div class="avatar">😊</div>
-      <p>"Amazing taste and quick service!"</p>
-      <h4>Daniel Federico Theodoric</h4>
-      <div class="stars">★★★★★</div>
-    </div>
-
-    <div class="testimonial">
-      <div class="avatar">😊</div>
-      <p>"Friendly staff and delicious food!"</p>
-      <h4>Sandrika Marcella Jolie</h4>
-      <div class="stars">★★★★★</div>
-    </div>
-        <div class="controls">
-    <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
-  </div>
-  </div>
-</div>
-
-</section>
-<hr class="shadow-line"></hr>
-
-  <script src="Homepage.js"></script>
-
-  <!-- Footer -->
- <footer class="footer">
+  <footer class="footer">
     <div class="footer-container">
-
       <div class="footer-left">
         <h2 class="logo">JetWay</h2>
-        <p class="vision">Our vision is to provide the easiest and effortless travel plan for our customers.</p>
+        <p class="vision">Our vision is to provide the easiest and most effortless travel plan for our customers.</p>
         <div class="social-icons">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
           <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
-
 
       <div class="footer-links">
         <div class="column">
@@ -153,7 +142,7 @@
             <li><a href="#">How it works</a></li>
             <li><a href="#">Featured</a></li>
             <li><a href="#">Partnership</a></li>
-            <li><a href="#">Bussiness Relation</a></li>
+            <li><a href="#">Business Relation</a></li>
           </ul>
         </div>
         <div class="column">
@@ -177,7 +166,6 @@
       </div>
     </div>
 
-    <!-- Bottom -->
     <div class="footer-bottom">
       <p>©2025 Jetway. All rights reserved</p>
       <div class="policies">
@@ -186,5 +174,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="Homepage.js"></script>
 </body>
 </html>
