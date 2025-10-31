@@ -1,17 +1,3 @@
-<?php
-// Start session and include auth helpers
-if (session_status() !== PHP_SESSION_ACTIVE) {
-  session_start();
-}
-require_once __DIR__ . '/../includes/auth.php';
-
-// Redirect to homepage only if user is logged in and not explicitly requesting the signup page
-// Use ?force=1 to force showing the signup page even if a session exists (useful from Sign In link)
-if (!empty($_SESSION['logged_in']) && !empty($_SESSION['user_id']) && empty($_GET['force'])) {
-  header('Location: /pages/Homepage.php');
-  exit;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,42 +6,7 @@ if (!empty($_SESSION['logged_in']) && !empty($_SESSION['user_id']) && empty($_GE
     <title>Sign Up - Jetway</title>
     <link rel="stylesheet" href="/styles/sign-up.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        .error-message {
-            background-color: #fee;
-            color: #c00;
-            padding: 10px;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            border: 1px solid #fcc;
-        }
-        .success-message {
-            background-color: #efe;
-            color: #0c0;
-            padding: 10px;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            border: 1px solid #cfc;
-        }
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-        .spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #f3f3f3;
-            border-top: 2px solid #3498db;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-left: 10px;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+   
 </head>
     
 <body>
@@ -92,15 +43,8 @@ if (!empty($_SESSION['logged_in']) && !empty($_SESSION['user_id']) && empty($_GE
       <h2>Sign Up</h2>
       <p>Choose how you'd like to sign Up</p>
 
-      <?php
-        if (isset($_SESSION['error'])) {
-            echo '<div class="error-message">' . htmlspecialchars($_SESSION['error']) . '</div>';
-            unset($_SESSION['error']);
-        }
-      ?>
-
-      <form id="registerForm" action="/handlers/register.php" method="POST">
-        <div class="form-grid">
+      <form action="../../backend/signupb.php" method="POST">
+      <div class="form-grid">
           <input id="username" name="username" type="text" placeholder="Username" required>
           <input id="email" name="email" type="email" placeholder="Email" required>
           <input id="password" name="password" type="password" placeholder="Password">
@@ -117,7 +61,7 @@ if (!empty($_SESSION['logged_in']) && !empty($_SESSION['user_id']) && empty($_GE
           <button type="button" class="facebook">Continue with Facebook</button>
         </div>
 
-        <button type="submit" class="confirm-btn">Confirm</button>
+        <button type="submit" class="confirm-btn" name="Confirm">Confirm</button>
       </form>
     </div>
   </div>
