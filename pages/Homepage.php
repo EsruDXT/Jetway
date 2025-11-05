@@ -38,6 +38,9 @@
     </nav>
   </header>
 
+    <div id="loading-overlay">
+      <div id="loading-text">🛫</div>
+    </div>
 
   <img src="/FOTO/foto 1.png" alt="journey" width="100%">
 
@@ -212,7 +215,7 @@
       </div>
     </div>
   </footer>
-
+  
   <script src="/scripts/Homepage.js"></script>
 </body>
 </html>

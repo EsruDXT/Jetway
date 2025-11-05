@@ -38,6 +38,10 @@
     </nav>
   </header>
 
+    <div id="loading-overlay">
+        <div id="loading-text">🛫</div>
+    </div>
+
     <main class="main-content">
         <div class="container">
             <!-- Flight Search Card -->

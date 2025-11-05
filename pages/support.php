@@ -38,6 +38,10 @@
     </nav>
   </header>
 
+    <div id="loading-overlay">
+      <div id="loading-text">🛫</div>
+    </div>
+
     <img src="/FOTO/sign in bg.png" alt="supportimage" width="1250px">
 
     <!-- FAQ Section -->

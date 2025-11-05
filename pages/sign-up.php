@@ -37,6 +37,9 @@
     </nav>
   </header>
 
+    <div id="loading-overlay">
+      <div id="loading-text">🛫</div>
+    </div>
 
       <div class="background">
     <div class="signup-container">

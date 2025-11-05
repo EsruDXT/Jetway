@@ -31,3 +31,53 @@ document.getElementById("logo").addEventListener("click", function (e) {
         behavior: "smooth"
     });
 });
+
+// Fungsi animasi titik-titik
+function startDotAnimation(element) {
+  let dots = 0;
+  return setInterval(() => {
+    dots = (dots + 1) % 4;
+    element.textContent = "🛫" + ".".repeat(dots);
+  }, 400);
+}
+
+// Saat halaman selesai dimuat
+window.addEventListener("load", () => {
+  const overlay = document.getElementById("loading-overlay");
+  const loadingText = document.getElementById("loading-text");
+  const content = document.getElementById("content");
+
+  // Mulai animasi titik-titik
+  const dotAnimation = startDotAnimation(loadingText);
+
+  // Sembunyikan overlay setelah sedikit delay
+  setTimeout(() => {
+    clearInterval(dotAnimation);
+    overlay.classList.add("hidden");
+    content.classList.add("visible");
+  }, 1200);
+});
+
+// Saat user klik link, tampilkan overlay lagi
+document.addEventListener("DOMContentLoaded", () => {
+  const links = document.querySelectorAll("a");
+
+  links.forEach(link => {
+    link.addEventListener("click", e => {
+      const href = link.getAttribute("href");
+      if (href && !href.startsWith("#") && !href.startsWith("mailto:")) {
+        e.preventDefault();
+        const overlay = document.getElementById("loading-overlay");
+        const loadingText = document.getElementById("loading-text");
+
+        overlay.classList.remove("hidden");
+        const dotAnimation = startDotAnimation(loadingText);
+
+        setTimeout(() => {
+          clearInterval(dotAnimation);
+          window.location.href = href;
+        }, 800);
+      }
+    });
+  });
+});

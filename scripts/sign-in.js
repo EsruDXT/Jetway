@@ -18,8 +18,6 @@ function changeSlide(direction) {
   wrapper.style.transform = `translateX(${-currentIndex * 280}px)`;
 }
 
-
-
 document.getElementById("logo").addEventListener("click", function (e) {
     e.preventDefault(); 
     const slideshow = document.getElementById("Slideshow");
@@ -64,3 +62,4 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   });
 });
+
