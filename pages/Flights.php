@@ -383,8 +383,6 @@
       </div>
     </div>
   </footer>
-<<<<<<< HEAD:pages/Flights.php
-=======
 
   <script src="/scripts/Flights.js"></script>
 </body>

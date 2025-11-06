@@ -79,3 +79,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+let slideIndex = 0;
+autoShowSlides();
+
+function autoShowSlides() {
+  const slides = document.getElementsByClassName("slide");
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  slides[slideIndex - 1].style.display = "block";
+  setTimeout(autoShowSlides, 4000); // Ganti gambar setiap 4 detik
+}
+

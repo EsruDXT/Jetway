@@ -42,7 +42,11 @@
       <div id="loading-text">🛫</div>
     </div>
 
-  <img src="/FOTO/foto 1.png" alt="journey" width="100%">
+    <div class="slideshow-container">
+      <img class="slide fade" src="/FOTO/foto 1.png" alt="journey">
+      <img class="slide fade" src="/FOTO/promo.jpeg" alt="journey">
+      <img class="slide fade" src="/FOTO/pesawat2.webp" alt="journey">
+    </div>
 
   <div class="banner-text">
     <h1>Your Journey, Our Way</h1>
