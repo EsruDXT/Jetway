@@ -39,6 +39,7 @@
   </header>
 
   <div class="settings-container">
+  <!-- Sidebar -->
   <div class="sidebar">
     <div class="profile-section">
       <div class="avatar">
@@ -46,71 +47,74 @@
       </div>
       <p class="welcome-text">Welcome, Emily Smith</p>
     </div>
-    
+
     <nav class="menu">
       <button class="menu-item active">
         <img src="../FOTO/icon person.png" alt="Personal Information">
         <span>Personal Information</span>
       </button>
-      
       <button class="menu-item" onclick="location.href='/pages/login&password.php'">
         <img src="../FOTO/icon password.png" alt="Login & Password">
         <span>Login & Password</span>
       </button>
-      
-      <button class="menu-item">
-        <img src="../FOTO/icon flight.png" alt="Active Flights">
-        <span>Active Flights</span>
-      </button>
-      
-      <button class="menu-item">
+      <button class="menu-item" onclick="location.href='/pages/flight-history.php'">
         <img src="../FOTO/icon history.png" alt="Flights History">
         <span>Flights History</span>
       </button>
-      
-      <button class="menu-item">
-        <img src="../FOTO/icon setting.png" alt="Settings">
-        <span>Settings</span>
-      </button>
-      
       <button class="menu-item">
         <img src="../FOTO/icon logout.png" alt="Log Out">
         <span>Log Out</span>
       </button>
     </nav>
   </div>
-</div>
 
-<main class="main-content">
-            <h2>Personal Information</h2>
+  <!-- Main Content -->
+  <main class="main-content">
+    <h2>Personal Information</h2>
 
-            <div class="gender">
-                <label>
-                    <input type="radio" name="gender"> 
-                    <span>Male</span>
-                </label>
-                <label>
-                    <input type="radio" name="gender" checked> 
-                    <span>Female</span>
-                </label>
-            </div>
-
-            <p class="firstname">First Name</p>
-            <p class="emily">Emily</p>
-            <p class="smith">Smith</p>
-            <p class="lastname">Last Name</p>
-            <p class="email">Email</p>
-            <p class="namaemail">Emily579@gmail.com</p>
-            <p class="tanggallahir">Date of Birth</p>
-            <p class="tanggal">29 August 1995</p>
-            <p class="kota">City of Residence</p>
-            <p class="namakota">Pontianak</p>
-            
-
-                <p class="info">More informations..</p>
-            </form>
-        </main>
+    <div class="gender">
+      <label>
+        <input type="radio" name="gender">
+        <span>Male</span>
+      </label>
+      <label>
+        <input type="radio" name="gender" checked>
+        <span>Female</span>
+      </label>
     </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <div class="input-box">Emily</div>
+      </div>
+
+      <div class="form-group">
+        <label>Last Name</label>
+        <div class="input-box">Smith</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <div class="input-box wide">Emily579@gmail.com</div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <div class="input-box">29 August 1995</div>
+      </div>
+
+      <div class="form-group">
+        <label>City of Residence</label>
+        <div class="input-box">Pontianak</div>
+      </div>
+    </div>
+
+    <p class="info">More informations..</p>
+  </main>
+</div>
 
       
 

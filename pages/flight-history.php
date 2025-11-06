@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jetway</title>
-    <link rel="stylesheet" href="../styles/login&password.css" />
+    <link rel="stylesheet" href="../styles/flight-history.css" />
     <link href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -53,11 +53,11 @@
         <img src="../FOTO/icon person.png" alt="Personal Information">
         <span>Personal Information</span>
       </button>
-      <button class="menu-item active">
+      <button class="menu-item" onclick="location.href='/pages/login&password.php'">
         <img src="../FOTO/icon password.png" alt="Login & Password">
         <span>Login & Password</span>
       </button>
-      <button class="menu-item" onclick="location.href='/pages/flight-history.php'">
+      <button class="menu-item active">
         <img src="../FOTO/icon history.png" alt="Flights History">
         <span>Flights History</span>
       </button>
@@ -69,47 +69,14 @@
   </div>
 
   <!-- Main Content -->
- <main class="main-content">
-  <h2>Login & Password</h2>
+  <main class="main-content">
+      <h2>Flights History</h2>
 
-  <div class="login-section">
-    <div class="login-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="Password">
-      <span>Password</span>
-      <i class="fas fa-chevron-down"></i>
-    </div>
-
-    <div class="login-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/3603/3603103.png" alt="Two Factor">
-      <span>Two-factor Authentication</span>
-      <i class="fas fa-chevron-down"></i>
-    </div>
-
-    <div class="login-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Security">
-      <span>Security & Privacy</span>
-      <i class="fas fa-chevron-down"></i>
-    </div>
-
-    <div class="login-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="Access">
-      <span>Access Data</span>
-      <i class="fas fa-chevron-down"></i>
-    </div>
-
-    <div class="login-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Login Activity">
-      <span>Login Activity</span>
-      <i class="fas fa-chevron-down"></i>
-    </div>
-
-    <div class="login-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2099/2099058.png" alt="Account Settings">
-      <span>Account Settings</span>
-      <i class="fas fa-chevron-down"></i>
-    </div>
-  </div>
-</main>
+      <div class="no-history">
+        <p>No flight history found <i class="fa-regular fa-circle-xmark"></i></p>
+        <button class="btn primary" onclick="location.href='/pages/Flights.php'">Book Your Flight Now</button>
+      </div>
+    </main>
 </div>
 
       
@@ -221,6 +188,6 @@
     </div>
   </footer>
 
-  <script src="../scripts/login&password.js"></script>
+  <script src="../scripts/flight-history.js"></script>
 </body>
 </html>
