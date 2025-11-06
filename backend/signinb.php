@@ -40,7 +40,7 @@ if (isset($_POST['confirm-btn'])) {
 
         echo "<script>
                 alert('Login successful! Welcome, {$user['username']}');
-                window.location.href='../../pages/Homepage.php';
+                window.location.href='../../pages/customer-data.php';
               </script>";
         exit;
     } else {

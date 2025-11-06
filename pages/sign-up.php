@@ -27,8 +27,8 @@
     <nav class="nav-links">
       <a href="/pages/Homepage.php" class="active">Home</a>
       <a href="/pages/Flights.php">Flights</a>
-      <a href="#">My Booking</a>
-      <a href="#">Support</a> 
+      <a href="/pages/ticket-info.php">My Booking</a>
+      <a href="/pages/support.php">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">
       <nav></nav>

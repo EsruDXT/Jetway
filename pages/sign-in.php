@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['user_id'])) {
+    header("Location: customer-data.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +35,8 @@
     <nav class="nav-links">
       <a href="Homepage.php" class="active">Home</a>
       <a href="Flights.php">Flights</a>
-      <a href="#">My Booking</a>
-      <a href="#">Support</a>
+      <a href="ticket-info.php">My Booking</a>
+      <a href="support.php">Support</a>
       <img src="/FOTO/notif.png" alt="iconnotif" width="35" />
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40" />
       <i class="fas fa-chevron-down"></i>

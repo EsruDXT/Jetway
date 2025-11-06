@@ -29,7 +29,7 @@
       <a href="/pages/Homepage.php">Home</a>
       <a href="/pages/Flights.php">Flights</a>
       <a href="/pages/ticket-info.php">My Booking</a>
-      <a href="/pages/support.php" class="active">Support</a> 
+      <a href="/pages/support.php">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">
       <nav></nav>
@@ -45,7 +45,7 @@
       <div class="avatar">
         <img src="../FOTO/icon profile.png" alt="User Avatar">
       </div>
-      <p class="welcome-text">Welcome, Emily Smith</p>
+      <p class="welcome-text">Welcome, Kenzo Rivaldo</p>
     </div>
 
     <nav class="menu">
@@ -86,24 +86,24 @@
     <div class="form-row">
       <div class="form-group">
         <label>First Name</label>
-        <div class="input-box">Emily</div>
+        <div class="input-box">Kenzo</div>
       </div>
 
       <div class="form-group">
         <label>Last Name</label>
-        <div class="input-box">Smith</div>
+        <div class="input-box">Rivaldo</div>
       </div>
     </div>
 
     <div class="form-group">
       <label>Email</label>
-      <div class="input-box wide">Emily579@gmail.com</div>
+      <div class="input-box wide">Kenzo@gmail.com</div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
         <label>Date of Birth</label>
-        <div class="input-box">29 August 1995</div>
+        <div class="input-box">3 Juli 2009</div>
       </div>
 
       <div class="form-group">
