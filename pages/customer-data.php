@@ -74,11 +74,11 @@
 
     <div class="gender">
       <label>
-        <input type="radio" name="gender">
+        <input type="radio" name="gender" checked>
         <span>Male</span>
       </label>
       <label>
-        <input type="radio" name="gender" checked>
+        <input type="radio" name="gender">
         <span>Female</span>
       </label>
     </div>

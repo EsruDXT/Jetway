@@ -45,7 +45,7 @@
       <div class="avatar">
         <img src="../FOTO/icon profile.png" alt="User Avatar">
       </div>
-      <p class="welcome-text">Welcome, Emily Smith</p>
+      <p class="welcome-text">Welcome, Kenzo Rivaldo</p>
     </div>
 
     <nav class="menu">
