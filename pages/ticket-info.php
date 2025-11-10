@@ -25,15 +25,15 @@
       </div>
     </div>
     <nav class="nav-links">
-      <a href="/pages/Homepage.php">Home</a>
-      <a href="/pages/Flights.php">Flights</a>
-      <a href="#" class="active">My Booking</a>
-      <a href="/pages/support.php">Support</a> 
+      <a href="Homepage.php">Home</a>
+      <a href="Flights.php">Flights</a>
+      <a href="ticket-info.php" class="active">My Booking </a>
+      <a href="support.php">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">
       <nav></nav>
       <i class="fas fa-chevron-down"></i>
-      <a href="/pages/sign-in.html" class="btn ghost">Log In</a>
+      <a href="sign-in.php" class="btn ghost">Log In</a>
     </nav>
   </header>
 
