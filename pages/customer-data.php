@@ -1,178 +1,187 @@
+<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: sign-in.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jetway</title>
+    <title>Jetway - Personal Information</title>
     <link rel="stylesheet" href="../styles/customer-data.css" />
     <link href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="./styles/main.css" rel="stylesheet" />
 </head>
 <body>
   <header class="nav">
     <div class="nav-left">
-      <a class="logo1" id="logo" href="#Slideshow">JetWay</a>
-        </div>
-      <div class="searchbar">
-        <input type="search" placeholder="Search..." />
-        <button>
-            <img src="/FOTO/search button.png" alt="iconcari" width="24" height="24">
-        </button>
-        <button>
-            <img src="/FOTO/icon mikrofon.png" alt="iconmic" width="18" height="18">
-        </button>
-      </div>
+      <a class="logo1" id="logo" href="Homepage.php">JetWay</a>
+    </div>
+    <div class="searchbar">
+      <input type="search" placeholder="Search..." />
+      <button><img src="/FOTO/search button.png" alt="iconcari" width="24" height="24"></button>
+      <button><img src="/FOTO/icon mikrofon.png" alt="iconmic" width="18" height="18"></button>
     </div>
     <nav class="nav-links">
       <a href="/pages/Homepage.php">Home</a>
       <a href="/pages/Flights.php">Flights</a>
-      <a href="/pages/ticket-info.php" class="active">My Booking</a>
+      <a href="/pages/ticket-info.php">My Booking</a>
       <a href="/pages/support.php">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">
-      <nav></nav>
       <i class="fas fa-chevron-down"></i>
-      <a href="/pages/sign-in.php" class="btn ghost">Log In</a>
+      <a href="/backend/logout.php" class="btn ghost">Log Out</a>
     </nav>
   </header>
 
   <div class="settings-container">
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <div class="profile-section">
-      <div class="avatar">
-        <img src="../FOTO/icon profile.png" alt="User Avatar">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="profile-section">
+        <div class="avatar">
+          <img id="profile-pic-preview" src="../FOTO/icon profile.png" alt="User Avatar">
+        </div>
+        <p class="welcome-text">Welcome, <span id="welcome-username"><?php echo htmlspecialchars($_SESSION['username']); ?></span></p>
       </div>
-      <p class="welcome-text">Welcome, Kenzo Rivaldo</p>
+
+      <nav class="menu">
+        <button class="menu-item active" onclick="location.href='/pages/customer-data.php'">
+          <img src="../FOTO/icon person.png" alt="Personal Information">
+          <span>Personal Information</span>
+        </button>
+        <button class="menu-item" onclick="location.href='/pages/login&password.php'">
+          <img src="../FOTO/icon password.png" alt="Login & Password">
+          <span>Login & Password</span>
+        </button>
+        <button class="menu-item" onclick="location.href='/pages/flight-history.php'">
+          <img src="../FOTO/icon history.png" alt="Flights History">
+          <span>Flights History</span>
+        </button>
+        <button class="menu-item" onclick="location.href='/backend/logout.php'">
+          <img src="../FOTO/icon logout.png" alt="Log Out">
+          <span>Log Out</span>
+        </button>
+      </nav>
     </div>
 
-    <nav class="menu">
-      <button class="menu-item active">
-        <img src="../FOTO/icon person.png" alt="Personal Information">
-        <span>Personal Information</span>
-      </button>
-      <button class="menu-item" onclick="location.href='/pages/login&password.php'">
-        <img src="../FOTO/icon password.png" alt="Login & Password">
-        <span>Login & Password</span>
-      </button>
-      <button class="menu-item" onclick="location.href='/pages/flight-history.php'">
-        <img src="../FOTO/icon history.png" alt="Flights History">
-        <span>Flights History</span>
-      </button>
-      <button class="menu-item">
-        <img src="../FOTO/icon logout.png" alt="Log Out">
-        <span>Log Out</span>
-      </button>
-    </nav>
+    <!-- Main Content -->
+    <main class="main-content">
+      <h2>Personal Information</h2>
+
+      <form id="profile-form">
+        <div class="gender">
+          <label>
+            <input type="radio" name="gender" value="Male" id="gender-male">
+            <span>Male</span>
+          </label>
+          <label>
+            <input type="radio" name="gender" value="Female" id="gender-female">
+            <span>Female</span>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="input-box" id="first_name" name="first_name" placeholder="Enter first name" required>
+          </div>
+
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="input-box" id="last_name" name="last_name" placeholder="Enter last name" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <div class="input-box wide" id="email-display"><?php echo htmlspecialchars($_SESSION['email']); ?></div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" class="input-box" id="date_of_birth" name="date_of_birth">
+          </div>
+
+          <div class="form-group">
+            <label>City of Residence</label>
+            <input type="text" class="input-box" id="city" name="city" placeholder="Enter city">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" class="input-box" id="phone" name="phone" placeholder="Enter phone number">
+          </div>
+
+          <div class="form-group">
+            <label>Address</label>
+            <input type="text" class="input-box" id="address" name="address" placeholder="Enter address">
+          </div>
+        </div>
+
+        <button type="submit" class="btn primary" style="margin-top: 20px; padding: 12px 30px;">Save Changes</button>
+      </form>
+
+      <p class="info" style="margin-top: 20px; color: #2E425C;">
+        <i class="fas fa-info-circle"></i> Keep your information up to date for better service
+      </p>
+    </main>
   </div>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <h2>Personal Information</h2>
-
-    <div class="gender">
-      <label>
-        <input type="radio" name="gender" checked>
-        <span>Male</span>
-      </label>
-      <label>
-        <input type="radio" name="gender">
-        <span>Female</span>
-      </label>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label>First Name</label>
-        <div class="input-box">Kenzo</div>
-      </div>
-
-      <div class="form-group">
-        <label>Last Name</label>
-        <div class="input-box">Rivaldo</div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label>Email</label>
-      <div class="input-box wide">Kenzo@gmail.com</div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label>Date of Birth</label>
-        <div class="input-box">3 Juli 2009</div>
-      </div>
-
-      <div class="form-group">
-        <label>City of Residence</label>
-        <div class="input-box">Pontianak</div>
-      </div>
-    </div>
-
-    <p class="info">More informations..</p>
-  </main>
-</div>
-
-      
-
-<div class="aboutus">
-  <h2>What Our Customers Think About Us</h2>
+  <!-- Testimonials Section -->
+  <div class="aboutus">
+    <h2>What Our Customers Think About Us</h2>
   </div>
-  <hr class="shadow-line"></hr>
-  <section class="testimonial-section"></section>
-  <!-- Tombol panah di luar slideshow -->
-
-  <!-- Slideshow -->
+  <hr class="shadow-line">
+  
   <div id="Slideshow" class="testimonial-container">
-  <div class="testimonial-wrapper">
-    <div class="controls">
-    <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+    <div class="testimonial-wrapper">
+      <div class="controls">
+        <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+      </div>
+      <div class="testimonial">
+        <div class="avatar">😊</div>
+        <p>"Pemesanan Tiket Disini Sangat Cepat Intinya Gacor!"</p>
+        <h4>Kenzo Rivaldo</h4>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="testimonial">
+        <div class="avatar">😊</div>
+        <p>"Definitely one of the best experiences in town!"</p>
+        <h4>Marvin Arif Pratama</h4>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="testimonial">
+        <div class="avatar">😊</div>
+        <p>"Amazing service and quick response!"</p>
+        <h4>Daniel Federico Theodoric</h4>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="testimonial">
+        <div class="avatar">😊</div>
+        <p>"Friendly staff and excellent service!"</p>
+        <h4>Sandrika Marcella Jolie</h4>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="controls">
+        <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
+      </div>
+    </div>
   </div>
-    <div class="testimonial">
-      <div class="avatar">😊</div>
-      <p>"Pemesanan Tiket Disini Sangat Cepat Intinya Gacor!"</p>
-      <h4>Kenzo Rivaldo</h4>
-      <div class="stars">★★★★★</div>
-    </div>
 
-    <div class="testimonial">
-      <div class="avatar">😊</div>
-      <p>"Definitely one of the best burgers in town!"</p>
-      <h4>Marvin Arif Pratama</h4>
-      <div class="stars">★★★★★</div>
-    </div>
+  <hr class="shadow-line">
 
-    <div class="testimonial">
-      <div class="avatar">😊</div>
-      <p>"Amazing taste and quick service!"</p>
-      <h4>Daniel Federico Theodoric</h4>
-      <div class="stars">★★★★★</div>
-    </div>
-
-    <div class="testimonial">
-      <div class="avatar">😊</div>
-      <p>"Friendly staff and delicious food!"</p>
-      <h4>Sandrika Marcella Jolie</h4>
-      <div class="stars">★★★★★</div>
-    </div>
-        <div class="controls">
-    <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
-  </div>
-  </div>
-</div>
-
-
-
-</section>
-<hr class="shadow-line"></hr>
-<script src="../scripts/customer-data.js"></script>
-
-<footer class="footer">
+  <!-- Footer -->
+  <footer class="footer">
     <div class="footer-container">
-
       <div class="footer-left">
         <h2 class="logo">JetWay</h2>
         <p class="vision">Our vision is to provide the easiest and effortless travel plan for our customers.</p>
@@ -182,8 +191,6 @@
           <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
-
-
       <div class="footer-links">
         <div class="column">
           <h4>About</h4>
@@ -191,7 +198,7 @@
             <li><a href="#">How it works</a></li>
             <li><a href="#">Featured</a></li>
             <li><a href="#">Partnership</a></li>
-            <li><a href="#">Bussiness Relation</a></li>
+            <li><a href="#">Business Relation</a></li>
           </ul>
         </div>
         <div class="column">
@@ -214,8 +221,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Bottom -->
     <div class="footer-bottom">
       <p>©2025 Jetway. All rights reserved</p>
       <div class="policies">
@@ -226,5 +231,6 @@
   </footer>
 
   <script src="../scripts/customer-data.js"></script>
+
 </body>
 </html>

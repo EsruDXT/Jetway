@@ -1,49 +1,72 @@
-let currentIndex = 0;
-
-function changeSlide(direction) {
-  const wrapper = document.querySelector('.testimonial-wrapper');
-  const testimonials = document.querySelectorAll('.testimonial');
-  
-  const visibleCount = 3; // tampilkan 3 sekaligus
-  const total = testimonials.length;
-
-  currentIndex += direction;
-
-  if (currentIndex < 0) {
-    currentIndex = total - visibleCount;
-  } else if (currentIndex > total - visibleCount) {
-    currentIndex = 0;
-  }
-
-  wrapper.style.transform = `translateX(${-currentIndex * 280}px)`;
-}
-
-
-
-document.getElementById("logo").addEventListener("click", function (e) {
-    e.preventDefault(); 
-    const slideshow = document.getElementById("Slideshow");
-    const yOffset = -100; 
-    const y = slideshow.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-    window.scrollTo({
-        top: y,
-        behavior: "smooth"
+   // Load user data on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      loadUserData();
     });
-});
 
-const buttons = document.querySelectorAll('.menu button');
-const pages = document.querySelectorAll('.page');
+    function loadUserData() {
+      fetch('/backend/customer-datab.php', {
+        method: 'GET'
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          const userData = data.data;
+          
+          // Populate form fields
+          document.getElementById('first_name').value = userData.first_name || '';
+          document.getElementById('last_name').value = userData.last_name || '';
+          document.getElementById('date_of_birth').value = userData.date_of_birth || '';
+          document.getElementById('city').value = userData.city || '';
+          document.getElementById('phone').value = userData.phone || '';
+          document.getElementById('address').value = userData.address || '';
+          
+          // Set gender radio button
+          if (userData.gender === 'Male') {
+            document.getElementById('gender-male').checked = true;
+          } else if (userData.gender === 'Female') {
+            document.getElementById('gender-female').checked = true;
+          }
+          
+          // Update profile picture if exists
+          if (userData.profile_picture) {
+            document.getElementById('profile-pic-preview').src = '/uploads/profiles/' + userData.profile_picture;
+          }
+        }
+      })
+      .catch(error => {
+        console.error('Error loading user data:', error);
+      });
+    }
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    // hilangkan active dari semua tombol
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    // tampilkan konten sesuai data-page
-    const target = btn.getAttribute('data-page');
-    pages.forEach(p => p.classList.remove('active'));
-    document.getElementById(target).classList.add('active');
-  });
-});
+    // Handle form submission
+    document.getElementById('profile-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData();
+      formData.append('action', 'update_profile');
+      formData.append('first_name', document.getElementById('first_name').value);
+      formData.append('last_name', document.getElementById('last_name').value);
+      formData.append('gender', document.querySelector('input[name="gender"]:checked')?.value || '');
+      formData.append('date_of_birth', document.getElementById('date_of_birth').value);
+      formData.append('city', document.getElementById('city').value);
+      formData.append('phone', document.getElementById('phone').value);
+      formData.append('address', document.getElementById('address').value);
+      
+      fetch('/backend/customer-datab.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          alert('Profile updated successfully!');
+          loadUserData(); // Reload data
+        } else {
+          alert('Error: ' + data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while updating profile');
+      });
+    });
