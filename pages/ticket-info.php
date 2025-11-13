@@ -142,7 +142,7 @@
           <div style="font-size:20px; color:#2e85d8; font-weight:800;">Rp. 3.725.000</div>
         </div>
 
-        <button class="confirm-button">Confirm</button>
+        <button class="confirm-button" onclick="location.href='customer-data-input.php'">Confirm</button>
         <p style="text-align:center; font-size:13px; color:#6b7280; margin-top:8px;">By confirming, you agree to our <a href="#">Terms & Conditions</a></p>
       </div>
     </div>
