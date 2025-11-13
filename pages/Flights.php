@@ -89,11 +89,55 @@
                     </div>
                 </div>
 
-                <div class="action-buttons">
-                    <button class="sort-btn">Sort ▼</button>
-                    <button class="filter-btn-main">Filter ▼</button>
-                </div>
-            </div>
+<div class="action-buttons">
+  <button class="sort-btn" id="sortToggle">Sort ▼</button>
+  <!-- Dropdown Sort -->
+  <div class="sort-dropdown" id="sortDropdown">
+    <div class="sort-option selected">None <span>✔️</span></div>
+    <div class="sort-option" data-sort="desc">Highest to lowest price</div>
+    <div class="sort-option" data-sort="asc">Lowest to highest price</div>
+  </div>
+
+ <button class="filter-btn-main" id="filterToggle">Filter ▼</button>
+<div class="filter-dropdown" id="filterDropdown">
+
+    <h3>Filter</h3>
+    <div class="filter-columns">
+      <!-- Airlines -->
+      <div class="filter-group">
+        <h4>Airlines</h4>
+        <label><input type="checkbox" checked> Batik Air</label>
+        <label><input type="checkbox" checked> Citilink</label>
+        <label><input type="checkbox" checked> Garuda Air</label>
+        <label><input type="checkbox"> Lion Air</label>
+        <label><input type="checkbox"> Sriwijaya Air</label>
+        <label><input type="checkbox"> Union Air</label>
+      </div>
+
+      <!-- Flight Time -->
+      <div class="filter-group">
+        <h4>Flight Time</h4>
+        <label><input type="checkbox"> &lt;1 Hour Flight</label>
+        <label><input type="checkbox" checked> 1–3 Hour Flight</label>
+        <label><input type="checkbox" checked> 4–6 Hour Flight</label>
+        <label><input type="checkbox"> 7–9 Hour Flight</label>
+        <label><input type="checkbox"> &gt;10 Hour Flight</label>
+        <label><input type="checkbox"> Full Day Flight</label>
+      </div>
+
+      <!-- Class -->
+      <div class="filter-group">
+        <h4>Class</h4>
+        <label><input type="checkbox"> Basic Economy</label>
+        <label><input type="checkbox" checked> Economy</label>
+        <label><input type="checkbox" checked> Premium Economy</label>
+        <label><input type="checkbox" checked> Business Class</label>
+        <label><input type="checkbox"> First Class</label>
+        <label><input type="checkbox"> Private Class</label>
+      </div>
+    </div>
+  </div>
+</div>
 
             <!-- Flight List -->
             <div class="flight-list">
@@ -326,7 +370,6 @@
 </section>
 <hr class="shadow-line"></hr>
 
-  <script src="/scripts/Homepage.js"></script>
 
   <!-- Footer -->
  <footer class="footer">
@@ -366,7 +409,7 @@
           <h4>Socials</h4>
           <ul>
             <li><a href="#">TikTok</a></li>
-            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Instagram</a></li>  
             <li><a href="#">Twitter</a></li>
             <li><a href="#">Facebook</a></li>
           </ul>
@@ -384,6 +427,6 @@
     </div>
   </footer>
 
-  <script src="/scripts/Flights.js"></script>
+  <script src="/scripts/flights.js"></script>
 </body>
 </html>

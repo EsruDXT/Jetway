@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +41,34 @@
     <div id="loading-overlay">
       <div id="loading-text">🛫</div>
     </div>
+
+    <!-- Pop Up Microphone -->
+<div id="mic-popup" class="mic-popup">
+  <img src="/FOTO/Pop Out Mic.png" alt="Mic Listening" class="mic-image">
+</div>
+
+<!-- POPUP 1: Set Notification -->
+<div id="popup-setnotif" class="popup-overlay">
+  <div class="popup-card">
+    <img src="/FOTO/notif yes or no.PNG" alt="icon" class="popup-icon">
+    <h2>Set Notification On?</h2>
+    <div class="popup-btns">
+      <button id="notif-yes">Yes</button>
+      <button id="notif-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP 2: Notification Set -->
+<div id="popup-notifset" class="popup-overlay">
+  <div class="popup-card">
+    <img src="/FOTO/confirm notif.PNG" alt="icon" class="popup-icon">
+    <h2>Notification Set</h2>
+    <p>You will receive notifications from now on</p>
+    <button id="notif-confirm">Confirm</button>
+  </div>
+</div>
+
 
     <div class="slideshow-container">
       <img class="slide fade" src="/FOTO/foto 1.png" alt="journey">

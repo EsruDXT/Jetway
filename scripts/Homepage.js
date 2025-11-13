@@ -94,3 +94,51 @@ function autoShowSlides() {
   setTimeout(autoShowSlides, 4000); // Ganti gambar setiap 4 detik
 }
 
+const micButton = document.querySelector('.searchbar button:nth-child(3)'); // tombol mic
+const micPopup = document.getElementById('mic-popup');
+
+// Saat tombol mic diklik
+micButton.addEventListener('click', () => {
+  micPopup.style.display = 'flex';
+
+  // Tutup otomatis setelah 3 detik
+  setTimeout(() => {
+    micPopup.style.display = 'none';
+  }, 3000);
+});
+
+// Klik di luar gambar untuk menutup popup
+micPopup.addEventListener('click', (e) => {
+  if (e.target === micPopup) {
+    micPopup.style.display = 'none';
+  }
+});
+
+const notifIcon = document.querySelector('img[alt="iconnotif"]');
+const popupSetNotif = document.getElementById('popup-setnotif');
+const popupNotifSet = document.getElementById('popup-notifset');
+const btnYes = document.getElementById('notif-yes');
+const btnCancel = document.getElementById('notif-cancel');
+const btnConfirm = document.getElementById('notif-confirm');
+
+// Klik ikon → tampil popup Set Notification
+notifIcon.addEventListener('click', () => {
+  popupSetNotif.style.display = 'flex';
+});
+
+// Klik Yes → tutup popup pertama, buka popup kedua
+btnYes.addEventListener('click', () => {
+  popupSetNotif.style.display = 'none';
+  popupNotifSet.style.display = 'flex';
+});
+
+// Klik Cancel → tutup popup pertama
+btnCancel.addEventListener('click', () => {
+  popupSetNotif.style.display = 'none';
+});
+
+// Klik Confirm → tutup popup kedua
+btnConfirm.addEventListener('click', () => {
+  popupNotifSet.style.display = 'none';
+});
+

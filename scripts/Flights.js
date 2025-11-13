@@ -81,3 +81,79 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Toggle dropdown
+const sortBtn = document.getElementById("sortToggle");
+const sortDropdown = document.getElementById("sortDropdown");
+
+sortBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  sortDropdown.style.display = sortDropdown.style.display === "flex" ? "none" : "flex";
+});
+
+// Klik di luar dropdown → tutup
+document.addEventListener("click", () => {
+  sortDropdown.style.display = "none";
+});
+
+// Pilih opsi
+const sortOptions = document.querySelectorAll(".sort-option");
+sortOptions.forEach(option => {
+  option.addEventListener("click", () => {
+    // Hapus tanda dari sebelumnya
+    sortOptions.forEach(o => o.classList.remove("selected"));
+    option.classList.add("selected");
+
+    // Tampilkan opsi terpilih di tombol
+    sortBtn.textContent = `Sort ▼ (${option.textContent.trim()})`;
+
+    // Ambil jenis sort (asc/desc)
+    const sortType = option.getAttribute("data-sort");
+    if (sortType) sortFlights(sortType); // panggil fungsi sort
+  });
+});
+
+// Fungsi sort daftar penerbangan berdasarkan harga
+function sortFlights(order) {
+  const list = document.querySelector(".flight-list");
+  const cards = Array.from(list.querySelectorAll(".flight-card"));
+
+  cards.sort((a, b) => {
+    const priceA = parseInt(a.querySelector(".price").textContent.replace(/\D/g, ""));
+    const priceB = parseInt(b.querySelector(".price").textContent.replace(/\D/g, ""));
+    return order === "asc" ? priceA - priceB : priceB - priceA;
+  });
+
+  // Susun ulang elemen
+  cards.forEach(card => list.appendChild(card));
+}
+
+const filterButton = document.getElementById("filterButton");
+const filterMenu = document.getElementById("filterMenu");
+
+filterButton.addEventListener("click", (e) => {
+  e.stopPropagation();
+  filterMenu.classList.toggle("show");
+});
+
+// Klik di luar panel -> tutup
+document.addEventListener("click", (e) => {
+  if (!filterMenu.contains(e.target) && !filterButton.contains(e.target)) {
+    filterMenu.classList.remove("show");
+  }
+});
+
+const filterToggle = document.getElementById("filterToggle");
+const filterDropdown = document.getElementById("filterDropdown");
+
+filterToggle.addEventListener("click", (e) => {
+  e.stopPropagation();
+  filterDropdown.classList.toggle("show");
+});
+
+// Klik di luar -> tutup filter
+document.addEventListener("click", (e) => {
+  if (!filterDropdown.contains(e.target) && !filterToggle.contains(e.target)) {
+    filterDropdown.classList.remove("show");
+  }
+});

@@ -817,3 +817,95 @@ body {
   box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
 }
 
+/* ====== POP UP MICROPHONE ====== */
+.mic-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* layar redup */
+  display: none; /* disembunyikan dulu */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.mic-image {
+  width: 400px; /* atur sesuai ukuran yang pas */
+  border-radius: 32px;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.4);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== POPUP NOTIFICATION ===== */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none; /* sembunyikan dulu */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-card {
+  background: #fff;
+  border-radius: 25px;
+  padding: 30px 40px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.25s ease;
+  max-width: 400px;
+}
+
+.popup-icon {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.popup-btns {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.popup-btns button,
+#notif-confirm {
+  background: #3b82f6;
+  border: none;
+  color: white;
+  padding: 8px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.popup-btns button:hover,
+#notif-confirm:hover {
+  background: #2563eb;
+}
+
+#notif-cancel {
+  background: #9ca3af;
+}
+
+#notif-cancel:hover {
+  background: #6b7280;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
