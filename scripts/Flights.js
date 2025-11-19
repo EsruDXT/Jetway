@@ -128,32 +128,24 @@ function sortFlights(order) {
   cards.forEach(card => list.appendChild(card));
 }
 
-const filterButton = document.getElementById("filterButton");
-const filterMenu = document.getElementById("filterMenu");
+/* ===================== FILTER DROPDOWN ===================== */
 
-filterButton.addEventListener("click", (e) => {
-  e.stopPropagation();
-  filterMenu.classList.toggle("show");
-});
+const filterToggle = document.getElementById("filterToggle");     // tombol Filter ▼
+const filterDropdown = document.getElementById("filterDropdown"); // panel dropdown
 
-// Klik di luar panel -> tutup
-document.addEventListener("click", (e) => {
-  if (!filterMenu.contains(e.target) && !filterButton.contains(e.target)) {
-    filterMenu.classList.remove("show");
-  }
-});
-
-const filterToggle = document.getElementById("filterToggle");
-const filterDropdown = document.getElementById("filterDropdown");
-
+// Buka / tutup dropdown ketika tombol ditekan
 filterToggle.addEventListener("click", (e) => {
-  e.stopPropagation();
-  filterDropdown.classList.toggle("show");
+    e.stopPropagation();                  
+    filterDropdown.classList.toggle("show");
 });
 
-// Klik di luar -> tutup filter
+// Tutup dropdown ketika klik di luar
 document.addEventListener("click", (e) => {
-  if (!filterDropdown.contains(e.target) && !filterToggle.contains(e.target)) {
-    filterDropdown.classList.remove("show");
-  }
+    if (!filterDropdown.contains(e.target) &&
+        !filterToggle.contains(e.target)) {
+        filterDropdown.classList.remove("show");
+    }
 });
+
+
+

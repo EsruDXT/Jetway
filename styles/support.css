@@ -318,8 +318,10 @@ body {
 }
 
 .testimonial-wrapper {
+  position: relative;
   display: flex;
   transition: transform 0.5s ease-in-out;
+  align-items: center;
   color: #486284;
 }
 
@@ -376,8 +378,8 @@ body {
 .arrow {
   background: #c5d6f5;
   border: none;
-  width: 40px; 
-  height: 40px;
+  width: 40px;
+  height: 20px;
   border-radius: 50%;
   cursor: pointer;
   font-size: 20px;
@@ -388,7 +390,6 @@ body {
   justify-content: center;
   transition: background 0.3s ease, color 0.3s ease;
 }
-
 
 
 .arrow:hover {
@@ -593,3 +594,28 @@ body {
   box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
   transform: translateY(-3px);
 }
+
+/* Animasi & style FAQ */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: all 0.35s ease;
+}
+
+.faq-answer.show {
+    max-height: 1000px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.faq-arrow {
+    transition: 0.3s;
+}
+
+.faq-arrow.rotate {
+    transform: rotate(180deg);
+}
+

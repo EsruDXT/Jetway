@@ -80,3 +80,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+document.querySelectorAll(".faq-item").forEach(item => {
+    const question = item.querySelector(".faq-question");
+    const answer   = item.querySelector(".faq-answer");
+    const arrow    = item.querySelector(".faq-arrow");
+
+    question.addEventListener("click", () => {
+
+        answer.classList.toggle("show");
+        arrow.classList.toggle("rotate");
+    });
+});
+
+document.getElementById("bookNowBtn").addEventListener("click", function () {
+    window.location.href = "/pages/flights.php";  // ganti sesuai nama file flight kamu
+});
