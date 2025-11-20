@@ -142,3 +142,21 @@ btnConfirm.addEventListener('click', () => {
   popupNotifSet.style.display = 'none';
 });
 
+const toggleBtn = document.querySelector('.lang-dropdown-toggle');
+const modal = document.getElementById('langCurrencyModal');
+const closeBtn = document.querySelector('.lang-close');
+
+toggleBtn.addEventListener('click', () => {
+    modal.style.display = "block";
+});
+
+closeBtn.addEventListener('click', () => {
+    modal.style.display = "none";
+});
+
+// klik area hitam untuk menutup
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});

@@ -31,9 +31,10 @@
       <a href="ticket-info.php">My Booking</a>
       <a href="support.php">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
-      <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">
-      <nav></nav>
-      <i class="fas fa-chevron-down"></i>
+        <div class="lang-dropdown-toggle">
+            <img src="/FOTO/bendera indo.png" class="flag-icon">
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
       <a href="sign-in.php" class="btn ghost">Log In</a>
     </nav>
   </header>
@@ -46,6 +47,63 @@
 <div id="mic-popup" class="mic-popup">
   <img src="/FOTO/Pop Out Mic.png" alt="Mic Listening" class="mic-image">
 </div>
+
+<div id="langCurrencyModal" class="lang-modal">
+    <div class="lang-modal-content">
+        <span class="lang-close">&times;</span>
+
+        <div class="lang-modal-grid">
+            <div class="lang-section">
+                <h3>Language</h3>
+
+                <label class="lang-option">
+                    English <input type="checkbox" checked>
+                </label>
+                <label class="lang-option">
+                    Bahasa Indonesia <input type="checkbox">
+                </label>
+                <label class="lang-option">
+                    Spanish <input type="checkbox">
+                </label>
+                <label class="lang-option">
+                    Japanese <input type="checkbox">
+                </label>
+                <label class="lang-option">
+                    Korean <input type="checkbox">
+                </label>
+                <label class="lang-option">
+                    Mandarin <input type="checkbox">
+                </label>
+            </div>
+
+            <div class="lang-section">
+                <h3>Currency</h3>
+
+                <label class="lang-option">
+                    IDR - Indonesian Rupiah <input type="checkbox" checked>
+                </label>
+                <label class="lang-option">
+                    USD - US Dollar <input type="checkbox">
+                </label>
+                <label class="lang-option">
+                    EUR - Euro <input type="checkbox">
+                </label>
+                <label class="lang-option">
+                    JPY - Japanese Yen <input type="checkbox">
+                </label>
+                <label class="lang-option">
+                    KRW - Korean Won <input type="checkbox">
+                </label>
+                <label class="lang-option">
+                    CNY - Chinese Yuan <input type="checkbox">
+                </label>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
 
 <!-- POPUP 1: Set Notification -->
 <div id="popup-setnotif" class="popup-overlay">

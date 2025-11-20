@@ -172,3 +172,10 @@ function formatTime(time) {
 function formatPrice(price) {
     return new Intl.NumberFormat('id-ID').format(price);
 }
+
+function updatePriceDisplay(elementClass, price) {
+    const element = document.querySelector(`.${elementClass}`);
+    if (element) {
+        element.textContent = `Rp. ${formatPrice(price)}`;
+    }
+}
