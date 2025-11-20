@@ -1,4 +1,3 @@
-// Payment Page Handler
 document.addEventListener('DOMContentLoaded', function() {
     loadPaymentSummary();
     setupPaymentMethods();
@@ -24,7 +23,7 @@ function loadPaymentSummary() {
     
     currentTotal = totalPrice;
     
-    // Display flight info
+    // Display flight summary
     displayFlightSummary(flightData);
     
     // Display price breakdown
@@ -39,21 +38,22 @@ function displayFlightSummary(flight) {
     const flightCard = document.querySelector('.flight-card');
     if (!flightCard) return;
     
-    flightCard.querySelector('.flight-time:first-child').textContent = 
-        formatTime(flight.departure_time);
-    flightCard.querySelector('.flight-city:first-child').textContent = 
-        `${flight.departure_city} - ${flight.departure_airport}`;
-    flightCard.querySelector('.flight-time:last-child').textContent = 
-        formatTime(flight.arrival_time);
-    flightCard.querySelector('.flight-city:last-child').textContent = 
-        `${flight.arrival_city} - ${flight.arrival_airport}`;
-    flightCard.querySelector('.flight-duration').textContent = 
-        flight.duration;
+    const departureTime = flightCard.querySelector('.flight-time:first-child');
+    const departureCity = flightCard.querySelector('.flight-city:first-child');
+    const arrivalTime = flightCard.querySelector('.flight-time:last-child');
+    const arrivalCity = flightCard.querySelector('.flight-city:last-child');
+    const duration = flightCard.querySelector('.flight-duration');
+    
+    if (departureTime) departureTime.textContent = formatTime(flight.departure_time);
+    if (departureCity) departureCity.textContent = `${flight.departure_city} - ${flight.departure_airport}`;
+    if (arrivalTime) arrivalTime.textContent = formatTime(flight.arrival_time);
+    if (arrivalCity) arrivalCity.textContent = `${flight.arrival_city} - ${flight.arrival_airport}`;
+    if (duration) duration.textContent = flight.duration;
 }
 
 // Display price breakdown
 function displayPriceBreakdown(flight, passengerCount, addons) {
-    const basePrice = flight.price * passengerCount;
+    const basePrice = parseFloat(flight.price) * passengerCount;
     let addonTotal = 0;
     
     const priceDetails = document.querySelector('.price-details');
@@ -66,42 +66,40 @@ function displayPriceBreakdown(flight, passengerCount, addons) {
     priceDetails.innerHTML += `
         <div class="price-row">
             <span class="price-label">Original Price (${passengerCount} pax)</span>
-            <span class="price-value">Rp. ${formatPrice(basePrice)}</span>
+            <span class="price-value">Rp ${formatPrice(basePrice)}</span>
         </div>
     `;
     
-    // Add travel insurance if selected
+    // Add addons if selected
     if (addons.travel_insurance) {
         const insurancePrice = 225000 * passengerCount;
         addonTotal += insurancePrice;
         priceDetails.innerHTML += `
             <div class="price-row">
                 <span class="price-label">Travel Insurance</span>
-                <span class="price-value">Rp. ${formatPrice(insurancePrice)}</span>
+                <span class="price-value">Rp ${formatPrice(insurancePrice)}</span>
             </div>
         `;
     }
     
-    // Add baggage protection if selected
     if (addons.baggage_protection) {
         const baggagePrice = 30000 * passengerCount;
         addonTotal += baggagePrice;
         priceDetails.innerHTML += `
             <div class="price-row">
                 <span class="price-label">Baggage Protection</span>
-                <span class="price-value">Rp. ${formatPrice(baggagePrice)}</span>
+                <span class="price-value">Rp ${formatPrice(baggagePrice)}</span>
             </div>
         `;
     }
     
-    // Add delay compensation if selected
     if (addons.delay_compensation) {
         const delayPrice = 200000 * passengerCount;
         addonTotal += delayPrice;
         priceDetails.innerHTML += `
             <div class="price-row">
                 <span class="price-label">Delay Compensation</span>
-                <span class="price-value">Rp. ${formatPrice(delayPrice)}</span>
+                <span class="price-value">Rp ${formatPrice(delayPrice)}</span>
             </div>
         `;
     }
@@ -113,11 +111,13 @@ function setupPaymentMethods() {
     
     paymentOptions.forEach(option => {
         option.addEventListener('click', function() {
-            // Remove selected class from all options
+            // Remove selected class from all
             paymentOptions.forEach(opt => opt.classList.remove('selected'));
             
             // Add selected class to clicked option
             this.classList.add('selected');
+            this.style.borderColor = '#2e85d8';
+            this.style.backgroundColor = '#f0f9ff';
             
             // Store selected payment method
             const methodText = this.querySelector('span').textContent.trim();
@@ -135,15 +135,17 @@ function setupPaymentMethods() {
 // Setup voucher validation
 function setupVoucherValidation() {
     const voucherInput = document.querySelector('.voucher-input');
-    const voucherBtn = document.createElement('button');
-    voucherBtn.textContent = 'Apply';
-    voucherBtn.className = 'voucher-apply-btn';
-    voucherBtn.style.cssText = 'margin-left: 10px; padding: 8px 16px; background: #2e85d8; color: white; border: none; border-radius: 6px; cursor: pointer;';
     
-    if (voucherInput) {
-        voucherInput.parentElement.appendChild(voucherBtn);
+    // Create apply button if not exists
+    let applyBtn = document.querySelector('.voucher-apply-btn');
+    if (!applyBtn && voucherInput) {
+        applyBtn = document.createElement('button');
+        applyBtn.textContent = 'Apply';
+        applyBtn.className = 'voucher-apply-btn';
+        applyBtn.style.cssText = 'margin-left:10px;padding:8px 16px;background:#2e85d8;color:white;border:none;border-radius:6px;cursor:pointer;';
+        voucherInput.parentElement.appendChild(applyBtn);
         
-        voucherBtn.addEventListener('click', function() {
+        applyBtn.addEventListener('click', function() {
             const voucherCode = voucherInput.value.trim();
             
             if (!voucherCode) {
@@ -170,19 +172,18 @@ function validateVoucherCode(code) {
     .then(response => response.json())
     .then(data => {
         if (data.status === 'success') {
-            alert(data.message);
+            alert('Voucher applied: ' + data.message);
             
-            // Update total with discount
-            const discountAmount = data.discount;
+            const discountAmount = parseFloat(data.discount);
             const newTotal = currentTotal - discountAmount;
             
-            // Add discount row to price details
+            // Add discount row
             const priceDetails = document.querySelector('.price-details');
             const discountRow = document.createElement('div');
             discountRow.className = 'price-row discount-row';
             discountRow.innerHTML = `
-                <span class="price-label" style="color: #22c55e;">Discount (${code})</span>
-                <span class="price-value" style="color: #22c55e;">- Rp. ${formatPrice(discountAmount)}</span>
+                <span class="price-label" style="color:#22c55e;">Discount (${code})</span>
+                <span class="price-value" style="color:#22c55e;">- Rp ${formatPrice(discountAmount)}</span>
             `;
             priceDetails.appendChild(discountRow);
             
@@ -190,12 +191,11 @@ function validateVoucherCode(code) {
             updateTotalDisplay(newTotal);
             currentTotal = newTotal;
             
-            // Store voucher code
+            // Store voucher
             sessionStorage.setItem('voucher_code', code);
             sessionStorage.setItem('discount_amount', discountAmount);
-            
         } else {
-            alert(data.message);
+            alert('Voucher error: ' + data.message);
         }
     })
     .catch(error => {
@@ -209,13 +209,24 @@ function setupConfirmPayment() {
     const confirmBtn = document.querySelector('.confirm-btn');
     
     if (confirmBtn) {
-        confirmBtn.addEventListener('click', function() {
+        confirmBtn.addEventListener('click', async function() {
             if (!selectedPaymentMethod) {
                 alert('Please select a payment method');
                 return;
             }
             
-            processBookingAndPayment();
+            // Show loading
+            confirmBtn.disabled = true;
+            confirmBtn.textContent = 'Processing...';
+            
+            try {
+                await processBookingAndPayment();
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Payment failed: ' + error.message);
+                confirmBtn.disabled = false;
+                confirmBtn.textContent = 'Confirm';
+            }
         });
     }
 }
@@ -228,9 +239,6 @@ async function processBookingAndPayment() {
     const voucherCode = sessionStorage.getItem('voucher_code') || '';
     
     try {
-        // Show loading
-        showLoading();
-        
         // Step 1: Create booking
         const bookingData = await createBooking(flightId, passengerCount, addons);
         
@@ -249,21 +257,17 @@ async function processBookingAndPayment() {
         
         // Success - store booking code and redirect
         sessionStorage.setItem('booking_code', paymentData.booking_code);
-        sessionStorage.setItem('booking_id', bookingId);
-        
-        hideLoading();
+        sessionStorage.setItem('transaction_id', paymentData.transaction_id);
         
         // Redirect to confirmation page
         window.location.href = '/pages/confirmed.php';
         
     } catch (error) {
-        hideLoading();
-        console.error('Error:', error);
-        alert('Payment failed: ' + error.message);
+        throw error;
     }
 }
 
-// Create booking
+// Create booking via API
 function createBooking(flightId, passengerCount, addons) {
     const formData = new FormData();
     formData.append('action', 'create_booking');
@@ -280,7 +284,7 @@ function createBooking(flightId, passengerCount, addons) {
     }).then(response => response.json());
 }
 
-// Process payment
+// Process payment via API
 function processPayment(bookingId, paymentMethod, voucherCode) {
     const formData = new FormData();
     formData.append('action', 'process_payment');
@@ -298,7 +302,7 @@ function processPayment(bookingId, paymentMethod, voucherCode) {
 function updateTotalDisplay(amount) {
     const totalElement = document.querySelector('.total-value');
     if (totalElement) {
-        totalElement.textContent = `Rp. ${formatPrice(amount)}`;
+        totalElement.textContent = `Rp ${formatPrice(amount)}`;
     }
 }
 
@@ -309,32 +313,4 @@ function formatTime(time) {
 
 function formatPrice(price) {
     return new Intl.NumberFormat('id-ID').format(price);
-}
-
-function showLoading() {
-    const overlay = document.createElement('div');
-    overlay.id = 'payment-loading';
-    overlay.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.7);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        color: white;
-        font-size: 24px;
-    `;
-    overlay.innerHTML = '<div>Processing payment... Please wait</div>';
-    document.body.appendChild(overlay);
-}
-
-function hideLoading() {
-    const overlay = document.getElementById('payment-loading');
-    if (overlay) {
-        overlay.remove();
-    }
 }

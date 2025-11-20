@@ -157,3 +157,42 @@ document.addEventListener("click", (e) => {
     filterDropdown.classList.remove("show");
   }
 });
+
+document.querySelectorAll('.choose-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const flightCard = this.closest('.flight-card');
+        const flightId = flightCard.dataset.flightId; // Harus ditambahkan data-flight-id di HTML
+        
+        // Simpan ke session storage
+        sessionStorage.setItem('selected_flight_id', flightId);
+        sessionStorage.setItem('passenger_count', 1); // Default 1 penumpang
+        
+        // Redirect ke ticket info
+        window.location.href = '/pages/ticket-info.php';
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const chooseButtons = document.querySelectorAll('.choose-btn');
+    
+    chooseButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const flightCard = this.closest('.flight-card');
+            const flightId = flightCard.dataset.flightId;
+            const price = flightCard.dataset.price;
+            
+            if (!flightId) {
+                alert('Flight ID not found');
+                return;
+            }
+            
+            // Simpan data flight ke sessionStorage
+            sessionStorage.setItem('selected_flight_id', flightId);
+            sessionStorage.setItem('passenger_count', 1); // Default 1 penumpang
+            sessionStorage.setItem('base_price', price);
+            
+            // Redirect ke halaman ticket info
+            window.location.href = '/pages/ticket-info.php';
+        });
+    });
+});
