@@ -142,7 +142,7 @@
             <!-- Flight List -->
             <div class="flight-list">
                 <!-- Batik Air -->
-                <div class="flight-card">
+                <div class="flight-card" data-flight-id="1">
                     <div class="airline-info">
                         <img src="/FOTO/logo Batik Air.png" alt="Batik Air" class="airline-logo">
                         <span class="airline-name">Batik Air</span>
@@ -177,7 +177,7 @@
                 </div>
 
                 <!-- Lion Air -->
-                <div class="flight-card">
+                <div class="flight-card"  data-flight-id="2">
                     <div class="airline-info">
                         <img src="/FOTO/logo Lion air.png" alt="Lion Air" class="airline-logo">
                         <span class="airline-name">Lion Air</span>
@@ -212,7 +212,7 @@
                 </div>
 
                 <!-- Garuda Air -->
-                <div class="flight-card">
+                <div class="flight-card" data-flight-id="3">
                     <div class="airline-info">
                         <img src="/FOTO/logo Garuda.png" alt="Garuda Air" class="airline-logo">
                         <span class="airline-name">Garuda Air</span>
@@ -247,7 +247,7 @@
                 </div>
 
                 <!-- Citilink -->
-                <div class="flight-card">
+                <div class="flight-card" data-flight-id="4">
                     <div class="airline-info">
                         <img src="/FOTO/logo Citilink.png" alt="Citilink" class="airline-logo">
                         <span class="airline-name">Citilink</span>
@@ -282,7 +282,7 @@
                 </div>
 
                 <!-- Sriwijaya Air -->
-                <div class="flight-card">
+                <div class="flight-card" data-flight-id="5">
                     <div class="airline-info">
                         <img src="/FOTO/logo Sriwijaya.png" alt="Sriwijaya Air" class="airline-logo">
                         <span class="airline-name">Sriwijaya Air</span>
@@ -428,5 +428,6 @@
   </footer>
 
   <script src="/scripts/flights.js"></script>
+  <script src="/scripts/flight-booking.js"></script>
 </body>
 </html>

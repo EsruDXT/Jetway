@@ -177,3 +177,12 @@ function updatePriceDisplay(elementClass, price) {
         element.textContent = `Rp. ${formatPrice(price)}`;
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const flightData = JSON.parse(sessionStorage.getItem('flight_data'));
+    const passengerCount = sessionStorage.getItem('passenger_count');
+    
+    if (flightData) {
+        displayFlightOnPage(flightData, passengerCount);
+    }
+});
