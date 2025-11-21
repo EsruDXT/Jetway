@@ -119,10 +119,8 @@ session_start();
           </div>
         </div>
 
-        <button class="confirm-button">Confirm</button>
-        <p style="text-align:center; font-size:13px;">
-          By confirming, you agree to our <a href="#">Terms & Conditions</a>
-        </p>
+        <button class="confirm-button" onclick="location.href='customer-data-input.php'">Confirm</button>
+        <p style="text-align:center; font-size:13px; color:#6b7280; margin-top:8px;">By confirming, you agree to our <a href="#">Terms & Conditions</a></p>
       </div>
 
     </div>
