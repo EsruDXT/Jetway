@@ -560,7 +560,7 @@ body {
 }
 
 #content.visible {
-  opacity: 1;
+opacity:1;
 }
 
 .nav-links a {
