@@ -16,7 +16,7 @@ function changeSlide(direction) {
   }
 
   wrapper.style.transform = `translateX(${-currentIndex * 280}px)`;
-}
+};
 
 
 
@@ -77,6 +77,22 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.href = href;
         }, 800);
       }
-    });
-  });
+    });
+  });
+});
+
+document.querySelectorAll(".faq-item").forEach(item => {
+    const question = item.querySelector(".faq-question");
+    const answer   = item.querySelector(".faq-answer");
+    const arrow    = item.querySelector(".faq-arrow");
+
+    question.addEventListener("click", () => {
+
+        answer.classList.toggle("show");
+        arrow.classList.toggle("rotate");
+    });
+});
+
+document.getElementById("bookNowBtn").addEventListener("click", function () {
+    window.location.href = "/pages/flights.php";  // ganti sesuai nama file flight kamu
 });

@@ -307,6 +307,7 @@ body {
     }
 }
 
+/* Testimonials */
 .testimonial-section {
   text-align: center;
 }
@@ -353,8 +354,6 @@ body {
 
 .aboutus{
   color: #486284;
-  margin-top: 120px;
-  margin-left: 15px;
 }
 
 .shadow-line{
@@ -559,7 +558,7 @@ body {
 }
 
 #content.visible {
-  opacity: 1;
+opacity:1;
 }
 
 .nav-links a {
@@ -592,4 +591,28 @@ body {
   background-color: #0062d1;
   box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
   transform: translateY(-3px);
+}
+
+/* Animasi & style FAQ */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: all 0.35s ease;
+}
+
+.faq-answer.show {
+    max-height: 1000px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.faq-arrow {
+    transition: 0.3s;
+}
+
+.faq-arrow.rotate {
+    transform: rotate(180deg);
 }
