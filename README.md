@@ -28,33 +28,66 @@ cd Jetway
 ## Architecture
 ```
 📁 Jetway
-├── 📁 html
-│   ├── Flight.html (Still in development)
-│   ├── Homepage.html
-│   ├── sign_in.html
-│   └── sign up.html
-├── 📁 css
-│   ├── style.css
-│   ├── sign_in.css
-│   └── sign up.css
-├── 📁 js
-│   ├── Flight.js (Still in development)
-│   ├── Homepage.js
-│   ├── sign_in.js
-│   └── sign up.js
+├── 📁 backend
+│   ├── 📁 config
+│   │   └── db-connection.php
+│   ├── customer-datab.php
+│   ├── logout.php
+│   ├── signinb.php
+│   └── signupb.php
 ├── 📁 FOTO
 │   ├── bendera indo.png
+│   ├── checkmark.png
 │   ├── explore.png
 │   ├── foto 1.png
-│   ├── icon mikrofon.png
-│   ├── kawah ijen.png
-│   ├── notif.png
-│   ├── pulau komodo 1.png
-│   ├── raja ampat.png
-│   ├── search button.png
-│   ├── sign in bg.png
+│   ├── googlemapimmanuel.png
+│   ├── icon flight.png
+│   ├── icon history.png
+│   ├── icon logout.png
+│   ├── icon mikorofon.png
+│   ├── icon password.png
 │   └── ... 
-└── 📄 README.md 
+├── 📁 header
+│   └── header.php
+📁 pages
+│   ├── confirmed.php
+│   ├── customer-data-input.php
+│   ├── customer-data.php
+│   ├── flight-history.php
+│   ├── flights.php
+│   ├── Homepage.php
+│   ├── login&password.php
+│   ├── payment.php
+│   ├── sign-in.php
+│   ├── sign-up.php
+│   ├── support.php
+│   └── ticket-info.php
+├── 📁 scripts
+│   ├── customer-data-input.js
+│   ├── customer-data.js
+│   ├── flight-history.js
+│   ├── flights.js
+│   ├── Homepage.js
+│   ├── login&password.js
+│   ├── sign-in.js
+│   ├── sign-up.js
+│   ├── support.js
+│   └── ticket-info.js
+├── 📁 styles
+│   ├── confirmed.css
+│   ├── customer-data-input.css
+│   ├── customer-data.css
+│   ├── flight-history.css
+│   ├── flights.css
+│   ├── Homepage.css
+│   ├── login&password.css
+│   ├── payment.css
+│   ├── sign-in.css
+│   ├── sign-up.css
+│   ├── support.css
+│   └── ticket-info.css
+├── 📄 LICENSE
+└── 📄 README.md
 ```
 <img width="12" height="12" alt="figma" src="https://github.com/user-attachments/assets/a5a50280-668e-431b-9e2e-30198780c820" /> Figma : https://www.figma.com/design/Mv0D8FqcrNlTo0Q05kVONT/PWL-KEL-2?node-id=0-1&t=pVPa1YqSpJNibc09-1
 
