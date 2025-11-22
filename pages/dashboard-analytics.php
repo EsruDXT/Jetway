@@ -6,6 +6,7 @@
     <title>Jetway - Dashboard Analytics</title>
     <link rel="stylesheet" href="/styles/dashboard-analytics.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
      <div class="app">
@@ -23,35 +24,11 @@
       <div class="menu-item"><i class="fa fa-plane"></i> Flights</div>
       <div class="menu-item active"><i class="fa fa-users"></i> Users</div>
     </div>
-
-    <div class="menu-section">
-      <div class="menu-title">Update</div>
-      <div class="menu-item"><i class="fa fa-upload"></i> Update</div>
-    </div>
   </div>
 
 
     <!-- Main -->
     <main class="main">
-    
-      <div class="topbar">
-    <div class="searchbar">
-        <input type="search" placeholder="Search..." />
-        <button>
-            <img src="/FOTO/search button.png" alt="iconcari" width="24" height="24">
-        </button>
-        <button>
-            <img src="/FOTO/icon mikrofon.png" alt="iconmic" width="18" height="18">
-        </button>
-    </div>
-     <div class="profile-container">
-        <img src="/FOTO/person.png" alt="Profile">
-    </div>
-</div>
-
-
-
-
       <!-- Content -->
       <section class="content">
 
