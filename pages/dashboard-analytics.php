@@ -10,20 +10,26 @@
 <body>
      <div class="app">
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="logo">JetWay</div>
-        <div class="small"><b>Admin</b></div>
-      </div>
+   <div class="sidebar">
+    <div class="logo">JetWay<br><span class="admin-text">Admin</span></div>
 
-      <nav class="menu">
-        <button class="menu-item active">📊 Dashboard</button>
-        <button class="menu-item">📈 Analytics</button>
-        <button class="menu-item">🗂 Management</button>
-        <button class="menu-item">🔄 Update</button>
-      </nav>
-    </aside>
+    <div class="menu-section">
+      <div class="menu-title">Dashboard</div>
+      <div class="menu-item"><i class="fa fa-chart-line"></i> Analytics</div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-title">Management</div>
+      <div class="menu-item"><i class="fa fa-plane"></i> Flights</div>
+      <div class="menu-item active"><i class="fa fa-users"></i> Users</div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-title">Update</div>
+      <div class="menu-item"><i class="fa fa-upload"></i> Update</div>
+    </div>
+  </div>
+
 
     <!-- Main -->
     <main class="main">
