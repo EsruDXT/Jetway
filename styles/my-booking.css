@@ -1,0 +1,1021 @@
+/* Navbar and General Styles */
+@media (min-width: 1400px) {
+  .container, .footer-container, .search-card {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .left-banner, .right-cards {
+    max-width: 600px;
+  }
+  .card img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (min-width: 1800px) {
+  .container, .footer-container, .search-card {
+    max-width: 1500px;
+  }
+  .left-banner, .right-cards {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container, .footer-container, .search-card {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+}
+/* Responsive Design Improvements */
+@media (max-width: 1024px) {
+  .search-card {
+    width: 95vw;
+    margin-right: 0;
+    padding: 10px;
+  }
+  .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .left-banner, .right-cards {
+    width: 100%;
+    height: auto;
+  }
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 5vw;
+  }
+  .logo1 {
+    font-size: 22px;
+  }
+  .searchbar {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .nav-links .btn {
+    width: 100%;
+    margin-left: 0;
+    padding: 10px 0;
+  }
+  .banner-text {
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 0 10px;
+  }
+  .search-card {
+    width: 100vw;
+    margin: 0;
+    padding: 8px;
+  }
+  .row {
+    grid-template-columns: 1fr;
+  }
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+  }
+  .footer {
+    padding: 20px 10px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo1 {
+    font-size: 16px;
+  }
+  .banner-text h1 {
+    font-size: 20px;
+  }
+  .banner-text p {
+    font-size: 12px;
+  }
+  .btnbook {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 0;
+  }
+  .testimonial {
+    min-width: 180px;
+    max-width: 180px;
+    padding: 10px;
+  }
+}
+:root{
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --ink:#1f2937;
+  --muted:#6b7280;
+  --brand:#384a62;
+  --brand-2:#2a3b54;
+  --line:#e5e7eb;
+  --radius:18px;
+  --shadow:0 8px 28px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+html,body{
+margin:0;
+font-family:Inter,system-ui,Arial,sans-serif;
+color:var(--ink);
+background:var(--bg)}
+
+a{color:inherit;text-decoration:none}
+.btn{background:var(--brand);color:#fff;border:none;border-radius:999px;padding:.75rem 1.2rem;font-weight:600;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--brand);border:1px solid var(--brand);}
+.btn.primary{background:#60aaff}
+.btn:focus{outline:3px solid #c8d4ea;outline-offset:2px}
+
+/* ini navbar */
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 20px;
+border-bottom:1px solid var(--line);
+background:#fff;position:sticky;top:0;z-index:50}
+
+.nav-links a.active{color:var(--ink);font-weight:600;background:#f0f3f8}
+
+.logo1{
+font-weight:700;
+font-size:30px;
+letter-spacing:.5px;
+color: #364E6E;
+}
+
+.nav-left{
+display:flex;
+align-items:center;
+gap:16px}
+
+.searchbar{
+display:flex;
+width: 350px;
+border:1px solid var(--line);
+border-radius:999px;
+overflow:hidden;
+margin-left: 30px;
+}
+
+.searchbar input{border:none;padding:.5rem .8rem;min-width:240px}
+.searchbar button{border:none;background:transparent;padding:.5rem .8rem;cursor:pointer}
+.nav-links{display:flex;align-items:center;gap:16px}
+.nav-links a{padding:8px 10px;border-radius:10px;color:var(--muted)}
+.nav-links a.active{color:var(--ink);font-weight:600;background:#f0f3f8}
+.nav-links .btn{
+color: #f0f3f8;
+margin-left:6px;
+background-color: #006eff;
+}
+
+.nav-links .btn {
+  color: #f0f3f8;
+  margin-left: 6px;
+  background-color: #006eff;
+  border: none;
+  border-radius: 0;
+  padding: 10px 28px;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.banner-text {
+  position: absolute;
+  bottom: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  text-align: right;
+  color: white;
+}
+
+.banner-text h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.banner-text p {
+  font-size: 16px;
+  margin: 10px 0 20px;
+}
+
+.btnbook {
+  background: white;
+  color: #486284;
+  border: none;
+  width: 250px;
+  margin-top: -10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+/* ini yg one trip round trip */
+.search-card {
+  width: 1250px;
+  margin: -40px auto 24px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  border: 1px solid var(--line);
+  margin-top: 20px;
+  margin-right: 210px;
+}
+
+.triptype {
+  border: none;
+  display: flex;
+  gap: 20px;
+  margin: 0 0 12px 4px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.field input,
+.field select {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: .75rem .9rem;
+  font-size: 15px;
+}
+
+.combo {
+  display: flex;
+  gap: 8px;
+}
+
+.combo input {
+  flex: 1;
+}
+
+.combo button {
+  border: 1px solid var(--line);
+  background: #f6f7fb;
+  border-radius: 12px;
+  padding: 0 .75rem;
+  cursor: pointer;
+}
+
+.actions{display:flex;align-items:flex-end}
+.actions .btn{width:100%}
+
+.help{color:var(--muted);font-size:13px;margin:10px 2px 0}
+
+.footer{border-top:1px solid var(--line);padding:18px;text-align:center;color:var(--muted);background:#fff}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr 1fr}
+  .actions{grid-column:1 / -1}
+}
+@media (max-width:520px){
+  .row{grid-template-columns:1fr}
+}
+
+
+.btn-primary {
+  background: #006eff;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+}
+
+.btn-secondary {
+  background: #f0f3f8;
+  color: var(--brand);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #4a5568;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  font-weight: 500;
+}
+
+/* Efek hover timbul */
+.nav-links a:hover {
+  background-color: #f0f4ff;
+  color: #1a202c;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+/* Tombol Log In — tidak ubah ukuran, tidak pakai radius */
+.nav-links .btn.ghost {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 0; /* tidak membulat */
+  transition: all 0.25s ease;
+}
+
+/* Hover efek timbul tapi tidak ubah ukuran */
+.nav-links .btn.ghost:hover {
+  background-color: #0062d1;
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+:root{
+  --blue:#2f7ed6;
+  --muted:#6b7a92;
+  --border:#d9e7f8;
+  font-family:Inter,Arial;
+}
+
+/* FRAME */
+.page-frame{
+  padding:30px;
+  background:#f5f9ff;
+  display:flex;
+  justify-content:center;
+}
+
+.dashboard-inner{
+  width:1100px;
+  border:5px solid #c7d7ec;
+  border-radius:8px;
+  padding:25px;
+  background:white;
+}
+
+/* TOP STATS */
+.stats-row {
+  display: flex;
+  gap: 40px;
+  padding-bottom: 20px;
+}
+
+.stat-card {
+  width: 320px;
+  background: #f7fbff;
+  padding: 10px 28px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.stat-title {
+  font-size: 20px;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+}
+
+/* Angka besar */
+.stat-number {
+  font-size: 38px;
+  font-weight: 700;
+  color: #1f6fdc;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Kotak garis putus-putus */
+.stat-badge {
+  border: 2px dashed #a5c4ef;
+  border-radius: 10px;
+  padding: 10px 14px 10px 14px;
+  color: #1f6fdc;
+  font-size: 16px;
+  width: fit-content;
+  position: relative;
+  top: -10px;            /* naikkan sedikit agar tampak di bawah angka */
+}
+
+
+/* MAIN PANEL */
+.panel{
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 6px 25px rgba(0,0,0,0.06);
+}
+
+/* FILTER BUTTONS */
+.panel-controls{
+  display:flex;
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.filter-btn{
+  background:var(--blue);
+  padding:10px 16px;
+  color:white;
+  border-radius:8px;
+  font-size:14px;
+}
+
+/* BOOKING LIST AREA */
+.booking-area{
+  background:#f7fbff;
+  border:1px solid #e0ecff;
+  border-radius:16px;
+  padding:25px;
+}
+
+/* BOOKING CARD FIXED */
+.booking-card{
+  background:white;
+  border-radius:40px;
+  display:flex;
+  align-items:center;
+  padding:20px 25px;
+  gap:25px;
+  width:92%;
+  margin: auto;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* LEFT SIDE */
+.left{
+  width:110px;
+  text-align:center;
+}
+
+.airline-logo{
+  width:65px;
+  height:65px;
+  object-fit:cover;
+  border-radius:14px;
+}
+
+.airline-name{
+  margin-top:8px;
+  font-weight:700;
+  color:#2b4d7c;
+  font-size:15px;
+}
+
+/* CENTER PART FIXED */
+.center{
+  flex:1;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.time-block .time{
+  font-size:26px;
+  font-weight:700;
+  color:#2b4d7c;
+}
+
+.airport{
+  font-size:14px;
+  color:#557499;
+  margin-top:4px;
+}
+
+.small{
+  font-size:12px;
+  color:#8aa3c4;
+}
+
+/* ROUTE PILL – EXACT LOOK */
+.route{
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  align-items:center;
+}
+
+.direct{
+  font-size:14px;
+  padding:6px 14px;
+  border-radius:20px;
+  border:1px solid #d2e4ff;
+  background:#f5faff;
+  color:#4073d6;
+}
+
+.arrow1 {
+  background: #c5d6f5;
+  border: none;
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2a4e85;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.duration{
+  font-size:13px;
+  color:#7c90ab;
+}
+
+/* RIGHT PRICE FIXED */
+.right{
+  width:140px;
+}
+
+.price-box{
+  background:white;
+  border-radius:18px;
+  border:1px solid #dce8ff;
+  padding:12px;
+  text-align:left;
+  box-shadow:0 4px 18px rgba(0,0,0,0.05);
+}
+
+.duration-short{
+  font-size:13px;
+  color:#6a85a8;
+}
+
+.price{
+  margin-top:4px;
+  color:#1f5ead;
+}
+
+.big{
+  font-size:16px;
+  font-weight:800;
+  display:block;
+  margin-top:4px;
+}
+
+.meta{
+  margin-top:8px;
+  font-size:12px;
+  color:#7c8fa8;
+}
+
+/* FOOTER */
+.panel-footer {
+  display: flex;
+  flex-direction: column;   /* <— ini bikin turun ke bawah */
+  align-items: flex-start;  /* biar rata kiri */
+  gap: 10px;                /* jarak tulisan & tombol */
+  margin-top: 22px;
+  padding: 0 5px;
+  padding-top: 50px;
+  transition: all 0.25s ease;   /* <— penting */
+}
+
+.book-btn:hover {
+  background: #1f6ad1;   /* sedikit lebih gelap */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+
+.book-btn{
+  background:#2f80e5;
+  color:white;
+  padding:12px 18px;
+  border-radius:8px;
+  border:none;
+  font-weight:600;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+
+
+/* Testimonials */
+.testimonial-section {
+  text-align: center;
+}
+
+.testimonial-container {
+  overflow: hidden;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.testimonial-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  color: #486284;
+}
+
+.testimonial {
+  min-width: 260px;
+  max-width: 260px;
+  margin: 0 10px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  background: #c5d6f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.stars {
+  color: #2a4e85;
+  font-size: 18px;
+  margin-top: 8px;
+}
+
+.aboutus{
+  color: #486284;
+}
+
+.shadow-line{
+  /* garis hitam */
+  border: 0.5px solid rgb(176, 173, 173);
+  /* bayangan */
+  box-shadow: 4px 6px 12px rgba(176, 173, 173);
+  border-radius: 1px;
+}
+
+/* Tombol panah di luar slideshow */
+.controls{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.arrow {
+  background: #c5d6f5;
+  border: none;
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2a4e85;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+
+
+.arrow:hover {
+  background: #2a4e85;
+  color: white;
+}
+
+
+/* Footer */
+.footer {
+  background-color: #667080;
+  color: #fff;
+  padding: 40px 80px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+/* Left part */
+.footer-left {
+  max-width: 300px;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: justify;
+  color: #fff;
+}
+
+.vision {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.social-icons{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #0055ff;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: #374151;
+  color: #fff;
+}
+
+/* Right links */
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  flex:1;
+  max-width: 600px; 
+}
+
+footer-links .column {
+  flex: 1; 
+}
+
+.footer-links h4 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #e5e7eb;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Bottom */
+.footer-bottom {
+  margin-top: 40px;
+  border-top: 1px solid #9ca3af;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #e5e7eb;
+}
+
+.policies a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #e5e7eb;
+}
+
+.policies a:hover {
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Overlay loading (latar belakang redup) */
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* efek redup */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+/* Sembunyikan overlay */
+#loading-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Pesawat di tengah layar */
+#loading-text {
+  font-size: 40px;
+  color: white;
+}
+
+/* Konten utama */
+#content {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+#content.visible {
+  opacity: 1;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 450px; /* Atur tinggi sesuai keinginanmu */
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crop otomatis agar proporsi pas */
+  display: none;
+}
+
+.fade {
+  animation: fadeEffect 1.5s;
+}
+
+@keyframes fadeEffect {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* Menu umum (Home, Flights, My Booking, Support) */
+.nav-links a {
+  text-decoration: none;
+  color: #4a5568;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  font-weight: 500;
+}
+
+/* Efek hover timbul */
+.nav-links a:hover {
+  background-color: #f0f4ff;
+  color: #1a202c;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+/* Tombol Log In — tidak ubah ukuran, tidak pakai radius */
+.nav-links .btn.ghost {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 0; /* tidak membulat */
+  transition: all 0.25s ease;
+}
+
+/* Hover efek timbul tapi tidak ubah ukuran */
+.nav-links .btn.ghost:hover {
+  background-color: #0062d1;
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Tombol Search Ticket */
+.btn.primary {
+  background-color: #62a8ff; /* warna biru lembut */
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px; /* bentuk oval */
+  padding: 12px 32px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Efek hover timbul */
+.btn.primary:hover {
+  background-color: #4d9bff; /* biru sedikit lebih gelap */
+  box-shadow: 0 6px 15px rgba(77, 155, 255, 0.4); /* efek timbul */
+  transform: translateY(-3px); /* sedikit naik */
+}
+
+/* Agar klik terasa natural */
+.btn.primary:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(77, 155, 255, 0.3);
+}
+
+/* Tombol Book Now */
+.btnbook {
+  background-color: #ffffff; /* biru utama */
+  color: #67809b;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px; /* bentuk oval */
+  padding: 12px 32px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Efek hover timbul */
+.btnbook:hover {
+  background-color: #0066d6; /* biru sedikit lebih gelap */
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4); /* efek bayangan lembut */
+  transform: translateY(-3px); /* sedikit naik */
+}
+
+/* Efek saat ditekan */
+.btnbook:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Area ikon media sosial */
+.footer-left .social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  background-color: #f0f4ff;
+  color: #007bff;
+  border-radius: 50%; /* bulat sempurna */
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.25s ease;
+}
+
+/* Efek hover timbul */
+.footer-left .social-icons a:hover {
+  background-color: #007bff;
+  color: #fff;
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Saat ditekan (klik) */
+.footer-left .social-icons a:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
+}
