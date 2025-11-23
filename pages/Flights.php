@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="./styles/main.css" rel="stylesheet" />
+
 </head>
 <body>
   <header class="nav">
@@ -428,6 +429,5 @@
   </footer>
 
   <script src="/scripts/flights.js"></script>
-  <script src="/scripts/flight-booking.js"></script>
 </body>
 </html>

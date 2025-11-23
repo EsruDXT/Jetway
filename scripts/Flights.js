@@ -1,190 +1,166 @@
 let currentIndex = 0;
 
 function changeSlide(direction) {
-  const wrapper = document.querySelector('.testimonial-wrapper');
-  const testimonials = document.querySelectorAll('.testimonial');
-  
-  const visibleCount = 3; // tampilkan 3 sekaligus
-  const total = testimonials.length;
+    const wrapper = document.querySelector('.testimonial-wrapper');
+    const testimonials = document.querySelectorAll('.testimonial');
 
-  currentIndex += direction;
+    const visibleCount = 3;
+    const total = testimonials.length;
 
-  if (currentIndex < 0) {
-    currentIndex = total - visibleCount;
-  } else if (currentIndex > total - visibleCount) {
-    currentIndex = 0;
-  }
+    currentIndex += direction;
 
-  wrapper.style.transform = `translateX(${-currentIndex * 280}px)`;
+    if (currentIndex < 0) currentIndex = total - visibleCount;
+    else if (currentIndex > total - visibleCount) currentIndex = 0;
+
+    wrapper.style.transform = `translateX(${-currentIndex * 280}px)`;
 }
 
-
-
+// Scroll using logo click
 document.getElementById("logo").addEventListener("click", function (e) {
-    e.preventDefault(); 
+    e.preventDefault();
     const slideshow = document.getElementById("Slideshow");
-    const yOffset = -100; 
+    const yOffset = -100;
     const y = slideshow.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-    window.scrollTo({
-        top: y,
-        behavior: "smooth"
-    });
+    window.scrollTo({ top: y, behavior: "smooth" });
 });
 
-// Fungsi animasi titik-titik
+// Loading animation
 function startDotAnimation(element) {
-  let dots = 0;
-  return setInterval(() => {
-    dots = (dots + 1) % 4;
-    element.textContent = "🛫" + ".".repeat(dots);
-  }, 400);
+    let dots = 0;
+    return setInterval(() => {
+        dots = (dots + 1) % 4;
+        element.textContent = "🛫" + ".".repeat(dots);
+    }, 400);
 }
 
-// Saat halaman selesai dimuat
 window.addEventListener("load", () => {
-  const overlay = document.getElementById("loading-overlay");
-  const loadingText = document.getElementById("loading-text");
-  const content = document.getElementById("content");
+    const overlay = document.getElementById("loading-overlay");
+    const loadingText = document.getElementById("loading-text");
 
-  // Mulai animasi titik-titik
-  const dotAnimation = startDotAnimation(loadingText);
+    const dotAnimation = startDotAnimation(loadingText);
 
-  // Sembunyikan overlay setelah sedikit delay
-  setTimeout(() => {
-    clearInterval(dotAnimation);
-    overlay.classList.add("hidden");
-    content.classList.add("visible");
-  }, 1200);
+    setTimeout(() => {
+        clearInterval(dotAnimation);
+        overlay.classList.add("hidden");
+    }, 1200);
 });
 
-// Saat user klik link, tampilkan overlay lagi
+// Show loading when navigating pages
 document.addEventListener("DOMContentLoaded", () => {
-  const links = document.querySelectorAll("a");
+    const links = document.querySelectorAll("a");
+    const overlay = document.getElementById("loading-overlay");
+    const loadingText = document.getElementById("loading-text");
 
-  links.forEach(link => {
-    link.addEventListener("click", e => {
-      const href = link.getAttribute("href");
-      if (href && !href.startsWith("#") && !href.startsWith("mailto:")) {
-        e.preventDefault();
-        const overlay = document.getElementById("loading-overlay");
-        const loadingText = document.getElementById("loading-text");
-
-        overlay.classList.remove("hidden");
-        const dotAnimation = startDotAnimation(loadingText);
-
-        setTimeout(() => {
-          clearInterval(dotAnimation);
-          window.location.href = href;
-        }, 800);
-      }
+    links.forEach(link => {
+        link.addEventListener("click", e => {
+            const href = link.getAttribute("href");
+            if (href && !href.startsWith("#") && !href.startsWith("mailto:")) {
+                e.preventDefault();
+                overlay.classList.remove("hidden");
+                const dotAnimation = startDotAnimation(loadingText);
+                setTimeout(() => {
+                    clearInterval(dotAnimation);
+                    window.location.href = href;
+                }, 800);
+            }
+        });
     });
-  });
 });
 
-// Toggle dropdown
+// Sorting dropdown
 const sortBtn = document.getElementById("sortToggle");
 const sortDropdown = document.getElementById("sortDropdown");
 
 sortBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  sortDropdown.style.display = sortDropdown.style.display === "flex" ? "none" : "flex";
+    e.stopPropagation();
+    sortDropdown.style.display = sortDropdown.style.display === "flex" ? "none" : "flex";
 });
 
-// Klik di luar dropdown → tutup
 document.addEventListener("click", () => {
-  sortDropdown.style.display = "none";
+    sortDropdown.style.display = "none";
 });
 
-// Pilih opsi
+// Handle selection
 const sortOptions = document.querySelectorAll(".sort-option");
 sortOptions.forEach(option => {
-  option.addEventListener("click", () => {
-    // Hapus tanda dari sebelumnya
-    sortOptions.forEach(o => o.classList.remove("selected"));
-    option.classList.add("selected");
+    option.addEventListener("click", () => {
+        sortOptions.forEach(o => o.classList.remove("selected"));
+        option.classList.add("selected");
 
-    // Tampilkan opsi terpilih di tombol
-    sortBtn.textContent = `Sort ▼ (${option.textContent.trim()})`;
+        sortBtn.textContent = `Sort ▼ (${option.textContent.trim()})`;
 
-    // Ambil jenis sort (asc/desc)
-    const sortType = option.getAttribute("data-sort");
-    if (sortType) sortFlights(sortType); // panggil fungsi sort
-  });
+        const sortType = option.getAttribute("data-sort");
+        if (sortType) sortFlights(sortType);
+    });
 });
 
-// Fungsi sort daftar penerbangan berdasarkan harga
 function sortFlights(order) {
-  const list = document.querySelector(".flight-list");
-  const cards = Array.from(list.querySelectorAll(".flight-card"));
+    const list = document.querySelector(".flight-list");
+    const cards = Array.from(list.querySelectorAll(".flight-card"));
 
-  cards.sort((a, b) => {
-    const priceA = parseInt(a.querySelector(".price").textContent.replace(/\D/g, ""));
-    const priceB = parseInt(b.querySelector(".price").textContent.replace(/\D/g, ""));
-    return order === "asc" ? priceA - priceB : priceB - priceA;
-  });
+    cards.sort((a, b) => {
+        const priceA = parseInt(a.querySelector(".price").textContent.replace(/\D/g, ""));
+        const priceB = parseInt(b.querySelector(".price").textContent.replace(/\D/g, ""));
+        return order === "asc" ? priceA - priceB : priceB - priceA;
+    });
 
-  // Susun ulang elemen
-  cards.forEach(card => list.appendChild(card));
+    cards.forEach(card => list.appendChild(card));
 }
 
-/* ===================== FILTER DROPDOWN ===================== */
+// Filter dropdown
+const filterToggle = document.getElementById("filterToggle");
+const filterDropdown = document.getElementById("filterDropdown");
 
-const filterToggle = document.getElementById("filterToggle");     // tombol Filter ▼
-const filterDropdown = document.getElementById("filterDropdown"); // panel dropdown
-
-// Buka / tutup dropdown ketika tombol ditekan
 filterToggle.addEventListener("click", (e) => {
-    e.stopPropagation();                  
+    e.stopPropagation();
     filterDropdown.classList.toggle("show");
 });
 
-// Tutup dropdown ketika klik di luar
 document.addEventListener("click", (e) => {
-    if (!filterDropdown.contains(e.target) &&
-        !filterToggle.contains(e.target)) {
+    if (!filterDropdown.contains(e.target) && !filterToggle.contains(e.target)) {
         filterDropdown.classList.remove("show");
     }
 });
 
+/* ===================== BOOKING API ===================== */
 
+document.addEventListener("DOMContentLoaded", () => {
+    const chooseButtons = document.querySelectorAll(".choose-btn");
 
+    chooseButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const flightCard = btn.closest(".flight-card");
+            const flightId = flightCard.getAttribute("data-flight-id");
 
-document.querySelectorAll('.choose-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const flightCard = this.closest('.flight-card');
-        const flightId = flightCard.dataset.flightId; // Harus ditambahkan data-flight-id di HTML
-        
-        // Simpan ke session storage
-        sessionStorage.setItem('selected_flight_id', flightId);
-        sessionStorage.setItem('passenger_count', 1); // Default 1 penumpang
-        
-        // Redirect ke ticket info
-        window.location.href = '/pages/ticket-info.php';
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const chooseButtons = document.querySelectorAll('.choose-btn');
-    
-    chooseButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const flightCard = this.closest('.flight-card');
-            const flightId = flightCard.dataset.flightId;
-            const price = flightCard.dataset.price;
-            
             if (!flightId) {
-                alert('Flight ID not found');
+                alert("❌ Flight ID not found!");
                 return;
             }
-            
-            // Simpan data flight ke sessionStorage
-            sessionStorage.setItem('selected_flight_id', flightId);
-            sessionStorage.setItem('passenger_count', 1); // Default 1 penumpang
-            sessionStorage.setItem('base_price', price);
-            
-            // Redirect ke halaman ticket info
-            window.location.href = '/pages/ticket-info.php';
+
+            const formData = new FormData();
+            formData.append("action", "create_booking");
+            formData.append("flight_id", flightId);
+            formData.append("passenger_count", 1); // hardcode dulu 1 orang
+
+            fetch("/backend/booking-api.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log("Booking Response:", data);
+
+                if (data.status === "success") {
+                    window.location.href = "/pages/ticket-info.php?flight_id=" + flightId;
+                } else {
+                    alert(data.message || "Booking failed");
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert("Terjadi kesalahan saat booking!");
+            });
         });
     });
 });
+

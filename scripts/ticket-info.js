@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Load flight data from session storage
 function loadSelectedFlight() {
-    const flightId = sessionStorage.getItem('selected_flight_id');
+    const flightId = sessionStorage.getItem('flight_id');
     const passengerCount = parseInt(sessionStorage.getItem('passenger_count')) || 1;
     
     if (!flightId) {

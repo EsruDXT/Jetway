@@ -1,3 +1,4 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -5,31 +6,121 @@
   font-family: "Inter", sans-serif;
 }
 
+/* ===== NAVIGATION BAR ===== */
 .nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 90px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
+.logo1 {
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: .5px;
+  color: #364E6E;
+}
 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #4a5568;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.nav-links a.active {
+  color: #1a202c;
+  font-weight: 600;
+  background:#f0f3f8;
+}
+
+.nav-links a:hover {
+  background-color: #f0f4ff;
+  color: #1a202c;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+.nav-links .btn.ghost {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 0;
+  padding: 10px 28px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.nav-links .btn.ghost:hover {
+  background-color: #0062d1;
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+/* SEARCH BAR */
+.searchbar {
+  display: flex;
+  width: 350px;
+  border: 1px solid #d3d8e0;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-left: 30px;
+}
+
+.searchbar input {
+  border: none;
+  padding: .5rem .8rem;
+  min-width: 240px;
+}
+
+.searchbar button {
+  background: transparent;
+  border: none;
+  padding: .5rem .8rem;
+  cursor: pointer;
+}
+
+/* ===== BODY ===== */
 body {
   background-color: #f9fbff;
   margin: 0;
   padding-top: 100px; 
-  font-family: "Inter", sans-serif;
 }
 
-/* Tambahkan ke file Homepage.css atau CSS halaman ini */
-
-/* Container utama */
+/* ===== CONTENT: SUCCESS ===== */
 .success-box {
+  width: 80%;
+  max-width: 700px;
+  background-color: #fff;
+  border: 3px solid #dce3f0;
+  border-radius: 10px;
+  padding: 100px 40px;
   text-align: center;
-  margin-top: 50px;
-  color: #1a1a1a;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  margin: 0 auto 50px auto;
 }
 
-/* Lingkaran putih di tengah */
 .checkmark {
   display: flex;
   justify-content: center;
@@ -42,36 +133,45 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Biar gambar di tengah */
-.checkmark img {
-  width: 70px;
-  height: auto;
-  display: block;
+
+.inner-circle {
+  width: 100px;
+  height: 100px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Judul dan teks */
-.success-box h2 {
+.tick {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 600;
+  margin-top: -5px;
+}
+
+h2 {
+  font-size: 24px;
   font-weight: 700;
-  font-size: 1.8em;
-  margin-bottom: 10px;
+  color: #344767;
+  margin-bottom: 6px;
 }
 
-.success-box p {
-  font-size: 1em;
-  color: #555;
+p {
+  font-size: 15px;
+  color: #9aa4b2;
 }
 
-
-
-/* ini bagian bawahnya */
+/* PROGRESS STEP */
 .progress-container {
   display: flex;
   align-items: center;
   justify-content: center; 
   gap: 40px;
-  margin: 0 auto 50px auto;
   width: 100%; 
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .step {
@@ -80,21 +180,6 @@ body {
   align-items: center;    
   text-align: center;
 }
-
-
-
-.success-box {
-  width: 80%;
-  max-width: 700px;
-  background-color: #fff;
-  border: 3px solid #dce3f0;
-  border-radius: 10px;
-  padding: 100px 40px;
-  text-align: center;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-  margin: 0 auto;
-}
-
 
 .circle {
   background-color: #3b82f6;
@@ -116,86 +201,7 @@ body {
   background-color: #cbd5e1;
 }
 
-.checkmark {
-  width: 150px;
-  height: 150px;
-  background-color: #e0edff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 30px;
-}
-
-.inner-circle {
-  width: 100px;
-  height: 100px;
-  background-color: #3b82f6;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tick {
-  color: #fff;
-  font-size: 50px;
-  font-weight: 600;
-  margin-top: -5px;
-}
-
-
-h2 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #344767;
-  margin-bottom: 6px;
-}
-
-p {
-  font-size: 15px;
-  color: #9aa4b2;
-}
-
-@media (max-width: 600px) {
- .success-box {
-  width: 80%;
-  max-width: 700px;
-  background-color: #fff;
-  border: 3px solid #dce3f0;
-  border-radius: 10px;
-  padding: 100px 40px;
-  text-align: center;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-}
-
-}
-
-  .checkmark {
-    width: 120px;
-    height: 120px;
-  }
-
-  .inner-circle {
-    width: 80px;
-    height: 80px;
-  }
-
-  .tick {
-    font-size: 36px;
-  }
-
-  h2 {
-    font-size: 25px;
-  }
-
-  p {
-    font-size: 13px;
-  }
-
-
-
-  /* Testimonials */
+/* TESTIMONIAL */
 .testimonial-section {
   text-align: center;
 }
@@ -240,12 +246,11 @@ p {
   margin-top: 8px;
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 .footer {
   background-color: #667080;
   color: #fff;
   padding: 40px 80px 20px;
-  font-family: Arial, sans-serif;
 }
 
 .footer-container {
@@ -255,7 +260,6 @@ p {
   gap: 60px;
 }
 
-/* Left part */
 .footer-left {
   max-width: 300px;
 }
@@ -275,15 +279,11 @@ p {
   text-align: left;
 }
 
-.social-icons{
+.social-icons {
   display: flex;
-  justify-content: flex-start;
 }
 
 .social-icons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   width: 36px;
   height: 36px;
   margin-right: 10px;
@@ -292,6 +292,9 @@ p {
   color: #0055ff;
   font-size: 16px;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
 }
 
@@ -300,30 +303,19 @@ p {
   color: #fff;
 }
 
-/* Right links */
 .footer-links {
   display: flex;
-  justify-content: space-between;
-  flex:1;
-  max-width: 600px; 
-}
-
-footer-links .column {
-  flex: 1; 
+  gap: 100px;
 }
 
 .footer-links h4 {
   font-size: 16px;
   margin-bottom: 12px;
   font-weight: bold;
-  text-align: left;
 }
 
 .footer-links ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: left;
 }
 
 .footer-links li {
@@ -340,7 +332,6 @@ footer-links .column {
   text-decoration: underline;
 }
 
-/* Bottom */
 .footer-bottom {
   margin-top: 40px;
   border-top: 1px solid #9ca3af;
@@ -362,39 +353,103 @@ footer-links .column {
   text-decoration: underline;
 }
 
-
-.success-box {
-  margin-bottom: 50px !important;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .checkmark {
+    width: 250px;
+    height: 250px;
+  }
+  .inner-circle {
+    width: 80px;
+    height: 80px;
+  }
+  .tick {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  p {
+    font-size: 13px;
+  }
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #4a5568;
-  padding: 10px 18px;
-  border-radius: 8px;
-  transition: all 0.25s ease;
-  font-weight: 500;
+/* ===== Animated Checkmark ===== */
+.checkmark {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px auto;
+  overflow: visible;
 }
 
-/* Efek hover timbul */
-.nav-links a:hover {
-  background-color: #f0f4ff;
-  color: #1a202c;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transform: translateY(-3px);
+.check-svg {
+  width: 300px;
+  height: 300px;
+  stroke: #3b82f6;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-/* Tombol Log In — tidak ubah ukuran, tidak pakai radius */
-.nav-links .btn.ghost {
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 0; /* tidak membulat */
-  transition: all 0.25s ease;
+.check-circle {
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  animation: circleAnimation 0.8s ease forwards;
 }
 
-/* Hover efek timbul tapi tidak ubah ukuran */
-.nav-links .btn.ghost:hover {
-  background-color: #0062d1;
-  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
-  transform: translateY(-3px);
+.check-path {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: checkAnimation 0.4s ease 0.8s forwards;
 }
+
+/* Keyframes */
+@keyframes circleAnimation {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes checkAnimation {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+/* ===== Fade-Up Animation ===== */
+.success-box h2,
+.success-box p {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.success-box h2 {
+  animation-delay: 1.1s;
+}
+
+.success-box p {
+  animation-delay: 1.35s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Canvas Confetti Fullscreen */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+}
+
+#confetti-canvas {
+    pointer-events: none !important;
+}
+

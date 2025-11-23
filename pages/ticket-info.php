@@ -1,5 +1,51 @@
 <?php
 session_start();
+
+// include DB connection (sesuaikan path jika perlu)
+include __DIR__ . "/../backend/config/db-connection.php";
+
+// fallback variable: beberapa file koneksi memakai $connection, beberapa $conn
+$db = null;
+if (isset($connection)) $db = $connection;
+elseif (isset($conn)) $db = $conn;
+else {
+    // kalau tidak ada, abort dan beri petunjuk
+    die("Database connection not found. Check db-connection.php path and variable name.");
+}
+
+// Pastikan flight_id dari URL
+if (!isset($_GET['flight_id'])) {
+    die("Flight ID not found.");
+}
+$flight_id = intval($_GET['flight_id']);
+if ($flight_id <= 0) {
+    die("Invalid Flight ID.");
+}
+
+// Query flight data (gunakan prepared statement)
+$stmt = $db->prepare("SELECT * FROM flights WHERE flight_id = ?");
+if (!$stmt) {
+    die("DB prepare failed: " . htmlspecialchars($db->error));
+}
+$stmt->bind_param("i", $flight_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if (!$result || $result->num_rows === 0) {
+    die("Invalid Flight ID.");
+}
+$flight = $result->fetch_assoc();
+
+// simpan selection di session (berguna diteruskan ke next page)
+$_SESSION['selected_flight_id'] = $flight_id;
+
+// harga dan insurance wajib (sesuai kesepakatan)
+$insurance = 225000;
+$price = isset($flight['price']) ? (int)$flight['price'] : 0;
+$total_price = $price + $insurance;
+
+// helper untuk echo aman
+function e($v) { return htmlspecialchars($v ?? '', ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8'); }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,29 +60,7 @@ session_start();
 </head>
 
 <body>
-  <header class="nav">
-    <div class="nav-left">
-      <a class="logo1" href="Homepage.php">JetWay</a>
-    </div>
-
-    <div class="searchbar">
-      <input type="search" placeholder="Search..." />
-      <button><img src="/FOTO/search button.png" width="24"></button>
-      <button><img src="/FOTO/icon mikrofon.png" width="18"></button>
-    </div>
-
-    <nav class="nav-links">
-      <a href="Homepage.php">Home</a>
-      <a href="Flights.php">Flights</a>
-      <a href="ticket-info.php" class="active">My Booking</a>
-      <a href="support.php">Support</a>
-      <img src="/FOTO/notif.png" width="35">
-      <img src="/FOTO/bendera indo.png" width="40">
-      <i class="fas fa-chevron-down"></i>
-      <a href="sign-in.php" class="btn ghost">Log In</a>
-    </nav>
-  </header>
-
+  
   <main class="ticket-info-container">
     <div class="outer-panel">
 
@@ -55,32 +79,47 @@ session_start();
         <div style="display:flex; gap:16px; align-items:center;">
           <div class="flight-left">
             <div class="tag">Departure</div>
-            <div class="route" id="route"></div>
+
+            <!-- route: tampilkan departure city + airport dan arrival -->
+            <div class="route" id="route">
+              <?= e($flight['departure_city'] ?? $flight['departure_airport']) ?> - <?= e($flight['arrival_city'] ?? $flight['arrival_airport']) ?>
+            </div>
           </div>
 
           <div class="flight-right">
             <div class="times">
               <div>
-                <div class="time" id="departure-time"></div>
-                <div class="location" id="departure-loc"></div>
+                <div class="time" id="departure-time"><?= e($flight['departure_time']) ?></div>
+                <div class="location" id="departure-loc">
+                  <?= e(($flight['departure_city'] ? $flight['departure_city'] . ' - ' : '') . ($flight['departure_airport'] ?? '')) ?>
+                </div>
               </div>
 
               <div style="text-align:center; color:#6b7280;">
-                <div>Direct</div>
-                <div style="margin-top:6px;">1h45m</div>
+                <div id="flight-type"><?= e($flight['flight_type'] ?? 'Direct') ?></div>
+                <div style="margin-top:6px;" id="duration"><?= e($flight['duration'] ?? '') ?></div>
               </div>
 
               <div>
-                <div class="time" id="arrival-time"></div>
-                <div class="location" id="arrival-loc"></div>
+                <div class="time" id="arrival-time"><?= e($flight['arrival_time']) ?></div>
+                <div class="location" id="arrival-loc">
+                  <?= e(($flight['arrival_city'] ? $flight['arrival_city'] . ' - ' : '') . ($flight['arrival_airport'] ?? '')) ?>
+                </div>
               </div>
             </div>
-            <img id="airline-logo" src="/FOTO/batik-air-logo.png" style="height:36px;">
+
+            <!-- airline logo: jika kolom airline_logo berisi path/URL -->
+            <?php if (!empty($flight['airline_logo'])): ?>
+              <img id="airline-logo" src="<?= e($flight['airline_logo']) ?>" style="height:36px;" alt="<?= e($flight['airline']) ?>">
+            <?php else: ?>
+              <!-- fallback: tampilkan nama airline jika logo tidak ada -->
+              <div style="font-weight:600; margin-left:8px;"><?= e($flight['airline'] ?? '') ?></div>
+            <?php endif; ?>
           </div>
         </div>
       </div>
 
-      <!-- RETURN STATIC (optional) -->
+      <!-- (Optional) Return static area left as-is so layout unchanged -->
       <div class="flight-row">
         <div style="display:flex; gap:16px; align-items:center;">
           <div class="flight-left">
@@ -94,7 +133,7 @@ session_start();
               <div style="text-align:center; color:#6b7280;"><div>Direct</div><div style="margin-top:6px;">2h55m</div></div>
               <div><div class="time">14:35</div><div class="location">Jakarta - CGK</div></div>
             </div>
-            <div class="price">Rp. 3.500.000</div>
+            <div class="price">Rp. <?= number_format($price, 0, ',', '.') ?></div>
           </div>
         </div>
       </div>
@@ -109,24 +148,29 @@ session_start();
               <div style="font-size:13px;">Accident up to IDR 500.000.000<br>Delay up to IDR 8.000.000</div>
             </div>
           </div>
-          <div style="color:#2e85d8; font-weight:700;">Rp. 225.000/pax</div>
-        </div>
-
-        <div class="subtotal-row">
-          <div style="font-weight:700;">Subtotal</div>
-          <div id="total-price" style="font-size:20px; color:#2e85d8; font-weight:800;">
-            Loading...
+          <div style="color:#2e85d8; font-weight:700;">
+            Rp. <?= number_format($insurance, 0, ',', '.') ?>
           </div>
         </div>
 
-        <button class="confirm-button" onclick="location.href='customer-data-input.php'">Confirm</button>
-        <p style="text-align:center; font-size:13px; color:#6b7280; margin-top:8px;">By confirming, you agree to our <a href="#">Terms & Conditions</a></p>
+        <div class="subtotal-row" style="margin-top:16px;">
+          <div style="font-weight:700;">Subtotal</div>
+          <div id="total-price" style="font-size:20px; color:#2e85d8; font-weight:800;">
+            Rp <?= number_format($total_price, 0, ',', '.') ?>
+          </div>
+        </div>
+
+        <!-- Confirm: tetap di ticket-info -> lanjut ke customer data -->
+        <button class="confirm-button" onclick="location.href='customer-data-input.php?flight_id=<?= $flight_id ?>'">Confirm</button>
+        <p style="text-align:center; font-size:13px; color:#6b7280; margin-top:8px;">
+          By confirming, you agree to our <a href="#">Terms & Conditions</a>
+        </p>
       </div>
 
     </div>
   </main>
 
-  <!-- External JS -->
-  <script src="/scripts/ticket-info.js"></script>
+  <!-- jika perlu, kamu bisa menambahkan script khusus; tapi tidak wajib -->
+  <script src=></script>
 </body>
 </html>

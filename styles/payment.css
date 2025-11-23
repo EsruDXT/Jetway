@@ -537,6 +537,7 @@ background-color: #006eff;
   box-shadow: 0 4px 14px rgba(74, 143, 217, 0.35);
   transition: all 0.2s ease;
   white-space: nowrap;
+  margin-left: 300px;
 }
 
 .confirm-btn:hover {
