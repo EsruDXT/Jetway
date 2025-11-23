@@ -1,40 +1,101 @@
-### This website is our school project that built using simple HTML, CSS, JavaScript and later a back end will be added. (Also still on development)
+# ✈️ JETWAY  
+### A Simple Airline Ticket Booking Website — School Project (HTML, CSS, JS, PHP)
 
-# JETWAY
+JetWay is a school project designed to help users book airline tickets easily, quickly, and efficiently.  
+This project uses **pure HTML, CSS, JavaScript, and PHP** without modern frameworks.  
+Still growing and not yet perfect — but continuously improved! 🚀
 
-The aim of this website is to make it easier for users to book plane tickets efficiently.
+---
 
-## Table of Contents
+## 📚 Table of Contents
+- [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Architecture](#architecture)
+- [Project Structure](#project-structure)
+- [Tech Stack](#tech-stack)
+- [Design Prototype](##design-prototype)
 - [License](#license)
 
-## Installation
+---
 
-### Clone this repository 
+## ✨ Features
+
+✔️ Flight searching  
+✔️ Ticket booking system  
+✔️ User authentication (Sign In / Sign Up)  
+✔️ Customer data input  
+✔️ Flight history tracking  
+✔️ Payment simulation  
+✔️ Booking confirmation  
+✔️ Responsive UI (partially)  
+
+---
+
+## 🛠️ Installation
+
+### 1. Clone the repository
+
 git clone https://github.com/EsruDXT/Jetway.git
 
-### Navigate to the project folder
+### 2. Navigate into the project folder
+
 cd Jetway
 
-### Open the HTML files
+### 3. Open in VS Code
+
+code .
+
+### 4. Start a PHP server
+
+For better use, use VS Code PHP Server Extension
+
+![alt text](<Screenshot 2025-11-23 172912.png>)
+
+Or manually run:
+
+php -S localhost:8000
+
+### 5. Open Homepage
+
+http://localhost:8000/pages/Homepage.php
 
 ## Usage
 
-- Open Homepage.html in your browser
-- Navigate through the available pages using the navigation menu (Available now: Homepage, Login and Sign up)
+Open Homepage.php
 
-## Architecture
+Browse available flights
+
+Create an account or log in
+
+Start booking your flight
+
+Fill customer data
+
+Proceed to payment & confirmation
+
+Check your bookings in My Booking
+
+## Project Structure
+
 ```
 📁 Jetway
 ├── 📁 backend
 │   ├── 📁 config
 │   │   └── db-connection.php
+│   ├── admin-login-api.php
+│   ├── booking-api.php
+│   ├── create-booking.api
 │   ├── customer-datab.php
+│   ├── delete-flights.php
+│   ├── delete-user.php
+│   ├── flight-api.php
 │   ├── logout.php
+│   ├── payment-api.php
+│   ├── payment-process.php
 │   ├── signinb.php
-│   └── signupb.php
+│   ├── signupb.php
+│   ├── update-flights.php
+│   └── update-user.php
 ├── 📁 FOTO
 │   ├── bendera indo.png
 │   ├── checkmark.png
@@ -47,24 +108,32 @@ cd Jetway
 │   ├── icon mikorofon.png
 │   ├── icon password.png
 │   └── ... 
-├── 📁 header
-│   └── header.php
-📁 pages
+├── 📁 pages
+│   ├── admin.php
 │   ├── confirmed.php
 │   ├── customer-data-input.php
 │   ├── customer-data.php
+│   ├── dashboard-analytics.php
+│   ├── edit-flights.php
+│   ├── edit-user.php
 │   ├── flight-history.php
 │   ├── flights.php
 │   ├── Homepage.php
 │   ├── login&password.php
+│   ├── management-flights.php
+│   ├── management-users.php
+│   ├── my-booking.php
 │   ├── payment.php
 │   ├── sign-in.php
 │   ├── sign-up.php
 │   ├── support.php
 │   └── ticket-info.php
 ├── 📁 scripts
+│   ├── admin.js
+│   ├── confirmed.js
 │   ├── customer-data-input.js
 │   ├── customer-data.js
+│   ├── dashboard-analytics.js
 │   ├── flight-history.js
 │   ├── flights.js
 │   ├── Homepage.js
@@ -74,18 +143,24 @@ cd Jetway
 │   ├── support.js
 │   └── ticket-info.js
 ├── 📁 styles
+│   ├── admin.css
 │   ├── confirmed.css
 │   ├── customer-data-input.css
 │   ├── customer-data.css
+│   ├── dashboard-analytics.css
 │   ├── flight-history.css
 │   ├── flights.css
 │   ├── Homepage.css
 │   ├── login&password.css
+│   ├── management-flights.css
+│   ├── management-users.css
+│   ├── my-booking.css
 │   ├── payment.css
 │   ├── sign-in.css
 │   ├── sign-up.css
 │   ├── support.css
 │   └── ticket-info.css
+├── jetway.sql
 ├── 📄 LICENSE
 └── 📄 README.md
 ```
@@ -93,4 +168,3 @@ cd Jetway
 
 ## License 
 This project is licensed under [The Unlicense](./LICENSE)
-
