@@ -81,6 +81,8 @@ Check your bookings in My Booking
 
 ## ALSO, IF YOU WANT TO OPEN ADMIN PAGE:
 
+Serve Admin.php from file, and input
+
 Name: Marvin
 
 Password: Backend
