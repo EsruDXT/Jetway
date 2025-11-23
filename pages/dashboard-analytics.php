@@ -11,20 +11,20 @@
 <body>
      <div class="app">
 
-   <div class="sidebar">
+<div class="sidebar">
     <div class="logo">JetWay<br><span class="admin-text">Admin</span></div>
 
     <div class="menu-section">
-      <div class="menu-title">Dashboard</div>
-      <div class="menu-item"><i class="fa fa-chart-line"></i> Analytics</div>
+        <div class="menu-title">Dashboard</div>
+        <a href="/pages/dashboard-analytics.php" class="menu-item active"><i class="fa fa-chart-line"></i> Analytics</a>
     </div>
 
     <div class="menu-section">
-      <div class="menu-title">Management</div>
-      <div class="menu-item"><i class="fa fa-plane"></i> Flights</div>
-      <div class="menu-item active"><i class="fa fa-users"></i> Users</div>
+        <div class="menu-title">Management</div>
+        <a href="/pages/management-flights.php" class="menu-item"><i class="fa fa-plane"></i> Flights</a>
+        <a href="/pages/management-users.php" class="menu-item"><i class="fa fa-users"></i> Users</a>
     </div>
-  </div>
+</div>
 
 
     <!-- Main -->

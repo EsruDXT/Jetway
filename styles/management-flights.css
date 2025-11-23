@@ -100,3 +100,138 @@ tr:nth-child(even) {
 
 .edit-btn { background: #4b86f0; }
 .delete-btn { background: #e55a5a; }
+
+/* EDIT FLIGHT css */
+.edit-container {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 550px;
+        }
+
+        .edit-container h2 {
+            margin-bottom: 15px;
+            color: #2a497d;
+        }
+
+        .edit-container label {
+            display: block;
+            margin: 12px 0 6px;
+            font-weight: bold;
+            color: #344767;
+        }
+
+        .edit-container input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d8dfea;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .save-btn {
+            margin-top: 20px;
+            padding: 10px 18px;
+            background: #4b86f0;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .save-btn:hover {
+            background: #3b6fd6;
+        }
+
+        .back-btn {
+            margin-top: 15px;
+            display: inline-block;
+            color: #4b86f0;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* === EDIT CONTAINER (FORM BOX) === */
+.edit-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    max-width: 550px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+/* Title */
+.edit-container h2 {
+    margin-bottom: 20px;
+    color: #2a497d;
+    font-size: 24px;
+}
+
+/* Label */
+.edit-container label {
+    display: block;
+    font-weight: bold;
+    color: #2d3b52;
+    margin: 12px 0 6px;
+}
+
+/* Input & Select */
+.edit-container input,
+.edit-container select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cdd6e4;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #3a4b63;
+    background: #f5f7fb;
+    transition: 0.2s;
+}
+
+.edit-container input:focus,
+.edit-container select:focus {
+    border-color: #4b86f0;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(75, 134, 240, 0.25);
+    outline: none;
+}
+
+/* Save button */
+.save-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #4b86f0;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.save-btn:hover {
+    background: #396ad1;
+}
+
+/* Back button */
+.back-btn {
+    display: inline-block;
+    margin-top: 15px;
+    color: #4b86f0;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.back-btn:hover {
+    color: #1f3c72;
+}
