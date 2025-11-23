@@ -1,3 +1,78 @@
+<?php
+session_start();
+require_once '../backend/config/db-connection.php';
+
+// Cek login
+if (!isset($_SESSION['user_id'])) {
+    header("Location: sign-in.php");
+    exit();
+}
+
+// Ambil flight ID
+$flight_id = isset($_GET['flight_id']) ? intval($_GET['flight_id']) : 0;
+if ($flight_id <= 0) die("Invalid Flight ID");
+
+$booking_id = isset($_GET['booking_id']) ? intval($_GET['booking_id']) : 0;
+if ($booking_id <= 0) {
+    die("Booking ID missing");
+}
+
+// Ambil data flight
+$query = $connection->prepare("SELECT * FROM flights WHERE flight_id = ?");
+query->bind_param("i", $flight_id);
+$query->execute();
+$result = $query->get_result();
+$flight = $result->fetch_assoc();
+if (!$flight) die("Flight not found");
+
+// Harga awal
+$insurance = 225000;
+$original_price = $flight['price'];
+$total = $original_price + $insurance;
+
+// Voucher
+$voucher_code = "";
+$discount_value = 0;
+$voucher_error = "";
+
+// Jika voucher di-apply
+if (isset($_POST['apply_voucher'])) {
+    $voucher_code = trim($_POST['voucher_code']);
+
+    $voucherQuery = $connection->prepare("
+        SELECT * FROM vouchers 
+        WHERE code = ? 
+        AND is_active = 1 
+        AND expires_at > NOW()
+    ");
+    $voucherQuery->bind_param("s", $voucher_code);
+    $voucherQuery->execute();
+    $voucher = $voucherQuery->get_result()->fetch_assoc();
+
+    if ($voucher) {
+        if ($voucher['discount_amount'] > 0) {
+            $discount_value = $voucher['discount_amount'];
+        } elseif ($voucher['discount_percent'] > 0) {
+            $discount_value = ($voucher['discount_percent'] / 100) * $total;
+
+            if ($voucher['max_discount'] > 0 && $discount_value > $voucher['max_discount']) {
+                $discount_value = $voucher['max_discount'];
+            }
+        }
+
+        if ($discount_value > $total) $discount_value = $total;
+        $total -= $discount_value;
+
+    } else {
+        $voucher_error = "Invalid or expired voucher";
+    }
+}
+
+// Simpan ke session
+$_SESSION['final_total'] = $total;
+$_SESSION['applied_voucher'] = $voucher_code;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +114,7 @@
   </header>
 
 <div class="main-container">
-  <div class="outer-panel">
+<div class="outer-panel">
 
     <!-- Header Progress -->
     <div class="ticket-header" style="text-align:center; margin-bottom:24px;">
@@ -162,7 +237,6 @@
       </div>
     </div>
 
-    <!-- Voucher and Confirm Section -->
     <div class="bottom-section">
       <div class="card voucher-card">
         <div class="voucher-icon">
