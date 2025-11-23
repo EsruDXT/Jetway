@@ -79,8 +79,10 @@ Proceed to payment & confirmation
 
 Check your bookings in My Booking
 
-ALSO, IF YOU WANT TO OPEN ADMIN PAGE:
+## ALSO, IF YOU WANT TO OPEN ADMIN PAGE:
+
 Name: Marvin
+
 Password: Backend
 
 ## Project Structure
