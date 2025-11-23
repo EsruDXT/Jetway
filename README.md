@@ -1,9 +1,15 @@
 # JETWAY  
 ### A Simple Airline Ticket Booking Website — School Project (HTML, CSS, JS, PHP)
 
-JetWay is a school project designed to help users book airline tickets easily, quickly, and efficiently.  
+JetWay is a school group project designed to help users book airline tickets easily, quickly, and efficiently.  
 This project uses **pure HTML, CSS, JavaScript, and PHP** without modern frameworks.  
-Still growing and not yet perfect — but continuously improved! 🚀
+Still growing and not yet perfect — but continuously improved! 🚀 
+
+Member:
+- Marvin Arif Pratama (Backend Developer and Leader)
+- Kenzo Rivaldo (Frontend Developer)
+- Daniel Federico Theodoric (Frontend Developer and Design)
+- Sandrika Marcella Jolie (Design)
 
 ---
 
