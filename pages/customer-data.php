@@ -32,7 +32,7 @@ if (!isset($_SESSION['user_id'])) {
     <nav class="nav-links">
       <a href="/pages/Homepage.php">Home</a>
       <a href="/pages/Flights.php">Flights</a>
-      <a href="/pages/ticket-info.php">My Booking</a>
+      <a href="/pages/my-booking.php">My Booking</a>
       <a href="/pages/support.php">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">

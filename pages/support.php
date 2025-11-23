@@ -25,7 +25,7 @@
     <nav class="nav-links">
       <a href="/pages/Homepage.php">Home</a>
       <a href="/pages/Flights.php">Flights</a>
-      <a href="/pages/ticket-info.php">My Booking</a>
+      <a href="/pages/my-booking.php">My Booking</a>
       <a href="/pages/support.php" class="active">Support</a>
       <img src="/FOTO/notif.png" width="35">
       <img src="/FOTO/bendera indo.png" width="40">
@@ -38,7 +38,7 @@
       <div id="loading-text">🛫</div>
   </div>
 
-  <img src="/FOTO/sign in bg.png" alt="supportimage" width="1250px">
+  <img src="/FOTO/sign in bg.png" alt="supportimage" width="100%">
 
   <!-- FAQ Section -->
   <div class="container">

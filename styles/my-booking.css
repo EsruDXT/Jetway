@@ -1019,3 +1019,9 @@ body {
   transform: translateY(0);
   box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
 }
+
+.booking-area {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
