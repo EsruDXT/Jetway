@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #e7edf7;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  background: #ffffff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #2a497d;
+  margin-bottom: 30px;
+}
+
+.admin-text {
+  font-size: 14px; 
+  color: #6c7a96;
+}
+
+.menu-section {
+  margin-top: 20px;
+}
+
+.menu-title {
+  color: #5e6b84;
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.menu-item {
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #2d3b52;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transition: .2s;
+}
+
+.menu-item:hover, 
+.active {
+  background: #d4deef;
+  color: #1f2c45;
+}
+
+/* CONTENT */
+.content {
+  margin-left: 260px;
+  padding: 30px;
+}
+
+/* TABLE */
+.table-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #d8dfea;
+  text-align: left;
+}
+
+th {
+  background: #f0f5ff;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background: #f4f7ff;
+}
+
+/* BUTTONS */
+.edit-btn, .delete-btn {
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: white;
+}
+
+.edit-btn { background: #4b86f0; }
+.delete-btn { background: #e55a5a; }

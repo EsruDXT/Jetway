@@ -186,6 +186,159 @@
       </div>
   </div>
 
+  <!-- Testimonials Section -->
+   <div class="aboutus">
+  <h2>What Our Customers Think About Us</h2>
+  </div>
+
+  <img src="/FOTO/sign in bg.png" alt="supportimage" width="1250px">
+
+  <!-- FAQ Section -->
+  <div class="container">
+      <div class="faq-section">
+
+          <!-- Left FAQ -->
+          <div class="faq-left">
+              <div class="faq-title"><h1>F.A.Q</h1></div>
+              <p class="faq-subtitle">Having troubles? We are here to help.</p>
+
+              <!-- FAQ ITEM 1 -->
+              <div class="faq-item">
+                  <div class="faq-question">
+                      <span>How do I book a ticket?</span>
+                      <span class="faq-arrow">∨</span>
+                  </div>
+                  <div class="faq-answer">
+                      <div class="faq-answer-content faq-box">
+                          <ol>
+                              <li>Go to the flights page or click this button down below.</li>
+                              <li>Choose the flight you want.</li>
+                              <li>Follow the instructions and confirm your payment.</li>
+                              <li>Your flight is booked and you can check in Active Flight in your profile.</li>
+                          </ol>
+                          <button class="faq-btn" id="bookNowBtn">Book Now</button>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- FAQ ITEM 2 -->
+              <div class="faq-item">
+                  <div class="faq-question">
+                      <span>How can I buy insurance for my flight?</span>
+                      <span class="faq-arrow">∨</span>
+                  </div>
+                  <div class="faq-answer">
+                      <div class="faq-answer-content">
+                          <ol>
+                              <li>After choosing a ticket, you will be in the Ticket Information Page.</li>
+                              <li>You will see a list of insurance options.</li>
+                              <li>Click the checkbox to select one.</li>
+                          </ol>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- FAQ ITEM 3 -->
+              <div class="faq-item">
+                  <div class="faq-question">
+                      <span>How do I change my account password?</span>
+                      <span class="faq-arrow">∨</span>
+                  </div>
+                  <div class="faq-answer">
+                      <div class="faq-answer-content">
+                          <ol>
+                              <li>Click the avatar icon on the top right.</li>
+                              <li>Select “Login & Password”.</li>
+                              <li>On the right, click the button labeled “Password”.</li>
+                          </ol>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- FAQ ITEM 4 -->
+              <div class="faq-item">
+                  <div class="faq-question">
+                      <span>Can I cancel my ticket reservation?</span>
+                      <span class="faq-arrow">∨</span>
+                  </div>
+                  <div class="faq-answer">
+                      <div class="faq-answer-content">
+                          <ol>
+                              <li>Click the avatar icon on the top right.</li>
+                              <li>Select “Active Flights”.</li>
+                              <li>Click “See more” then choose “Cancel”.</li>
+                          </ol>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- FAQ ITEM 5 -->
+              <div class="faq-item">
+                  <div class="faq-question">
+                      <span>Why can't I make a reservation?</span>
+                      <span class="faq-arrow">∨</span>
+                  </div>
+                  <div class="faq-answer">
+                      <div class="faq-answer-content">
+                          <ol>
+                              <li>Ensure you are logged in.</li>
+                              <li>Check your internet connection.</li>
+                              <li>Ensure your payment method is valid.</li>
+                          </ol>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- FAQ ITEM 6 -->
+              <div class="faq-item">
+                  <div class="faq-question">
+                      <span>How do I change my personal information?</span>
+                      <span class="faq-arrow">∨</span>
+                  </div>
+                  <div class="faq-answer">
+                      <div class="faq-answer-content">
+                          <ol>
+                              <li>Click the avatar icon.</li>
+                              <li>Select “Personal Information”.</li>
+                              <li>Edit your details.</li>
+                          </ol>
+                      </div>
+                  </div>
+              </div>
+
+          </div> <!-- END LEFT FAQ -->
+
+          <!-- Contact Card -->
+          <div class="contact-card">
+              <h2>Contact Us</h2>
+
+              <div class="contact-item">
+                  <div class="contact-icon"><img src="/FOTO/person.png" width="30"></div>
+                  <div class="contact-info">
+                      <div class="contact-label">Email</div>
+                      <div class="contact-value">@JetWayFly.up</div>
+                  </div>
+              </div>
+
+              <div class="contact-item">
+                  <div class="contact-icon"><img src="/FOTO/person.png" width="30"></div>
+                  <div class="contact-info">
+                      <div class="contact-label">Call Center</div>
+                      <div class="contact-value">+00 2203-0904-12</div>
+                  </div>
+              </div>
+
+              <div class="office-section">
+                  <h3>JetWay Office</h3>
+                  <p class="office-hours">Operational Hours</p>
+                  <p class="office-time">Monday-Friday, 08:00-16:00</p>
+                  <p class="office-address">Jl. Letnan Jendral Sutoyo, Pontianak, Kalimantan Barat</p>
+                  <div class="office-map"><img src="/FOTO/googlemapimmanuel.png"></div>
+              </div>
+          </div>
+      </div>
+  </div>
+
   <div class="aboutus"><h2>What Our Customers Think About Us</h2></div>
   <hr class="shadow-line">
 
@@ -194,18 +347,17 @@
       <div id="Slideshow" class="testimonial-container">
           <div class="testimonial-wrapper">
 
-              <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
-
-              <div class="testimonial"><div class="avatar">😊</div><p>"Pemesanan Tiket Disini Sangat Cepat Intinya Gacor!"</p><h4>Kenzo Rivaldo</h4><div class="stars">★★★★★</div></div>
-              <div class="testimonial"><div class="avatar">😊</div><p>"Definitely one of the best burgers in town!"</p><h4>Marvin Arif Pratama</h4><div class="stars">★★★★★</div></div>
-              <div class="testimonial"><div class="avatar">😊</div><p>"Amazing taste and quick service!"</p><h4>Daniel Federico Theodoric</h4><div class="stars">★★★★★</div></div>
-              <div class="testimonial"><div class="avatar">😊</div><p>"Friendly staff and delicious food!"</p><h4>Sandrika Marcella Jolie</h4><div class="stars">★★★★★</div></div>
-
-              <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
-
-          </div>
-      </div>
-  </section>
+    <div class="testimonial"> 
+      <div class="avatar">😊</div>
+      <p>"Friendly staff and delicious food!"</p>
+      <h4>Sandrika Marcella Jolie</h4>
+      <div class="stars">★★★★★</div>
+    </div>
+        <div class="controls">
+    <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
+  </div>
+  </div>
+</div>
 
   <hr class="shadow-line">
 

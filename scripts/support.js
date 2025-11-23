@@ -16,7 +16,7 @@ function changeSlide(direction) {
   }
 
   wrapper.style.transform = `translateX(${-currentIndex * 280}px)`;
-}
+};
 
 
 
@@ -77,8 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.href = href;
         }, 800);
       }
-    });
-  });
+    });
+  });
 });
 
 document.querySelectorAll(".faq-item").forEach(item => {
