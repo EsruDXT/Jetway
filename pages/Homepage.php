@@ -28,7 +28,7 @@
     <nav class="nav-links">
       <a href="#" class="active">Home</a>
       <a href="Flights.php">Flights</a>
-      <a href="ticket-info.php">My Booking</a>
+      <a href="my-booking.php">My Booking</a>
       <a href="support.php">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
         <div class="lang-dropdown-toggle">

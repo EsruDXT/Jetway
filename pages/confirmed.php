@@ -38,7 +38,7 @@ if (!isset($_SESSION['final_total'])) {
   <nav class="nav-links">
       <a href="Homepage.php">Home</a>
       <a href="Flights.php">Flights</a>
-      <a href="ticket-info.php">My Booking</a>
+      <a href="my-booking.php">My Booking</a>
       <a href="support.php">Support</a>
       <img src="/FOTO/notif.png" width="35">
       <img src="/FOTO/bendera indo.png" width="40">

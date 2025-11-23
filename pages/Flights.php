@@ -29,7 +29,7 @@
     <nav class="nav-links">
       <a href="Homepage.php">Home</a>
       <a href="Flights.php" class="active">Flights</a>
-      <a href="ticket-info.php">My Booking</a>
+      <a href="my-booking.php">My Booking</a>
       <a href="support.php">Support</a> 
       <img src="/FOTO/notif.png" alt="iconnotif" width="35">
       <img src="/FOTO/bendera indo.png" alt="iconbendera" width="40">
