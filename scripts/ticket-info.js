@@ -1,14 +1,14 @@
-// Ticket Info Page Handler
+// Load selected flight details
 document.addEventListener('DOMContentLoaded', function() {
     loadSelectedFlight();
     setupAddonsSelection();
     setupConfirmButton();
 });
 
-// Load selected flight details
+// Load flight data from session storage
 function loadSelectedFlight() {
-    const flightId = sessionStorage.getItem('selected_flight_id');
-    const passengerCount = sessionStorage.getItem('passenger_count') || 1;
+    const flightId = sessionStorage.getItem('flight_id');
+    const passengerCount = parseInt(sessionStorage.getItem('passenger_count')) || 1;
     
     if (!flightId) {
         alert('No flight selected. Please select a flight first.');
@@ -16,11 +16,12 @@ function loadSelectedFlight() {
         return;
     }
     
+    // Fetch flight details from API
     const formData = new FormData();
     formData.append('action', 'get_flight');
     formData.append('flight_id', flightId);
     
-    fetch('/backend/flights-api.php', {
+    fetch('/backend/flight-api.php', {
         method: 'POST',
         body: formData
     })
@@ -30,43 +31,62 @@ function loadSelectedFlight() {
             displayFlightInfo(data.data, passengerCount);
             calculateTotalPrice(data.data, passengerCount);
         } else {
-            alert('Failed to load flight details');
+            alert('Failed to load flight details: ' + data.message);
+            window.location.href = '/pages/Flights.php';
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('An error occurred');
+        alert('An error occurred while loading flight details');
     });
 }
 
 // Display flight information
 function displayFlightInfo(flight, passengerCount) {
-    // Update departure flight info
-    const departureSection = document.querySelector('.flight-row:first-child');
-    if (departureSection) {
-        departureSection.querySelector('.route').textContent = 
-            `${flight.departure_city}-${flight.arrival_city}`;
-        departureSection.querySelector('.flight-info-left .flight-time').textContent = 
-            formatTime(flight.departure_time);
-        departureSection.querySelector('.flight-info-left .flight-city').textContent = 
-            `${flight.departure_city} - ${flight.departure_airport}`;
-        departureSection.querySelector('.flight-info-right .flight-time').textContent = 
-            formatTime(flight.arrival_time);
-        departureSection.querySelector('.flight-info-right .flight-city').textContent = 
-            `${flight.arrival_city} - ${flight.arrival_airport}`;
-        departureSection.querySelector('.flight-duration').textContent = 
-            flight.duration;
-    }
+    // Update departure info
+    const departureTime = document.querySelector('.flight-row:first-child .time:first-child');
+    const departureCity = document.querySelector('.flight-row:first-child .location:first-child');
     
-    // Update base price
-    const basePrice = flight.price * passengerCount;
-    updatePriceDisplay('original-price', basePrice);
+    if (departureTime) departureTime.textContent = formatTime(flight.departure_time);
+    if (departureCity) departureCity.textContent = `${flight.departure_city} - ${flight.departure_airport}`;
     
-    // Store flight data
+    // Update arrival info
+    const arrivalTime = document.querySelector('.flight-row:first-child .time:last-child');
+    const arrivalCity = document.querySelector('.flight-row:first-child .location:last-child');
+    
+    if (arrivalTime) arrivalTime.textContent = formatTime(flight.arrival_time);
+    if (arrivalCity) arrivalCity.textContent = `${flight.arrival_city} - ${flight.arrival_airport}`;
+    
+    // Update route
+    const route = document.querySelector('.flight-row .route');
+    if (route) route.textContent = `${flight.departure_city}-${flight.arrival_city}`;
+    
+    // Update duration
+    const duration = document.querySelector('.flight-duration');
+    if (duration) duration.textContent = flight.duration;
+    
+    // Store flight data for later use
     sessionStorage.setItem('flight_data', JSON.stringify(flight));
 }
 
-// Setup addons selection
+// Calculate and display total price
+function calculateTotalPrice(flight, passengerCount) {
+    const basePrice = parseFloat(flight.price) * passengerCount;
+    
+    // Display original price
+    const originalPriceElement = document.querySelector('.price-row:first-child .price-value');
+    if (originalPriceElement) {
+        originalPriceElement.textContent = `Rp ${formatPrice(basePrice)}`;
+    }
+    
+    // Initial total
+    updateTotalDisplay(basePrice);
+    
+    // Store base price
+    sessionStorage.setItem('base_price', basePrice);
+}
+
+// Setup addons selection checkboxes
 function setupAddonsSelection() {
     const addonCheckboxes = document.querySelectorAll('.insurance-option input[type="checkbox"]');
     
@@ -77,64 +97,49 @@ function setupAddonsSelection() {
     });
 }
 
-// Calculate and display total price
-function calculateTotalPrice(flight, passengerCount) {
-    const basePrice = flight.price * passengerCount;
-    
-    // Update price displays
-    document.querySelector('.price-row:first-child .price-value').textContent = 
-        `Rp. ${formatPrice(basePrice)}`;
-    
-    recalculateTotal();
-}
-
-// Recalculate total with addons
+// Recalculate total when addons change
 function recalculateTotal() {
     const flightData = JSON.parse(sessionStorage.getItem('flight_data'));
     const passengerCount = parseInt(sessionStorage.getItem('passenger_count')) || 1;
     
     if (!flightData) return;
     
-    let basePrice = flightData.price * passengerCount;
-    let insurancePrice = 0;
-    let baggagePrice = 0;
-    let delayPrice = 0;
+    let basePrice = parseFloat(flightData.price) * passengerCount;
+    let addonTotal = 0;
     
-    // Check selected addons
+    // Check travel insurance
     const travelInsurance = document.querySelector('input[data-addon="travel_insurance"]');
-    const baggageProtection = document.querySelector('input[data-addon="baggage_protection"]');
-    const delayCompensation = document.querySelector('input[data-addon="delay_compensation"]');
-    
     if (travelInsurance && travelInsurance.checked) {
-        insurancePrice = 225000 * passengerCount;
+        addonTotal += 225000 * passengerCount;
     }
+    
+    // Check baggage protection
+    const baggageProtection = document.querySelector('input[data-addon="baggage_protection"]');
     if (baggageProtection && baggageProtection.checked) {
-        baggagePrice = 30000 * passengerCount;
+        addonTotal += 30000 * passengerCount;
     }
+    
+    // Check delay compensation
+    const delayCompensation = document.querySelector('input[data-addon="delay_compensation"]');
     if (delayCompensation && delayCompensation.checked) {
-        delayPrice = 200000 * passengerCount;
+        addonTotal += 200000 * passengerCount;
     }
     
-    // Update insurance price display
-    if (insurancePrice > 0) {
-        const insuranceRow = document.querySelector('.price-row:nth-child(2)');
-        if (insuranceRow) {
-            insuranceRow.style.display = 'flex';
-            insuranceRow.querySelector('.price-value').textContent = 
-                `Rp. ${formatPrice(insurancePrice)}`;
-        }
-    }
-    
-    const totalPrice = basePrice + insurancePrice + baggagePrice + delayPrice;
+    const totalPrice = basePrice + addonTotal;
     
     // Update total display
-    const totalElement = document.querySelector('.total-value');
-    if (totalElement) {
-        totalElement.textContent = `Rp. ${formatPrice(totalPrice)}`;
-    }
+    updateTotalDisplay(totalPrice);
     
-    // Store total for next page
+    // Store total for payment page
     sessionStorage.setItem('total_price', totalPrice);
+}
+
+// Update total price display
+function updateTotalDisplay(amount) {
+    const totalElement = document.querySelector('.total-value, .subtotal-row div:last-child');
+    if (totalElement) {
+        totalElement.textContent = `Rp ${formatPrice(amount)}`;
+    }
 }
 
 // Setup confirm button
@@ -143,9 +148,6 @@ function setupConfirmButton() {
     
     if (confirmBtn) {
         confirmBtn.addEventListener('click', function() {
-            const flightId = sessionStorage.getItem('selected_flight_id');
-            const passengerCount = sessionStorage.getItem('passenger_count');
-            
             // Get selected addons
             const addons = {
                 travel_insurance: document.querySelector('input[data-addon="travel_insurance"]')?.checked || false,
@@ -156,15 +158,15 @@ function setupConfirmButton() {
             // Store addons selection
             sessionStorage.setItem('selected_addons', JSON.stringify(addons));
             
-            // Proceed to customer data input page
-            window.location.href = '/pages/customer-data-input.php';
+            // Redirect to payment page
+            window.location.href = '/pages/payment.php';
         });
     }
 }
 
 // Helper functions
 function formatTime(time) {
-    return time.substring(0, 5);
+    return time.substring(0, 5); // Format HH:MM
 }
 
 function formatPrice(price) {
@@ -177,12 +179,3 @@ function updatePriceDisplay(elementClass, price) {
         element.textContent = `Rp. ${formatPrice(price)}`;
     }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    const flightData = JSON.parse(sessionStorage.getItem('flight_data'));
-    const passengerCount = sessionStorage.getItem('passenger_count');
-    
-    if (flightData) {
-        displayFlightOnPage(flightData, passengerCount);
-    }
-});

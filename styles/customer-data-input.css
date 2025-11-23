@@ -334,13 +334,13 @@ background-color: #006eff;
 .step-line { flex:1; height:6px; background:linear-gradient(90deg,#d7e3f2,#f7fbff); border-radius:4px; margin:0 8px; }
 
 /* Confirm button */
-.confirm-button { width:371.03px; background:#2e85d8; color:#fff; border:none; padding:14px 18px; border-radius:8px; font-weight:700; cursor:pointer; font-size:16px; margin-top:14px; box-shadow:0 6px 0 rgba(46,133,216,0.08); }
+.confirm-button { width:200px; background:#2e85d8; color:#fff; border:none; padding:14px 18px; border-radius:8px; font-weight:700; cursor:pointer; font-size:16px; margin-top:14px; box-shadow:0 6px 0 rgba(46,133,216,0.08); text-align: center;}
 .button-container {
   display: flex;
   justify-content: flex-end; /* Geser tombol ke kanan */
   margin-top: -90px;
   padding-bottom: 20px;
-  margin-right: 70px;
+  margin-right: 150px;
 }
 
 .confirm-button:hover{ background:#256fbf; }
@@ -659,7 +659,7 @@ background-color: #006eff;
 
 .depart h3, .arrive h3 {
   margin: 0;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
 }
 

@@ -14,9 +14,10 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jetway - Personal Information</title>
     <link rel="stylesheet" href="../styles/customer-data.css" />
+    
     <link href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" >
 </head>
 <body>
   <header class="nav">
@@ -51,15 +52,15 @@ if (!isset($_SESSION['user_id'])) {
       </div>
 
       <nav class="menu">
-        <button class="menu-item active" onclick="location.href='/pages/customer-data.php'">
+        <button class="menu-item active">
           <img src="../FOTO/icon person.png" alt="Personal Information">
           <span>Personal Information</span>
         </button>
-        <button class="menu-item" onclick="location.href='/pages/login&password.php'">
+        <button class="menu-item">
           <img src="../FOTO/icon password.png" alt="Login & Password">
           <span>Login & Password</span>
         </button>
-        <button class="menu-item" onclick="location.href='/pages/flight-history.php'">
+        <button class="menu-item">
           <img src="../FOTO/icon history.png" alt="Flights History">
           <span>Flights History</span>
         </button>
