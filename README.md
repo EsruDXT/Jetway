@@ -1,4 +1,4 @@
-# ✈️ JETWAY  
+# JETWAY  
 ### A Simple Airline Ticket Booking Website — School Project (HTML, CSS, JS, PHP)
 
 JetWay is a school project designed to help users book airline tickets easily, quickly, and efficiently.  
@@ -7,18 +7,16 @@ Still growing and not yet perfect — but continuously improved! 🚀
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
-- [Tech Stack](#tech-stack)
-- [Design Prototype](##design-prototype)
 - [License](#license)
 
 ---
 
-## ✨ Features
+## Features
 
 ✔️ Flight searching  
 ✔️ Ticket booking system  
@@ -31,7 +29,7 @@ Still growing and not yet perfect — but continuously improved! 🚀
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 ### 1. Clone the repository
 
@@ -49,7 +47,7 @@ code .
 
 For better use, use VS Code PHP Server Extension
 
-![alt text](<Screenshot 2025-11-23 172912.png>)
+<img width="726" height="246" alt="Screenshot 2025-11-23 172912" src="https://github.com/user-attachments/assets/434be35f-6b4d-45a7-94b1-3853ae7af4b9" />
 
 Or manually run:
 
